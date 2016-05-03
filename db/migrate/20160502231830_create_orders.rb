@@ -3,7 +3,7 @@ class CreateOrders < ActiveRecord::Migration
     create_table :orders do |t|
       t.string  :status
       t.float   :price
-      t.user_id :integer
+      t.integer :order_id
 
       t.timestamps null: false
     end

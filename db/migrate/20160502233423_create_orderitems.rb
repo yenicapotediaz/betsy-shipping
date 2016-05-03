@@ -1,8 +1,8 @@
 class CreateOrderitems < ActiveRecord::Migration
   def change
     create_table :orderitems do |t|
-      t.quantity :integer
-      t.subtotal :float
+      t.integer :quantity
+      t.float :price
       t.integer  :order_id
       t.integer  :product_id
 
