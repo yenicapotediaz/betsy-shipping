@@ -8,4 +8,9 @@ class User < ActiveRecord::Base
   validates :username, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true, format: {with: /@/}
 
+  def self.log_in(username, password)
+    somebody = find_by(username: username)
+    somebody && somebody.authenticate(password)
+  end
+
 end

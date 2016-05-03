@@ -10,5 +10,8 @@ Rails.application.routes.draw do
   resources :orders
   resources :orderitem
 
+  resources :sessions, :only => [:new, :create]
+  delete "/logout" => "sessions#destroy"
+
 
 end
