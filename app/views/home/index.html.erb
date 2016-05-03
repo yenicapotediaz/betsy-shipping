@@ -1,0 +1,18 @@
+<header>
+<nav>
+<% @products.each do |product| %>
+		<%= product.category %>
+<% end %>
+</nav>
+<%= link_to "Sign-up", new_user_path %>
+<%= link_to "Log in", users_path %>
+</header>
+
+<h2>
+Featured Costumes
+<%= @product_picker.name %>
+<%= @product_picker.price %>
+<%= link_to "Add to cart", orderitem_index_path %>
+</h2>
+
+<%= link_to "View all costumes", products_path %>
