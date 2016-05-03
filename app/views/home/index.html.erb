@@ -1,17 +1,17 @@
 <header>
 <nav>
 <% @products.each do |product| %>
-		<%= product.category %>
+		<%= link_to product.category, product_category_path(product.category) %>
 <% end %>
 </nav>
 <%= link_to "Sign-up", new_user_path %>
 <%= link_to "Log in", users_path %>
 </header>
-
+<br>
 <h2>
 Featured Costumes
-<%= @product_picker.name %>
-<%= @product_picker.price %>
+<%= @product_picker.first.name %>
+<%= @product_picker.first.price %>
 <%= link_to "Add to cart", orderitem_index_path %>
 </h2>
 
