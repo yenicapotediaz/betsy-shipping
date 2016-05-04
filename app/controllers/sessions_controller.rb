@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
-  def new; end
+  def new
+  end
 
   def create
     user = User.log_in(params[:username], params[:password])
@@ -15,4 +16,6 @@ class SessionsController < ApplicationController
     session.delete :user_id
     redirect_to root_path
   end
+
+
 end
