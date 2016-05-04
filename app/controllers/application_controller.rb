@@ -9,4 +9,8 @@ class ApplicationController < ActionController::Base
     @user ||= User.find_by(id: session[:user_id])
   end
 
+  def current_order
+    @order || = Order.find_by(id: session[:order_id])
+  end
+
 end
