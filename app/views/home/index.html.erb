@@ -1,29 +1,23 @@
 <header>
-	<ul>
-		<%= link_to "Sign-up", new_user_path %>
-		<%= link_to "Log in", new_session_path %>
-	</ul>
-	<nav>
-	<% @categories.each do |category| %>
-			<%= link_to category, product_category_path(category) %>
-	<% end %>
-	</nav>
-</header>
+<nav>
 
-<br>
-
-<h2>Featured Costumes</h2>
-<br>
-<ul>
-	<li>
-		<% @product_picker.each do |product| %>
-		<%= product.name %>
-		<%= product.price %>
-		<%= link_to "Add to cart", orderitem_index_path %>
-	</li>
-	<br>
-</ul>
+<% @categories.each do |category| %>
+		<%= link_to category, product_category_path(category) %>
 <% end %>
+</nav>
+<%= link_to "Sign-up", new_user_path %>
+<%= link_to "Log in", users_path %>
+</header>
 <br>
+<h2>
+Featured Costumes
+<br>
+<% @product_picker.each do |product| %>
+<%= link_to product.name, product_path(product.id) %>
+<%= product.price %>
+<%= link_to "Add to cart", orders_path %>
+<br>
+<% end %>
+</h2>
 
 <%= link_to "View all costumes", products_path %>
