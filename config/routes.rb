@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get '/products/category/:category' => 'products#show', as: 'product_category'
 
   resources :orders
-  resources :orderitem
+  resources :orderitems
 
   resources :sessions, :only => [:new, :create]
   delete "/logout" => "sessions#destroy"

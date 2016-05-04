@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
 
   def create
     user = User.log_in(params[:username], params[:password])
-    order = Order.new
+    order = Order.create
     session[:order_id] = order.id
     if user
       session[:user_id] = user.id

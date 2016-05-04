@@ -3,4 +3,7 @@ class Orderitem < ActiveRecord::Base
   belongs_to :order
   validates :quantity, presence: true, numericality: {only_integer: true, greater_than: 0}
 
+  def total_price
+    self.product.price * self.quantity
+  end
 end
