@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get '/products/category/:category' => 'products#show', as: 'product_category'
 
   resources :orders
+  # get 'orders/order_fulfillment' => 'orders#index', as: 'order_fulfillment'
+
   resources :orderitem
 
   resources :sessions, :only => [:new, :create]

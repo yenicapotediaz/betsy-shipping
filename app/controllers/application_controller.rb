@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_order
-    @order || = Order.find_by(id: session[:order_id])
+    @order ||= Order.find_by(id: session[:order_id])
   end
 
 end
