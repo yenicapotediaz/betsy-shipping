@@ -1,4 +1,23 @@
+* {
+	font-family: 'Indie Flower', cursive;
+}
 
+.top-header {
+	float: right;
+	display: inline;
+	padding-right: 5%;
+	font-weight: bolder;
+	font-size: 25px;
+}
+
+ul li {
+	display: inline;
+	padding-right: 30px;
+}
+
+a {
+	text-decoration: none;
+}
 
 
 

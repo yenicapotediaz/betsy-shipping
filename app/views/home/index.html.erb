@@ -1,19 +1,20 @@
 <header>
-<nav>
+<nav class="top-header">
+<ul>
+<li><%= "Hi, #{current_user.full_name}!" if current_user %></li>
+<li><%= link_to "Log out", logout_path if current_user %></li>
+<li><%= link_to "Your Store", users_path if current_user %></li>
+<li><%= link_to "Sign-up", new_user_path unless current_user %></li>
+<li><%= link_to "Log in", new_session_path unless current_user %></li>
+</ul>
+</nav>
+
+<nav class="side-header">
 <% @categories.each do |category| %>
 		<%= link_to category, product_category_path(category) %>
 <% end %>
-
 </nav>
-
-<%= "Hi, #{current_user.full_name}!" if current_user %>
-<%= link_to "Order Fulfillment", order_fulfillment_path(current_user.id) if current_user %>
-<%= link_to "Log out", logout_path if current_user %>
-<%= link_to "Sign-up", new_user_path unless current_user %>
-<%= link_to "Log in", new_session_path unless current_user %>
-
 </header>
-<br>
 <h2>
 Featured Costumes
 <br>
@@ -23,7 +24,7 @@ Featured Costumes
 <%= form_tag '/orderitems' do  %>
 <%= hidden_field_tag :product_id, product.id %> <br>
 <%= hidden_field_tag :quantity, 1 %>
-<%= submit_tag "Add to Cart!!" %>
+<%= submit_tag "Add to Cart" %>
 
 
 <!-- <%= link_to "Add to cart", new_orderitem_path %> -->
@@ -31,8 +32,5 @@ Featured Costumes
 <% end %>
 </h2>
 
-<%= link_to "View all costumes", products_path %>
-
-
-
 <% end %>
+<%= link_to "View all costumes", products_path %>
