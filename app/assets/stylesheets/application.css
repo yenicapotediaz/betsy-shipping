@@ -37,5 +37,25 @@ a {
 	text-decoration: none;
 }
 
+.product-list {
+  border: 2px black solid;
+  background-color: lightblue;
 
+}
 
+.product {
+	width: 40%;
+	background: 3px solid blue;
+	background-color: gray;
+	margin-left: 20%;
+
+}
+
+.product img {
+	width: 100%;
+	margin-left: 2%;
+	border: 5px solid navy;
+}
+.all-products {
+	display: flex;
+}
