@@ -1,5 +1,7 @@
 * {
-	font-family: 'Indie Flower', cursive;
+	font-family: 'Architects Daughter', cursive;
+	letter-spacing: 1px;
+	font-size: 20px;
 }
 
 .top-header {
@@ -10,7 +12,23 @@
 	font-size: 25px;
 }
 
-ul li {
+ul.nav-side li {
+	display: block;
+	float: left;
+}
+
+/*.home-page {
+	float: right;
+	margin-top: 10%;
+	margin-right: 40%;
+	display: inline;
+}*/
+
+h2.home-header {
+	text-align: left;
+}
+
+ul.nav-top li {
 	display: inline;
 	padding-right: 30px;
 }
