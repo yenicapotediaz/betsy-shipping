@@ -8,10 +8,14 @@ Rails.application.routes.draw do
   get '/products/category/:category' => 'products#show', as: 'product_category'
 
   resources :orders
+
   resources :orderitems
 
+  # get 'orders/order_fulfillment' => 'orders#index', as: 'order_fulfillment'
+
+
   resources :sessions, :only => [:new, :create]
-  delete "/logout" => "sessions#destroy"
+  get "/logout" => "sessions#destroy"
 
 
 end
