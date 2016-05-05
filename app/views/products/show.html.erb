@@ -2,6 +2,6 @@
 
 <br>
 <%= @product.description %>
-<%= @product.price %>
+$<%= number_with_precision @product.price, precision: 2 %>
 <%= link_to "Add to cart", orders_path %>
 <%= @product.quantity %>
