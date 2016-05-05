@@ -6,8 +6,11 @@ Rails.application.routes.draw do
   resources :products
 
   get '/products/category/:category' => 'products#show', as: 'product_category'
+  get '/users/:id/products' => 'products#show_user_products', as: 'user_products'
 
   resources :orders
+
+  get '/users/:id/orders' => 'orders#show_seller_orders', as: 'seller_orders'
 
   resources :orderitems
 
