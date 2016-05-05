@@ -15,11 +15,11 @@ Rails.application.routes.draw do
 
   resources :orders
 
-  get '/users/:id/orders' => 'orders#show_seller_orders', as: 'seller_orders'
+  get '/users/:id/orders' => 'orders#show_seller_orders', as: 'show_seller_orders'
 
   resources :orderitems
 
-  # get 'orders/order_fulfillment' => 'orders#index', as: 'order_fulfillment'
+  get 'orders/order_fulfillment' => 'orders#index', as: 'order_fulfillment'
 
 
   resources :sessions, :only => [:new, :create]
