@@ -5,7 +5,14 @@
 	<br>
 	<%= product.description %>
 	<br>
-	<%= product.price %>
+	$<%= number_with_precision product.price, precision: 2 %>
+	<br>
+	<%= form_tag '/orderitems' do  %>
+	<%= hidden_field_tag :product_id, product.id %> <br>
+	<%= hidden_field_tag :quantity, 1 %>
+	<%= submit_tag "Add to Cart!!" %>
+	<% end %>
+	<br>
 
 <% end %>
 </div>
