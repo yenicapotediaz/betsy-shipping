@@ -1,0 +1,17 @@
+<h2>Your Products</h2>
+<%= @products.each do |product| %>
+<% if product.quantity == 0 %>
+	<h2>You have no products!</h2>
+<% end %>
+	<%= @product.name %>
+
+<br>
+<%= @product.description %>
+$<%= number_with_precision @product.price, precision: 2 %>
+<%= form_tag '/orderitems' do  %>
+<%= hidden_field_tag :product_id, @product.id %> <br>
+<%= hidden_field_tag :quantity, 1 %>
+<%= submit_tag "Add to Cart!!" %>
+<% end %>
+<%= @product.quantity %>
+<% end %>

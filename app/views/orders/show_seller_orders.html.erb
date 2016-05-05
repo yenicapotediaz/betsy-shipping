@@ -5,7 +5,9 @@
 <body>
 
   <h3>Orders</h3>
-  <!-- <%= Order.index(3) %> -->
+  	<% @orders.each do |order| %>
+  		<%= order %>
+  	<% end %>
   <h3>Revenue</h3>
   <!-- Filter buttons to filter by status -->
 
