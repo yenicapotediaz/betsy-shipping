@@ -1,20 +1,7 @@
 <header>
 <nav>
-<%= fields_for @categories do |form| %>
-<%= label_tag 'dogs', 'Dogs' %>
-  <%= check_box("dogs", 'categories[]', {checked: false}, value = "1") %>
-  <br>
-  <%= label_tag 'cats', 'Cats' %>
-  <%= check_box("cats", 'categories[]', {checked: false}, value = "2") %>
-  <br>
-  <%= label_tag 'guinea pigs', 'Guinea Pigs' %>
-  <%= check_box("guinea pigs", 'categories[]', {checked: false}, value = "3") %>
-  <br>
-  <%= label_tag 'star wars', 'Star Wars' %>
-
-  <%= check_box( "star wars", 'categories[]', {checked: false}, value = "4") %>
-
-  <%= submit_tag 'Filter items' %>
+<% @categories.each do |category| %>
+		<%= link_to category, product_category_path(category) %>
 <% end %>
 
 </nav>
