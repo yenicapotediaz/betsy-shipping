@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
-
+	before_action :require_login, only: [:new, :create]
+	
 	def index
 		@products = Product.all
 		@quantity_numbers = [1,2,3,4,5,6,7,8,9,10]

@@ -13,4 +13,11 @@ class ApplicationController < ActionController::Base
     @current_order ||= Order.find_or_create_by(id: session[:order_id])
   end
 
+  def require_login
+    if current_user.nil?
+      flash[:error] = "You must be logged in to view this section"
+      redirect_to new_session_path
+    end
+  end
+
 end
