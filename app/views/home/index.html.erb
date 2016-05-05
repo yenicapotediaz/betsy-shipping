@@ -7,7 +7,7 @@
 </nav>
 
 <%= "Hi, #{current_user.full_name}!" if current_user %>
-<%= link_to "Order Fulfillment", order_fulfillment_path(current_user.id) if current_user %>
+<% #link_to "Order Fulfillment", order_fulfillment_path(current_user.id) if current_user %>
 <%= link_to "Log out", logout_path if current_user %>
 <%= link_to "Sign-up", new_user_path unless current_user %>
 <%= link_to "Log in", new_session_path unless current_user %>
