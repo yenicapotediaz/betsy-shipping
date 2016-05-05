@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   resources :orders
 
-  get '/users/:id/orders' => 'orders#show_seller_orders', as: 'seller_orders'
+  get '/users/:id/orders' => 'orders#show_seller_orders', as: 'show_seller_orders'
 
   resources :orderitems
 
