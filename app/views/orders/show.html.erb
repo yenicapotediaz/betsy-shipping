@@ -1,0 +1,7 @@
+<h1> Cart: </h1>
+
+<% @orders.each do |orderitem| %>
+  <ul>
+    <li><%=Product.find(orderitem.product_id).name%></li>
+  </ul>
+  <% end %>
