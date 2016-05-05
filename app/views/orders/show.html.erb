@@ -1,0 +1,10 @@
+<h1> Cart: </h1>
+
+<% @cart_price = 0 %>
+<% @orders.each do |orderitem| %>
+  <ul>
+    <li><%=Product.find(orderitem.product_id).name%></li>
+    <% @cart_price += orderitem.total_price %>
+  </ul>
+  <% end %>
+<h2> Total Price of Order: $<%= number_with_precision @cart_price , precision: 2   %></h2>

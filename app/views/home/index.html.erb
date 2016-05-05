@@ -15,19 +15,32 @@
 <% end %>
 </nav>
 </header>
+
+<%= "Hi, #{current_user.full_name}!" if current_user %>
+<% #link_to "Order Fulfillment", order_fulfillment_path(current_user.id) if current_user %>
+<%= link_to "Log out", logout_path if current_user %>
+<%= link_to "Sign-up", new_user_path unless current_user %>
+<%= link_to "Log in", new_session_path unless current_user %>
+<%= link_to "Cart", orderitems_path %>
+
+</header>
+<br>
+
 <h2>
 Featured Costumes
+</h2>
 <br>
 <% @product_picker.each do |product| %>
 <%= link_to product.name, product_path(product.id) %>
-<%= product.price %>
+$<%= number_with_precision product.price, precision: 2 %>
 <%= form_tag '/orderitems' do  %>
 <%= hidden_field_tag :product_id, product.id %> <br>
 <%= hidden_field_tag :quantity, 1 %>
 <%= submit_tag "Add to Cart" %>
 
 
-<!-- <%= link_to "Add to cart", new_orderitem_path %> -->
+<%= submit_tag "Add to Cart!!" %>
+<br>
 <br>
 <% end %>
 </h2>
