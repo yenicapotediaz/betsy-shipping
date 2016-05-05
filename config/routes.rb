@@ -2,11 +2,16 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  resources :users, :only => [:index, :new, :create]
-  resources :products
+  resources :users, :only => [:index, :new, :create] #do
 
+    # resources :products, :only => [:show, :new]
+  # end
+
+  resources :products, :only => [:index, :show, :create] 
   get '/products/category/:category' => 'products#show', as: 'product_category'
-  get '/users/:id/products' => 'products#show_seller_products', as: 'user_products'
+  get '/users/:id/products' => 'products#show_seller_products', as: 'user_product'
+  get '/users/:id/products/new' => 'products#new', as: 'new_product'
+  post '/users/:id/products' => 'products#create'
 
   resources :orders
 
