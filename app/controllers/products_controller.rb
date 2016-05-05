@@ -9,8 +9,8 @@ class ProductsController < ApplicationController
 		@product = Product.find(params[:id])
 	end
 
-	def show_user_products
-		@user = User.id(params[:id])
-		@products = Product.where(user_id: @user)
+	def show_seller_products
+		@user = User.find(params[:id])
+		@products = @user.products
 	end
 end

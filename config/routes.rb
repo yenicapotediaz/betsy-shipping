@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :products
 
   get '/products/category/:category' => 'products#show', as: 'product_category'
-  get '/users/:id/products' => 'products#show_user_products', as: 'user_products'
+  get '/users/:id/products' => 'products#show_seller_products', as: 'user_products'
 
   resources :orders
 
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   resources :orderitems
 
-  # get 'orders/order_fulfillment' => 'orders#index', as: 'order_fulfillment'
+  get 'orders/order_fulfillment' => 'orders#index', as: 'order_fulfillment'
 
 
   resources :sessions, :only => [:new, :create]
