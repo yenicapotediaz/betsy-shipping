@@ -3,12 +3,11 @@
 <% @cart_price = 0 %>
 <% @orders.each do |orderitem| %>
   <ul>
-    <li><%= Product.find(orderitem.product_id).name %>
+    <li>
+      <%= Product.find(orderitem.product_id).name %>
       Price $<%=number_with_precision orderitem.total_price, precision: 2 %> </li>
     <% @cart_price += orderitem.total_price %>
     Quantity <%= orderitem.quantity %>
   </ul>
   <% end %>
 <h2> Total Price of Order: $<%= number_with_precision @cart_price , precision: 2   %></h2>
-
-quantity<%= @damnitquantity %>

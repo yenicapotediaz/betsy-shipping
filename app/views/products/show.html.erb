@@ -1,13 +1,14 @@
+<div class="product">
+  <h1><%= @product.name %></h1>
+  <img src="<%= @product.photo_url %>">
 
-<h1><%= @product.name %></h1>
-<img src="<%= @product.photo_url %>"
+  <br>
+  <%= @product.description %>
+  $<%= number_with_precision @product.price, precision: 2 %>
 
-<br>
-<%= @product.description %>
-$<%= number_with_precision @product.price, precision: 2 %>
-
-<%= form_tag '/orderitems' do  %>
-<%= hidden_field_tag :product_id, @product.id %> <br>
-<%= submit_tag "Add to Cart!!" %>
-<% end %>
-<%= @product.quantity %>
+  <%= form_tag '/orderitems' do  %>
+  <%= hidden_field_tag :product_id, @product.id %> <br>
+  <%= submit_tag "Add to Cart!!" %>
+  <% end %>
+  <%= @product.quantity %>
+</div>
