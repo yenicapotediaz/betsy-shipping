@@ -11,9 +11,11 @@
 <%= link_to "Log out", logout_path if current_user %>
 <%= link_to "Sign-up", new_user_path unless current_user %>
 <%= link_to "Log in", new_session_path unless current_user %>
+<%= link_to "Cart", orderitems_path %>
 
 </header>
 <br>
+
 <h2>
 Featured Costumes
 </h2>
