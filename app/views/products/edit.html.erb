@@ -1,7 +1,6 @@
-<pre><%= params %></pre>
+<h3> Edit Product </h3>
 
-<%= form_for @product do |f| %>
-
+<%= form_for @product, method: :patch, url: update_product_path(@product) do |f| %>
 	<%= f.label :name %>
   <%= f.text_field :name %>
   <br>
@@ -24,4 +23,3 @@
 ​	<br>
   <%= f.submit class: 'btn btn-success'  %>
 <% end %>
-
