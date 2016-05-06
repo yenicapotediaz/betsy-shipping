@@ -1,7 +1,7 @@
 <h1>All Products</h1>
-<div class ="all-products">
+<div class ="all-products container">
 	<% @products.each do |product| %>
-	<div class="product-list">
+	<div class="product-list product">
 		<% unless product.photo_url.nil? %>
 			<img src="<%= product.photo_url %>">
 		<% end %><br>
