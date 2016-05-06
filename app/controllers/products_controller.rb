@@ -22,6 +22,10 @@ class ProductsController < ApplicationController
 		@products = @user.products
 	end
 
+	def show_animal
+		@products = Product.where(animal: params[:animal])
+	end
+
 	def show_category
 		@products = Product.where(category: params[:category])
 	end

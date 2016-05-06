@@ -13,8 +13,8 @@
   <%= f.label :quantity %>
   <%= f.select(:quantity, options_for_select(1..10)) %>
   <br>
-  <%= f.label :category %>
-  <%= f.select(:category, options_for_select(["Cat", "Dog", "Guinea Pig", "Goat"])) %>
+  <%= f.label :animal %>
+  <%= f.select(:animal, options_for_select(["Cat", "Dog", "Guinea Pig", "Goat"])) %>
   <br>
   <%= f.label :'Photo URL' %>
   <%= f.url_field(:photo_url) %>

@@ -13,23 +13,23 @@ User.create(full_name: "Llama")
 User.create(full_name: "Puppy Party")
 
 Product.create(name: 'Hot Dog', price: 15,
-photo_url: "http://ecx.images-amazon.com/images/I/41qN0y-0FFL._SY300_.jpg", user_id: 2, category: 'Dog')
-Product.create(name: "Dog Pirate", price: 20, user_id: 5, category: 'Dog',
+photo_url: "http://ecx.images-amazon.com/images/I/41qN0y-0FFL._SY300_.jpg", user_id: 2, animal: 'Dog', category: "Food")
+Product.create(name: "Dog Pirate", price: 20, user_id: 5, animal: 'Dog', category: "Misc",
 photo_url: "http://www.gadgetreview.com/wp-content/uploads/2012/05/Dog-Pirate-Costume-650x472.jpg")
-Product.create(name: "Alligator", price: 1, user_id: 1, category: 'Dog',
+Product.create(name: "Alligator", price: 1, user_id: 1, animal: 'Dog', category: "Animal",
 photo_url: "http://cdn1-www.dogtime.com/assets/uploads/gallery/cool-halloween-costumes/dog-halloween-costume-eaten_by_alligator.jpg")
-Product.create(name: "Knight Guinea Pig", price: 56, user_id: 3, category: "Guinea Pig",
+Product.create(name: "Knight Guinea Pig", price: 56, user_id: 3, animal: "Guinea Pig", category: "Misc",
 photo_url: "http://static.dudeiwantthat.com/img/gear/pets/handmade-guinea-pig-armor-8201.jpg")
-Product.create(name: "St Patricks Dog", price: 94, user_id: 4, category: "Dog",
+Product.create(name: "St Patricks Dog", price: 94, user_id: 4, animal: "Dog", category: "Holiday",
 photo_url: "https://s-media-cache-ak0.pinimg.com/236x/26/84/c3/2684c33c0be14d73dfa983b019a3e249.jpg")
-Product.create(name: "Ewok dog", price: 6, user_id: 2, category: "Dog",
+Product.create(name: "Ewok dog", price: 6, user_id: 2, animal: "Dog", category: "Star Wars",
 photo_url: "https://s-media-cache-ak0.pinimg.com/736x/86/bb/c0/86bbc0780b0d655924868ed0b858d7d6.jpg")
-Product.create(name: "Taco Cat", price: 14, user_id: 4, category: "Cat", photo_url: "http://pixel.brit.co/wp-content/uploads/2014/10/5-TacoKitten.jpg")
-Product.create(name: "Lion", price: 30, user_id: 3, category: "Dog",
+Product.create(name: "Taco Cat", price: 14, user_id: 4, animal: "Cat", category: "Food", photo_url: "http://pixel.brit.co/wp-content/uploads/2014/10/5-TacoKitten.jpg")
+Product.create(name: "Lion", price: 30, user_id: 3, animal: "Dog", category: "Animal",
 photo_url: "http://ecx.images-amazon.com/images/I/51ELTYHPEBL._AC_UL320_SR228,320_.jpg" )
-Product.create(name: 'Martini', price: 400, user_id: 1, category: "Dog",
+Product.create(name: 'Martini', price: 400, user_id: 1, animal: "Dog", category: "Food",
 photo_url: "http://littlefun.org/uploads/52741c71e691b26f19aec579_736.jpg" )
-Product.create(name: 'Jockey', price: 22, user_id: 1, category: "Dog",
+Product.create(name: 'Jockey', price: 22, user_id: 1, animal: "Dog", category: "Misc",
 photo_url: "http://a.dilcdn.com/bl/wp-content/uploads/sites/13/2012/10/dog2.jpg")
 
 Order.create(status: 'pending', price: 46, user_id: 1)
