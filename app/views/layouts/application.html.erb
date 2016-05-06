@@ -18,12 +18,16 @@
     <%= image_tag "dog logo.png", alt: "cute dog" %>
   <div class="top-header">
     <ul class="nav nav-pills", class="nav-top">
-    <li><%= "Hi, #{current_user.full_name}!" if current_user %></li>
-    <li><%= link_to "Log out", logout_path if current_user %></li>
-    <li><%= link_to "Your Store", show_seller_orders_path(current_user.id) if current_user %></li>
-    <li><%= link_to "Sign-up", new_user_path unless current_user %></li>
-    <li><%= link_to "Log in", new_session_path unless current_user %></li>
-    <li><%= link_to "Cart", orderitems_path %></li>
+      <% if current_user %>
+        <li><%= "Hi, #{current_user.full_name}!" %></li>
+        <li><%= link_to "Log out", logout_path %></li>
+
+        <li><%= link_to "Your Store", show_seller_orders_path(current_user) %></li>
+      <% else %>
+        <li><%= link_to "Sign-up", new_user_path %></li>
+        <li><%= link_to "Log in", new_session_path %></li>
+      <% end %>
+      <li><%= link_to "Cart", edit_order_path(current_order.id) %></li>
     </ul>
   </div>
     </nav>

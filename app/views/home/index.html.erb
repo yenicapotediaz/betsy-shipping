@@ -24,7 +24,7 @@ $<%= number_with_precision product.price, precision: 2 %>
 <%= form_tag '/orderitems' do  %>
 <%= hidden_field_tag :product_id, product.id %> <br>
 <%= hidden_field_tag :quantity, 1 %>
-<%= submit_tag "Add to Cart" %><br>
+<%= submit_tag "Add to Cart", class: 'btn btn-primary' %><br>
 </div>
 <% end %>
 </h2>
