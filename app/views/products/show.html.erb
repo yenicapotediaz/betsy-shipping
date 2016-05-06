@@ -7,9 +7,15 @@
   $<%= number_with_precision @product.price, precision: 2 %>
 
   <%= form_tag '/orderitems' do  %>
-  <%= hidden_field_tag :product_id, @product.id %> <br>
-  <%= select_tag :quantity, options_for_select(@quantity_numbers) %><br>
+    <%= hidden_field_tag :product_id, @product.id %> <br>
+    <%= select_tag :quantity, options_for_select(@quantity_numbers) %><br>
   <%= submit_tag "Add to Cart", class: 'btn btn-primary'  %>
   <% end %>
-  <%= @product.quantity %>
+
+  Overall Rating: <%= @rating %> / 5 
+  Reviews:<br> <% @product.reviews.each do |review|%>
+          <%= review.description %><br>
+          <% end %>
+
+  <%= @product.quantity %> Available
 </div>
