@@ -26,6 +26,9 @@ class OrdersController < ApplicationController
     end
   end
 
+  def seller_items
+  end
+
   private
 
   def orderitem_edit_params
