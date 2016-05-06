@@ -15,6 +15,11 @@ class ProductsController < ApplicationController
 		@products = @user.products
 	end
 
+	def show_merchant
+		@user = User.find(params[:id])
+		@products = @user.products
+	end
+
 	def new
 		@user = User.find(params[:id])
 		@product = @user.products.new
