@@ -24,7 +24,7 @@ Product.create(name: "St Patricks Dog", price: 94, user_id: 4, category: "Dog",
 photo_url: "https://s-media-cache-ak0.pinimg.com/236x/26/84/c3/2684c33c0be14d73dfa983b019a3e249.jpg")
 Product.create(name: "Ewok dog", price: 6, user_id: 2, category: "Dog",
 photo_url: "https://s-media-cache-ak0.pinimg.com/736x/86/bb/c0/86bbc0780b0d655924868ed0b858d7d6.jpg")
-Product.create(name: "Taco Cat", price: 14, user_id: 4, category: "Cat")
+Product.create(name: "Taco Cat", price: 14, user_id: 4, category: "Cat", photo_url: "http://pixel.brit.co/wp-content/uploads/2014/10/5-TacoKitten.jpg")
 Product.create(name: "Lion", price: 30, user_id: 3, category: "Dog",
 photo_url: "http://ecx.images-amazon.com/images/I/51ELTYHPEBL._AC_UL320_SR228,320_.jpg" )
 Product.create(name: 'Martini', price: 400, user_id: 1, category: "Dog",

@@ -28,12 +28,26 @@ class ProductsController < ApplicationController
   	else
   		render :new
   	end
-
 	end
+
+	def edit
+    @product = Product.find(params[:id])
+    @user = User.find(params[:user_id])
+  end
+
+  def update
+    @product = Product.find(params[:id])
+    @product.update_attributes(product_update_params[:product])
+    redirect_to user_product_path(current_user.id)
+  end
 
 	private
 
 	def product_create_params
 		params.permit(product: [:name, :description, :price, :quantity, :category, :photo_url, :user_id])
+	end
+
+	def product_update_params
+		params.permit(product: [:name, :description, :price, :quantity, :category, :photo_url])
 	end
 end
