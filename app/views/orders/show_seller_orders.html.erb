@@ -15,18 +15,32 @@
 
   <h3>Orders Containing Your Products</h3>
   <ul>
-  <% order_items = Orderitem.where(seller_id: @user.id) %>
-  <% orders = order_items.collect(&:order).uniq %>
-  <% orders.each do |order| %>
-    <% orders = Orderitem.where(order_id: order.id) %>
-    <% orders.each do |order| %>
-      <%= order.product.name %>
-      <%= order.quantity %>
-      $<%= order.price %>0
-      $<%= order.price * order.quantity %>0<br>
-    <% end %>
-  <% end %>
-  </ul>
+  <table class="table table-striped" class="table table-hover">
+    <thead>
+      <tr>
+        <th>Order #</th>
+        <th>Item</th>
+        <th>Quantity</th>
+        <th>Item Total</th>
+      </tr>
+    </thead>
+    <tbody>
+        <% order_items = Orderitem.where(seller_id: @user.id) %>
+        <% orders = order_items.collect(&:order).uniq %>
+        <% orders.each do |order| %>
+          <% orders = Orderitem.where(order_id: order.id) %>
+          <tr>
+          <% orders.each do |order| %>
+            <td><%= order.order_id %></td>
+            <td><%= order.product.name %></td>
+            <td><%= order.quantity %></td>
+            <td>$<%= order.price %>0</td>
+            <td>$<%= order.price * order.quantity %>0</td>
+          </tr>
+          <% end %>
+        <% end %>
+
+    </table>
   <!-- ^^This is wrong fix meeeeee :( -->
 
 </body>

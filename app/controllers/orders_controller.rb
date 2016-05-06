@@ -17,7 +17,19 @@ class OrdersController < ApplicationController
   end
 
   def update
-    #holy jeez there are so many things that could get updated, someone could update sevearl quantities at once
+    binding.pry
+    @orderitem = Orderitem.find(params[:id])
+    if @orderitem.update(orderitem_edit_params[:orderitem])
+      redirect_to root_path
+    else
+    redirect_to root_path
+    end
+  end
+
+  private
+
+  def orderitem_edit_params
+    params.permit(orderitem: [:quantity])
   end
 
 

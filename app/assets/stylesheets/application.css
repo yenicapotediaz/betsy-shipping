@@ -110,12 +110,20 @@ a {
 
 div.cart {
 	background-color:gray;
+	width: 80%;
+	margin: 10px 10px;
 }
 
-div.cart-item {
+div.wholecart {
+	width: 80%;
+	margin-left: 10%;
+}
+
+div.orderitem {
 	border: 2px solid black;
+	margin-top: 5px;
 }
 
-.cart-item img {
+.orderitem img {
 	height: 200px;
 }
