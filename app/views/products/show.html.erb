@@ -8,7 +8,7 @@
 
   <%= form_tag '/orderitems' do  %>
   <%= hidden_field_tag :product_id, @product.id %> <br>
-  <%= submit_tag "Add to Cart!!" %>
+  <%= submit_tag "Add to Cart", class: 'btn btn-primary'  %>
   <% end %>
   <%= @product.quantity %>
 </div>
