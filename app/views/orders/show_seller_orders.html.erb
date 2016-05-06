@@ -11,4 +11,20 @@
   <h3>Revenue</h3>
   <p>$<%= Orderitem.revenue(@user.id) %>0</p>
 
+  <h3>Orders Containing Your Products</h3>
+  <ul>
+  <% order_items = Orderitem.where(seller_id: @user.id) %>
+  <% orders = order_items.collect(&:order).uniq %>
+  <% orders.each do |order| %>
+    <% orders = Orderitem.where(order_id: order.id) %>
+    <% orders.each do |order| %>
+      <%= order.product.name %>
+      <%= order.quantity %>
+      $<%= order.price %>0
+      $<%= order.price * order.quantity %>0<br>
+    <% end %>
+  <% end %>
+  </ul>
+  <!-- ^^This is wrong fix meeeeee :( -->
+
 </body>
