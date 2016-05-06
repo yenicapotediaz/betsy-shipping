@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
 	before_action :require_login, only: [:new, :create]
-	
+
 	def index
 		@products = Product.all
 		@quantity_numbers = [1,2,3,4,5,6,7,8,9,10]
@@ -8,6 +8,8 @@ class ProductsController < ApplicationController
 
 	def show
 		@product = Product.find(params[:id])
+		@quantity_numbers = [1,2,3,4,5,6,7,8,9,10]
+		
 	end
 
 	def show_seller_products
