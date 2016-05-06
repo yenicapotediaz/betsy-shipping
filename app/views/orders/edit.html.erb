@@ -10,7 +10,9 @@
 
 
         Quantity <%= orderitem.quantity %>
-          <%= select_tag :quantity, options_for_select(@quantity_numbers) %><br>
+          <%= form_tag '/orders/current_order.id', method: :patch %>
+          <%= select_tag params[:orderitem][:quantity], options_for_select(@quantity_numbers) %><br>
+          <%= binding.pry %>
 
     </ul>
     <% end %>
