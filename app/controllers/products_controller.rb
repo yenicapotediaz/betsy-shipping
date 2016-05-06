@@ -9,7 +9,13 @@ class ProductsController < ApplicationController
 	def show
 		@product = Product.find(params[:id])
 		@quantity_numbers = [1,2,3,4,5,6,7,8,9,10]
-		
+		@rating = overall_rating(@product)
+	end
+
+	def overall_rating(product)
+		ratings = product.reviews.collect { |a| a.rating.to_f }
+		overall = ratings.reduce(:+)/ratings.length
+		overall
 	end
 
 	def show_seller_products
