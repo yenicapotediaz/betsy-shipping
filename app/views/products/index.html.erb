@@ -1,28 +1,20 @@
 <h1>All Products</h1>
-<div class="product-list">
-<% @products.each do |product| %>
-	<%= product.name %>
-	<br>
-	<%= product.description %>
-	<br>
-	$<%= number_with_precision product.price, precision: 2 %>
-	<br>
-	<%= form_tag '/orderitems' do  %>
-	<%= hidden_field_tag :product_id, product.id %> <br>
-	<%= select_tag :quantity, options_for_select(@quantity_numbers) %><br>
-	<%= submit_tag "Add to Cart!!" %>
+<div class ="all-products">
+	<% @products.each do |product| %>
+	<div class="product-list">
+		<% unless product.photo_url.nil? %>
+			<img src="<%= product.photo_url %>">
+		<% end %><br>
+		<%= link_to product.name, product_path(product.id) %><br>
+		<%= product.description %><br>
+		$<%= number_with_precision product.price, precision: 2 %><br>
+
+		<%= form_tag '/orderitems' do  %>
+			<%= hidden_field_tag :product_id, product.id %> <br>
+			<%= select_tag :quantity, options_for_select(@quantity_numbers) %><br>
+		<%= submit_tag "Add to Cart!!" %>
+		<% end %>
+		<br>
+	</div>
 	<% end %>
-	<br>
-
-<% end %>
 </div>
-
-
-
-
-<label for="quantity">Qty: </label>
-<select id="quantity" name="quantity">
-	{% for i in (1..10) %}
-	<option value="{{ i }}">{{ i }}</option>
-	{% endfor %}
-</select>

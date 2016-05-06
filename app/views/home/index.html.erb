@@ -1,15 +1,4 @@
-<header>
-<nav class="top-header">
-<ul class="nav nav-pills", class="nav-top">
-<li><%= "Hi, #{current_user.full_name}!" if current_user %></li>
-<li><%= link_to "Log out", logout_path if current_user %></li>
-<li><%= link_to "Your Store", show_seller_orders_path(current_user.id) if current_user %></li>
-<li><%= link_to "Sign-up", new_user_path unless current_user %></li>
-<li><%= link_to "Log in", new_session_path unless current_user %></li>
-<li><%= link_to "Cart", orderitems_path %></li>
-</ul>
-</nav>
-</header>
+
 
 <nav>
 <ul class="nav nav-pills", class="nav-side">
@@ -25,6 +14,11 @@ Featured Costumes
 <br>
 <% @product_picker.each do |product| %>
 <div class="home-page">
+	<div class="favoritepic">
+		<% unless product.photo_url.nil? %>
+			<img src="<%= product.photo_url %>">
+		<% end %><br>
+	</div>
 <%= link_to product.name, product_path(product.id) %>
 $<%= number_with_precision product.price, precision: 2 %>
 <%= form_tag '/orderitems' do  %>

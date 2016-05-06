@@ -1,14 +1,20 @@
 <h1> Cart: </h1>
 
 <% @cart_price = 0 %>
-<% @orders.each do |orderitem| %>
+<div class="cart">
   <ul>
-    <li><%= Product.find(orderitem.product_id).name %>
-      Price $<%=number_with_precision orderitem.total_price, precision: 2 %> </li>
-    <% @cart_price += orderitem.total_price %>
-    Quantity <%= orderitem.quantity %>
+  <% @orders.each do |orderitem| %>
+    <div class="cart-item">
+        <li>
+          <img src="<%= Product.find(orderitem.product_id).photo_url %>">
+          <%= Product.find(orderitem.product_id).name %>
+          Price $<%=number_with_precision orderitem.total_price, precision: 2 %>
+          <% @cart_price += orderitem.total_price %>
+          Quantity <%= orderitem.quantity %>
+      </li>
+    </div>
+    <% end %>
   </ul>
-  <% end %>
-<h2> Total Price of Order: $<%= number_with_precision @cart_price , precision: 2   %></h2>
-
-quantity<%= @damnitquantity %>
+  <h2> Total Price of Order: $<%= number_with_precision @cart_price , precision: 2   %></h2>
+  <%= button_to "Proceed to checkout", edit_order_path(current_order.id), method: :get %>
+</div>
