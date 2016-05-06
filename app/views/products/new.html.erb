@@ -15,11 +15,12 @@
   <%= f.select(:quantity, options_for_select(1..10)) %>
   <br>
   <%= f.label :category %>
-  <%= f.select(:category, options_for_select(@category)) %>
+  <%= f.select(:category, options_for_select(["Cat", "Dog", "Guinea Pig", "Goat"])) %>
   <br>
   <%= f.label :'Photo URL' %>
   <%= f.url_field(:photo_url) %>
-  <% f.hidden_field :id, value: current_user.id %>
+
+  <%= f.hidden_field :user_id, value: @user.id %>
 ​	<br>
   <%= f.submit %>
 <% end %>

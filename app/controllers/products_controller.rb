@@ -16,7 +16,8 @@ class ProductsController < ApplicationController
 	end
 
 	def new
-		@product = Product.new
+		@user = User.find(params[:id])
+		@product = @user.products.new
 		@category = Product.uniq.pluck(:category)
 	end
 

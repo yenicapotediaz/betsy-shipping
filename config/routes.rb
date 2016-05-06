@@ -9,9 +9,9 @@ Rails.application.routes.draw do
 
   resources :products, :only => [:index, :show, :create] 
   get '/products/category/:category' => 'products#show', as: 'product_category'
-  get '/users/:id/products' => 'products#show_seller_products', as: 'user_product'
   get '/users/:id/products/new' => 'products#new', as: 'new_product'
   post '/users/:id/products' => 'products#create'
+  get '/users/:id/products' => 'products#show_seller_products', as: 'user_product'
 
   resources :orders
 
