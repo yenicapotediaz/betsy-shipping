@@ -7,8 +7,9 @@ Rails.application.routes.draw do
     # resources :products, :only => [:show, :new]
   # end
 
-  resources :products, :only => [:index, :show, :create] 
-  get '/products/category/:category' => 'products#show', as: 'product_category'
+  resources :products, :only => [:index, :show, :create]
+
+  get '/products/category/:category' => 'products#show_category', as: 'product_category'
   get '/products/:full_name/:id' => 'products#show_merchant', as: 'product_merchant'
   get '/users/:id/products/new' => 'products#new', as: 'new_product'
   post '/users/:id/products' => 'products#create'
@@ -18,6 +19,7 @@ Rails.application.routes.draw do
   resources :orders
 
   get '/users/:id/orders' => 'orders#show_seller_orders', as: 'show_seller_orders'
+  get '/users/:id/orders/seller_items' => 'orders#seller_items', as: 'seller_items'
 
   resources :orderitems
 

@@ -1,10 +1,9 @@
-<h2>Costumes by <%= params[:full_name] %></h2>
 
+<h2><%= params[:category] %> Costumes</h2>
 <div class="container">
 <div class="product">
 <% @products.each do |product| %>
-  <img src="<%= product.photo_url %>">
-
+    <img src="<%= product.photo_url %>">
 
 	<br>
 	<%= product.description %>
@@ -20,3 +19,4 @@
 	<% end %>
 </div>
 </div>
+>>>>>>> category

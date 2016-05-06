@@ -31,7 +31,7 @@
           <% orders = Orderitem.where(order_id: order.id) %>
           <tr>
           <% orders.each do |order| %>
-            <td><%= order.order_id %></td>
+            <td><%= link_to (order.order_id), seller_items_path %></td>
             <td><%= order.product.name %></td>
             <td><%= order.quantity %></td>
             <td>$<%= order.price %>0</td>
