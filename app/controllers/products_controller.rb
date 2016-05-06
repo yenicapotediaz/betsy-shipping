@@ -38,7 +38,7 @@ class ProductsController < ApplicationController
   def update
     @product = Product.find(params[:id])
     @product.update_attributes(product_update_params[:product])
-    redirect_to user_product_path
+    redirect_to user_product_path(current_user.id)
   end
 
 	private
