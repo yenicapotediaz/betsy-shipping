@@ -2,8 +2,10 @@
 <pre><%= params %></pre>
 <h2>Current Products</h2>
 <div class="container">
-<% @products.each do |product| %>
 <div class="product">
+<% @products.each do |product| %>
+  <img src="<%= product.photo_url %>">
+
 	<% if product.quantity == 0 %>
 		<h3>You have no products!</h3>
   <% else %>
