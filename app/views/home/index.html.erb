@@ -25,6 +25,11 @@ Featured Costumes
 <br>
 <% @product_picker.each do |product| %>
 <div class="home-page">
+	<div class="favoritepic">
+		<% unless product.photo_url.nil? %>
+			<img src="<%= product.photo_url %>">
+		<% end %><br>
+	</div>
 <%= link_to product.name, product_path(product.id) %>
 $<%= number_with_precision product.price, precision: 2 %>
 <%= form_tag '/orderitems' do  %>

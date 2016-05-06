@@ -10,4 +10,9 @@ class OrderitemsController < ApplicationController
     redirect_to order_path(current_order.id)
   end
 
+  def update
+    #params[:quantity].each do |item_id, quantity|
+  end
+
+
 end

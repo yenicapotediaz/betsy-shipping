@@ -24,8 +24,19 @@ ul.nav-side li {
 	display: inline;
 }*/
 
+body {
+	margin-left: 10%;
+	margin-right: 10%:
+}
+
 h2.home-header {
 	text-align: left;
+	display: inline-block;
+}
+
+div.home-page {
+	width: 25%;
+	display: inline-block;
 }
 
 ul.nav-top li {
@@ -37,10 +48,14 @@ a {
 	text-decoration: none;
 }
 
-.product-list {
+div.product-list {
   border: 2px black solid;
   background-color: lightblue;
+	width: 30%;
+}
 
+.product-list img {
+	width: 80%;
 }
 
 .product {
@@ -52,10 +67,28 @@ a {
 }
 
 .product img {
-	width: 100%;
+	max-width: 80%;
 	margin-left: 2%;
 	border: 5px solid navy;
 }
-.all-products {
-	display: flex;
+
+div.all-products {
+	display: inline-block;
+	width: 80%;
+	margin-left: 10%;
+}
+.favoritepic img {
+	width: 80%;
+}
+
+div.cart {
+	background-color:gray;
+}
+
+div.cart-item {
+	border: 2px solid black;
+}
+
+.cart-item img {
+	height: 200px;
 }
