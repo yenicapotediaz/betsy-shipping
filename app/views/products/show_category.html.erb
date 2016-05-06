@@ -1,0 +1,5 @@
+<pre><%= params %></pre>
+<% @products.each do |product| %>
+  <img src="<%= product.photo_url %>">
+	<%= @products.name %>
+<% end %>

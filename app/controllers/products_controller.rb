@@ -22,6 +22,10 @@ class ProductsController < ApplicationController
 		@products = @user.products
 	end
 
+	def show_category
+		@products = Product.where(category: :category)
+	end
+
 	def new
 		@user = User.find(params[:id])
 		@product = @user.products.new
