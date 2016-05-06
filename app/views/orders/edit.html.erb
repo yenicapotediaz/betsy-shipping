@@ -1,11 +1,13 @@
+
+<div class="wholecart">
 <h1> Cart: </h1>
 
 <% @cart_price = 0 %>
-<div class="container">
-  <ul>
+<div class="cart">
+  <!-- <ul> -->
   <% @order.orderitems.each do |orderitem| %>
-      <li>
-        <div class="product">
+      <!-- <li> -->
+        <div class="orderitem">
         <img src="<%= Product.find(orderitem.product_id).photo_url %>">
         <%= Product.find(orderitem.product_id).name %>
         Price $<%=number_with_precision orderitem.total_price, precision: 2 %>
@@ -17,9 +19,11 @@
           <% end %>
         <% end %>
       </div>
-      </li>
-  </ul>
+      <!-- </li> -->
+  <!-- </ul> -->
 
   <h2> Total Price of Order: $<%= number_with_precision @cart_price , precision: 2   %></h2>
   <%= button_to "Proceed to checkout", root_path, method: :get %>
+</div>
+
 </div>
