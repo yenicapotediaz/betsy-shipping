@@ -7,7 +7,11 @@ Rails.application.routes.draw do
     # resources :products, :only => [:show, :new]
   # end
 
+<<<<<<< HEAD
   resources :products, :only => [:index, :show, :create]
+=======
+  resources :products, :only => [:index, :show, :create] 
+>>>>>>> category
   get '/products/category/:category' => 'products#show_category', as: 'product_category'
   get '/products/:full_name/:id' => 'products#show_merchant', as: 'product_merchant'
   get '/users/:id/products/new' => 'products#new', as: 'new_product'

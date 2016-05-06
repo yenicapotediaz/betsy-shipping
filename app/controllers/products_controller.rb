@@ -23,7 +23,7 @@ class ProductsController < ApplicationController
 	end
 
 	def show_category
-		@products = Product.where(category: :category)
+		@products = Product.where(category: params[:category])
 	end
 
 	def new
