@@ -4,7 +4,7 @@
 	font-size: 20px;
 }
 
-.top-header {
+div.top-header {
 	float: right;
 	display: inline;
 	padding-right: 5%;
@@ -23,7 +23,16 @@ ul.nav-side li {
 	margin-right: 40%;
 	display: inline;
 }*/
+header {
+	height: 100px;
+	width: 100%;
+	border: 2px black solid;
+}
 
+.top-header img {
+	height: 70px;
+	text-align: left;
+}
 body {
 	margin-left: 10%;
 	margin-right: 10%:

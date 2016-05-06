@@ -11,6 +11,24 @@
 </head>
 <body>
 
+  <header>
+  <nav class="top-header">
+    <%= image_tag "cat logo.png", alt: "sophisticated cat" %>
+    <%= image_tag "petsy logo.png", alt: "petsy logo" %>
+    <%= image_tag "dog logo.png", alt: "cute dog" %>
+  <div class="top-header">
+    <ul class="nav nav-pills", class="nav-top">
+    <li><%= "Hi, #{current_user.full_name}!" if current_user %></li>
+    <li><%= link_to "Log out", logout_path if current_user %></li>
+    <li><%= link_to "Your Store", show_seller_orders_path(current_user.id) if current_user %></li>
+    <li><%= link_to "Sign-up", new_user_path unless current_user %></li>
+    <li><%= link_to "Log in", new_session_path unless current_user %></li>
+    <li><%= link_to "Cart", orderitems_path %></li>
+    </ul>
+  </div>
+    </nav>
+  </header>
+
 <%= yield %>
 
 </body>
