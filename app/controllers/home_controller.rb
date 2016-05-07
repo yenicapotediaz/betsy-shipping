@@ -5,7 +5,7 @@ class HomeController < ApplicationController
 		@product_picker = Product.where.not(id: nil).sample(3)
 		@animals = Product.uniq.pluck(:animal)
 		@categories = Product.uniq.pluck(:category)
-		@users = User.all
+		@users = User.all		
 	end
 
 end
