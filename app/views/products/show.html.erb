@@ -1,21 +1,24 @@
-<div class="product">
-  <h1><%= @product.name %></h1>
-  <img src="<%= @product.photo_url %>">
-
-  <br>
-  <%= @product.description %>
+  <div class="rating-description">
+  <h3 class="description"><%= @product.description %></h3>
+    <hr>
   $<%= number_with_precision @product.price, precision: 2 %>
 
   <%= form_tag '/orderitems' do  %>
     <%= hidden_field_tag :product_id, @product.id %> <br>
     <%= select_tag :quantity, options_for_select(@quantity_numbers) %><br>
-  <%= submit_tag "Add to Cart", class: 'btn btn-primary'  %>
+    <%= submit_tag "Add to Cart", class: 'btn btn-primary' %>
   <% end %>
-
-  Overall Rating: <%= @rating %> / 5 
-  Reviews:<br> <% @product.reviews.each do |review|%>
+  <p><%= @product.quantity %> Available</p>
+  <br>
+    <p><strong>Overall Rating: </strong> <%= @rating %> / 5 </p>
+    <p><strong>Reviews:</strong><br> <% @product.reviews.each do |review|%>
           <%= review.description %><br>
-          <% end %>
+    <% end %></p>
+  </div>
 
-  <%= @product.quantity %> Available
+<div class="product">
+  <h2><%= @product.name %></h2>
+  <img src="<%= @product.photo_url %>">
+
+  <br>
 </div>
