@@ -16,6 +16,7 @@ class OrderitemsController < ApplicationController
       redirect_to edit_order_path(current_order.id)
     else
       redirect_to root_path
+    end
   end
 
   private
