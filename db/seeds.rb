@@ -12,25 +12,36 @@ User.create(full_name: "Deirdre")
 User.create(full_name: "Llama")
 User.create(full_name: "Puppy Party")
 
-Product.create(name: 'Hot Dog', price: 15, quantity: 20,
-photo_url: "http://ecx.images-amazon.com/images/I/41qN0y-0FFL._SY300_.jpg", user_id: 2, category: 'Dog')
-Product.create(name: "Dog Pirate", price: 20, user_id: 5, category: 'Dog', quantity: 10,
-photo_url: "http://www.gadgetreview.com/wp-content/uploads/2012/05/Dog-Pirate-Costume-650x472.jpg")
-Product.create(name: "Alligator", price: 1, user_id: 1, category: 'Dog', quantity: 30,
-photo_url: "http://cdn1-www.dogtime.com/assets/uploads/gallery/cool-halloween-costumes/dog-halloween-costume-eaten_by_alligator.jpg")
-Product.create(name: "Knight Guinea Pig", price: 56, user_id: 3, category: "Guinea Pig",
-photo_url: "http://static.dudeiwantthat.com/img/gear/pets/handmade-guinea-pig-armor-8201.jpg")
-Product.create(name: "St Patricks Dog", price: 94, user_id: 4, category: "Dog", quantity: 5,
-photo_url: "https://s-media-cache-ak0.pinimg.com/236x/26/84/c3/2684c33c0be14d73dfa983b019a3e249.jpg")
-Product.create(name: "Ewok dog", price: 6, user_id: 2, category: "Dog", quantity: 20,
-photo_url: "https://s-media-cache-ak0.pinimg.com/736x/86/bb/c0/86bbc0780b0d655924868ed0b858d7d6.jpg")
-Product.create(name: "Taco Cat", price: 14, user_id: 4, category: "Cat", photo_url: "http://pixel.brit.co/wp-content/uploads/2014/10/5-TacoKitten.jpg")
-Product.create(name: "Lion", price: 30, user_id: 3, category: "Dog", quantity: 3,
+Product.create(name: 'Hot Dog', price: 15,
+photo_url: "http://ecx.images-amazon.com/images/I/41qN0y-0FFL._SY300_.jpg", user_id: 2, animal: 'Dog', category: "Food")
+Product.create(name: "Arrr Matey", price: 20, user_id: 5, animal: 'Dog', category: "Misc",
+photo_url: "http://s2.thisnext.com/media/largest_dimension/A1684071.jpg")
+# Product.create(name: "Alligator", price: 1, user_id: 1, animal: 'Dog', category: "Animal",
+# photo_url: "http://cdn1-www.dogtime.com/assets/uploads/gallery/cool-halloween-costumes/dog-halloween-costume-eaten_by_alligator.jpg")
+Product.create(name: "Alligator", price: 1, user_id: 1, animal: 'Dog', category: "Animal",
+photo_url: "http://pixel.brit.co/wp-content/uploads/2014/10/72-Gator-RADLAB.jpg")
+Product.create(name: "Knight Guinea Pig", price: 56, user_id: 3, animal: "Guinea Pig", category: "Misc",
+photo_url: "http://www.thesundaytimes.co.uk/sto/multimedia/dynamic/00358/stg28minmagcheatshe_358537k.jpg")
+Product.create(name: "St Patricks Dog", price: 94, user_id: 4, animal: "Dog", category: "Holiday",
+photo_url: "https://s-media-cache-ak0.pinimg.com/736x/65/82/48/65824840727b14eb271524e4db3a69b0.jpg")
+# Product.create(name: "Ewok dog", price: 6, user_id: 2, animal: "Dog", category: "Star Wars",
+# photo_url: "https://s-media-cache-ak0.pinimg.com/736x/86/bb/c0/86bbc0780b0d655924868ed0b858d7d6.jpg")
+Product.create(name: "Yoda Pup", price: 10, user_id: 1, animal: "Dog", category: "Star Wars", photo_url: "http://thissortofthing.com/storage/yoda_dog_costume.jpg?__SQUARESPACE_CACHEVERSION=1377883510952")
+Product.create(name: "Sushi Roll Cat", price: 14, user_id: 4, animal: "Cat", category: "Food", photo_url: "https://s-media-cache-ak0.pinimg.com/736x/10/a8/69/10a869497c6bc793ecfcbf3e0b842886.jpg")
+Product.create(name: "RAWR", price: 30, user_id: 3, animal: "Dog", category: "Animal",
 photo_url: "http://ecx.images-amazon.com/images/I/51ELTYHPEBL._AC_UL320_SR228,320_.jpg" )
-Product.create(name: 'Martini', price: 400, user_id: 1, category: "Dog", quantity: 11,
-photo_url: "http://littlefun.org/uploads/52741c71e691b26f19aec579_736.jpg" )
-Product.create(name: 'Jockey', price: 22, user_id: 1, category: "Dog", quantity: 8,
+Product.create(name: 'Martini Kitty', price: 400, user_id: 1, animal: "Cat", category: "Food",
+photo_url: "http://pets.petsmart.com/content/assets/_images/expo/CONTENTTHUMB-EXPO-martini-Glass.jpg" )
+Product.create(name: 'Jockey', price: 22, user_id: 1, animal: "Dog", category: "Misc",
 photo_url: "http://a.dilcdn.com/bl/wp-content/uploads/sites/13/2012/10/dog2.jpg")
+Product.create(name: "Witch", price: 16, user_id: 3, animal: "Guinea Pig", category: "Holiday",
+photo_url: "http://mms.businesswire.com/media/20130905005372/en/381196/5/Guinea_Pig_Witch_Costume.jpg")
+Product.create(name: "Sheepy", price: 2, user_id: 1, animal: "Guinea Pig", category: "Animal",
+photo_url: "http://www.fuzzytoday.com/wp-content/uploads/2014/04/10173656_706647296068039_5966309383389001510_n.jpg")
+Product.create(name: "Dewback", price: 52, user_id: 4, animal: "Dog", category: "Star Wars",
+photo_url: "http://www.officialstarwarscostumes.com/~/media/products/oc/star-wars-costumes/kids-star-wars-costumes/99886582-dewback-pet-costume-pet-star-wars-costumes-000.ashx?&w=600&h=600&bc=FFFFFF")
+
+
 
 Order.create(status: 'pending', price: 46, user_id: 1)
 Order.create(status: 'paid', price: 99, user_id: 2)

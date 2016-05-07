@@ -15,8 +15,7 @@ class OrderitemsController < ApplicationController
     if @orderitem.update(orderitem_edit_params[:orderitem])
       redirect_to edit_order_path(current_order.id)
     else
-    redirect_to root_path
-    end
+      redirect_to root_path
   end
 
   private
