@@ -1,32 +1,37 @@
 * {
-	font-family: 'Architects Daughter', cursive;
+	font-family: 'Roboto Condensed', sans-serif;
 	letter-spacing: 1px;
 	font-size: 20px;
 }
 
-div.top-header {
+
+div.header {
 	float: right;
 	display: inline;
-	padding-right: 5%;
+	padding-right: 8%;
 	font-weight: bolder;
 	font-size: 25px;
 }
 
-ul.nav-side li {
-	display: block;
-	float: left;
+
+li.logged-in {
+	padding-top: 10px;
 }
 
-/*.home-page {
-	float: right;
-	margin-top: 10%;
-	margin-right: 40%;
-	display: inline;
-}*/
+.sidebar {
+	border-right: solid 1px;
+	margin: 2% 5% 2% 2%;
+}
+
+.order-quantity {
+	color:  #b30000;
+}
+
 header {
 	height: 100px;
 	width: 100%;
-	border: 2px black solid;
+	border-bottom: solid 1px;
+	padding: 1% 2% 0 2%;
 }
 
 div.container {
@@ -51,6 +56,11 @@ div.product {
 	height: 80px;
 	text-align: left;
 }
+
+.logo {
+	padding-left: 2%;
+}
+
 body {
 	margin-left: 10%;
 	margin-right: 10%:
@@ -59,6 +69,7 @@ body {
 h2.home-header {
 	text-align: left;
 	display: inline-block;
+	padding-bottom: 3%;
 }
 
 div.home-page {
@@ -75,37 +86,16 @@ a {
 	text-decoration: none;
 }
 
-/*div.product-list {
-  border: 2px black solid;
-  background-color: lightblue;
-	width: 30%;
-}*/
-
-/*.product-list img {
-	width: 80%;
-}*/
-
-/*.product {
-	width: 40%;
-	background: 3px solid blue;
-	background-color: gray;
-	margin-left: 20%;
-
-}*/
-
 .product img {
 	max-width: 80%;
 	margin-left: 2%;
 	border: 5px solid navy;
 }
 
-/*div.all-products {
-	display: inline-block;
-	width: 80%;
-	margin-left: 10%;
-}*/
 .favoritepic img {
 	width: 80%;
+	display: block;
+	margin: auto;
 }
 
 div.cart {
@@ -127,3 +117,5 @@ div.orderitem {
 .orderitem img {
 	height: 200px;
 }
+
+
