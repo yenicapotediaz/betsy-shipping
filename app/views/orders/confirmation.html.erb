@@ -10,5 +10,7 @@ Subtotal: <%= item.total_price %><br><br>
 <% end %>
 
 <h2> Total Price of Order: $<%= number_with_precision @cart_price , precision: 2   %></h2>
+<h2> Order Status: <%= @order.status %></h2>
+<h2> Time Order was placed: <%= @order.updated_at %></h2>
 
 <%= link_to "Thanks for Shopping at Petsy!", root_path %>

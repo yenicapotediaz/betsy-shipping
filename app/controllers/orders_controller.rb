@@ -4,7 +4,6 @@ class OrdersController < ApplicationController
     @orders = Order.find(current_order.id).orderitems
   end
 
-
   def show_seller_orders
   	@user = User.find(params[:id])
   	@orders = @user.orders
@@ -17,12 +16,9 @@ class OrdersController < ApplicationController
   end
 
   def update
-    # binding.pry
     @order = current_order
-    # @order.update(order_update_params[:order])
     @order.update(order_update_params[:order])
     if @order.status == "Completed"
-      flash.now[:alert] = 'Sale could not be deleted.'
       redirect_to order_confirmation_path(@order.id)
     else
       render :checkout
@@ -40,6 +36,7 @@ class OrdersController < ApplicationController
     # binding.pry
     @order = current_order
     @orderitems = @order.orderitems
+    session.delete :order_id
   end
 
 
