@@ -13,7 +13,7 @@ class OrderitemsController < ApplicationController
   def update
     @orderitem = Orderitem.find(params[:id])
     if @orderitem.update(orderitem_edit_params[:orderitem])
-      redirect_to root_path
+      redirect_to edit_order_path(current_order.id)
     else
       redirect_to root_path
     end
@@ -24,5 +24,6 @@ class OrderitemsController < ApplicationController
   def orderitem_edit_params
     params.permit(orderitem: [:quantity])
   end
+
 
 end

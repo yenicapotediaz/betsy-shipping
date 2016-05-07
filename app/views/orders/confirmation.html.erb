@@ -1,0 +1,16 @@
+<h1> Congratulations! You bought some stuff!</h1>
+
+<h2>Details of Order # <%= @order.id %><br><br>
+<% @cart_price = 0 %>
+<% @order.orderitems.each do |item| %>
+Item: <%= link_to Product.find(item.product_id).name , product_path(Product.find(item.product_id).id) %><br>
+Quantity: <%= item.quantity %><br>
+Subtotal: <%= item.total_price %><br><br>
+<% @cart_price += item.total_price %>
+<% end %>
+
+<h2> Total Price of Order: $<%= number_with_precision @cart_price , precision: 2   %></h2>
+<h2> Order Status: <%= @order.status %></h2>
+<h2> Time Order was placed: <%= @order.updated_at %></h2>
+
+<%= link_to "Thanks for Shopping at Petsy!", root_path %>

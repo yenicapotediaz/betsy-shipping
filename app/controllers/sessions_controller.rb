@@ -20,5 +20,10 @@ class SessionsController < ApplicationController
     redirect_to root_path
   end
 
+  def new_order_session
+    order = Order.create
+    session[:order_id] = order.id
+  end
+
 
 end
