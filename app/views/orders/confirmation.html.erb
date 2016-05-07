@@ -3,7 +3,7 @@
 <h2>Details of Order # <%= @order.id %><br><br>
 <% @cart_price = 0 %>
 <% @order.orderitems.each do |item| %>
-Item: <%= Product.find(item.product_id).name %><br>
+Item: <%= link_to Product.find(item.product_id).name , product_path(Product.find(item.product_id).id) %><br>
 Quantity: <%= item.quantity %><br>
 Subtotal: <%= item.total_price %><br><br>
 <% @cart_price += item.total_price %>
