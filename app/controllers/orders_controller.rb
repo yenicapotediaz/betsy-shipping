@@ -36,6 +36,12 @@ class OrdersController < ApplicationController
     @order = current_order
   end
 
+  def confirmation
+    # binding.pry
+    @order = current_order
+    @orderitems = @order.orderitems
+  end
+
 
   private
 
