@@ -23,7 +23,7 @@
   <!-- </ul> -->
 
   <h2> Total Price of Order: $<%= number_with_precision @cart_price , precision: 2   %></h2>
-  <%= button_to "Proceed to checkout", root_path, method: :get %>
+  <%= button_to "Proceed to checkout", order_checkout_path(current_order.id), method: :get %>
 </div>
 
 </div>

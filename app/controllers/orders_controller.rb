@@ -17,22 +17,35 @@ class OrdersController < ApplicationController
   end
 
   def update
-    binding.pry
-    @orderitem = Orderitem.find(params[:id])
-    if @orderitem.update(orderitem_edit_params[:orderitem])
-      redirect_to root_path
+    # binding.pry
+    @order = current_order
+    # @order.update(order_update_params[:order])
+    @order.update(order_update_params[:order])
+    if @order.status == "Completed"
+      flash.now[:alert] = 'Sale could not be deleted.'
+      redirect_to order_confirmation_path(@order.id)
     else
-    redirect_to root_path
+      render :checkout
     end
   end
 
   def seller_items
   end
 
+  def checkout
+    @order = current_order
+  end
+
+
   private
 
   def orderitem_edit_params
     params.permit(orderitem: [:quantity])
+  end
+
+  def order_update_params
+    params.permit(order: [:name_on_credit_card, :city, :state, :billing_zip,
+      :email, :status, :stree_address, :credit_card_cvv, :credit_card_number, :credit_card_exp_date])
   end
 
 
