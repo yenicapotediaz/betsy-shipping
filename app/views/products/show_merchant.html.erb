@@ -1,11 +1,12 @@
-<h2>Costumes by <%= params[:full_name] %></h2>
+<h1>Costumes by <%= params[:full_name] %></h1>
 
-<div class="container">
-<div class="product">
 <% @products.each do |product| %>
-  <img src="<%= product.photo_url %>">
-
-
+<div class="all-products">
+	<div class="favoritepic">
+    <% unless product.photo_url.nil? %>
+			<img src="<%= product.photo_url %>">
+		<% end %><br>
+</div>
 	<br>
 	<%= product.description %>
 	$<%= number_with_precision product.price, precision: 2 %>
@@ -17,6 +18,7 @@
 		<%= submit_tag "Add to Cart", class: 'btn btn-primary' %><br>
 	<% end %>
 	<%= product.quantity %>
-	<% end %>
+	<hr>
 </div>
+	<% end %>
 </div>

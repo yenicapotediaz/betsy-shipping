@@ -1,10 +1,12 @@
+<h1><%= params[:category] %> Costumes</h1>
 
-<h2><%= params[:category] %> Costumes</h2>
-<div class="container">
-<div class="product">
 <% @products.each do |product| %>
-    <img src="<%= product.photo_url %>">
-
+<div class="all-products">
+	<div class="favoritepic">
+    <% unless product.photo_url.nil? %>
+			<img src="<%= product.photo_url %>">
+		<% end %><br>
+</div>
 	<br>
 	<%= product.description %>
 	$<%= number_with_precision product.price, precision: 2 %>
@@ -12,10 +14,9 @@
 	<%= form_tag '/orderitems' do  %>
 		<%= link_to product.name, product_path(product.id) %>
 		<%= hidden_field_tag :product_id, product.id %> <br>
-		<%= hidden_field_tag :quantity, 1 %>
 		<%= submit_tag "Add to Cart", class: 'btn btn-primary' %><br>
 	<% end %>
+	<hr>
 	<%= product.quantity %>
+</div>
 	<% end %>
-</div>
-</div>
