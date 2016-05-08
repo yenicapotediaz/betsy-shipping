@@ -19,6 +19,12 @@ class OrderitemsController < ApplicationController
     end
   end
 
+  def destroy
+    @orderitem = Orderitem.find(params[:id])
+    @orderitem.destroy
+    redirect_to edit_order_path(current_order.id)
+  end
+
   private
 
   def orderitem_edit_params
