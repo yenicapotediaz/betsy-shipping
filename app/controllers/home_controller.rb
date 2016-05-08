@@ -1,5 +1,4 @@
 class HomeController < ApplicationController
-	layout 'application'
 	def index
 		@products = Product.all
 		@product_picker = Product.where.not(id: nil).sample(3)
