@@ -9,8 +9,7 @@ Rails.application.routes.draw do
 
   resources :products, :only => [:index, :show, :create]
 
-  get '/products/category/:animal' => 'products#show_animal', as: 'product_animal'
-  get '/products/animal/:category' => 'products#show_category', as: 'product_category'
+  get '/products/category/:category' => 'products#show_category', as: 'product_category'
   get '/products/:full_name/:id' => 'products#show_merchant', as: 'product_merchant'
   get '/users/:id/products/new' => 'products#new', as: 'new_product'
   post '/users/:id/products' => 'products#create'
@@ -30,7 +29,7 @@ Rails.application.routes.draw do
   resources :sessions, :only => [:new, :create]
   get "/logout" => "sessions#destroy"
   get "/orders/:id/checkout" => 'orders#checkout', as: 'order_checkout'
-  patch "/orders/:id/checkout" => "orders#confirmation"
+  patch "/orders/:id/checkout" => "orders#confirmation" as: 'order_confirmation'
   get '/orders/:id/confirmation' => 'orders#confirmation', as: "order_confirmation"
 
 end

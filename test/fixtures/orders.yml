@@ -9,3 +9,31 @@ one: {}
 #
 two: {}
 #  column: value
+
+first_order:
+  status: "pending"
+  price: 5
+  user_id:
+  email: user@user.com
+  street_address: 128 Petsy Blvd
+  city: Petville
+  state: WA
+  name_on_credit_card: Mr Doggy Dog
+  credit_card_number: 9999
+  credit_card_exp_date: 2018-05-02
+  credit_card_cvv: 888
+  billing_zip: 12345
+
+second_order:
+  status: "complete"
+  price: 90
+  user_id: 2
+  email: other_user@user.com
+  street_address: 4 Dog Road
+  city: Dogville
+  state: WA
+  name_on_credit_card: Mrs Second Order
+  credit_card_number: 9876
+  credit_card_exp_date: 2019-05-02
+  credit_card_cvv: 798
+  billing_zip: 54321
