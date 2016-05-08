@@ -4,6 +4,17 @@
 	font-size: 20px;
 }
 
+h1 {
+	padding-left: 3%;
+}
+
+.view-link {
+	text-decoration: none;
+	float: right;
+	padding-top: 2%;
+	padding-right: 10%;
+	font-size: 25px;
+}
 
 div.header {
 	float: right;
@@ -73,6 +84,12 @@ div.all-pages {
 	display: inline-block;
 }
 
+div.all-products {
+	margin: 3%;
+	width: 25%;
+	display: inline-block;
+}
+
 ul.nav-top li {
 	display: inline;
 	padding-right: 30px;
@@ -83,7 +100,7 @@ a {
 }
 
 .product img {
-	max-width: 250px;
+	max-width: 300px;
 	margin-left: 2%;
 }
 
