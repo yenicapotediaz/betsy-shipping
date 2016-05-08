@@ -1,20 +1,20 @@
-<h1>All Products</h1>
-<div class ="all-products container">
+<h1>All Costumes</h1>
 	<% @products.each do |product| %>
-	<div class="product-list product">
+<div class="all-products">
+	<div class="favoritepic">
 		<% unless product.photo_url.nil? %>
 			<img src="<%= product.photo_url %>">
 		<% end %><br>
-		<%= link_to product.name, product_path(product.id) %><br>
-		<%= product.description %><br>
-		$<%= number_with_precision product.price, precision: 2 %><br>
+	</div>
+	<%= link_to product.name, product_path(product.id) %><br>
+	<%= product.description %><br>
+	$<%= number_with_precision product.price, precision: 2 %><br>
 
 		<%= form_tag '/orderitems' do  %>
 			<%= hidden_field_tag :product_id, product.id %> <br>
 			<%= select_tag :quantity, options_for_select(@quantity_numbers) %><br>
-		<%= submit_tag "Add to Cart", class: 'btn btn-primary'  %>
+		<%= submit_tag "Add to Cart", class: 'btn btn-primary' %><br>
+<hr>
 		<% end %>
-		<br>
-	</div>
-	<% end %>
 </div>
+	<% end %>
