@@ -9,3 +9,25 @@ one: {}
 #
 two: {}
 #  column: value
+
+dog_pirate:
+  name: Dog Pirate
+  price: 12
+  quantity: 9
+  rating: 4
+  category: pirate
+  photo_url: http://www.dog-pirate.com
+  status: Pending
+  user_id: 2
+  animal: Dog
+
+sushi_cat:
+  name: Sushi Cat
+  price: 200
+  quantity: 5
+  rating: 3
+  category: Food
+  photo_url: http://www.sushi-cat.com
+  status: Pending
+  user_id: 3
+  animal: Cat

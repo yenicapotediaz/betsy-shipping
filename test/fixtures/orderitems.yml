@@ -9,3 +9,9 @@ one: {}
 #
 two: {}
 #  column: value
+
+first_orderitem:
+  quantity: 2
+  price: 12
+  order_id: 5
+  product_id: 1

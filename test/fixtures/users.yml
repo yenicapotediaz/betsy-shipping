@@ -1,21 +1,21 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  username: MyString
-  email: MyString
-  password: MyString
-  full_name: MyString
-  cc_number: 1
+dog_merchant:
+  username: dogs_yes
+  email: dog@dog.com
+  password_digest: <%= BCrypt::Password.create('password', cost: 1) %>
+  full_name: Dog Merchant
+  cc_number: 5555
   exp_date: 2016-05-02
-  cvv: 1
-  zip: 1
+  cvv: 333
+  zip: 11111
 
-two:
-  username: MyString
-  email: MyString
-  password: MyString
-  full_name: MyString
-  cc_number: 1
-  exp_date: 2016-05-02
-  cvv: 1
-  zip: 1
+cat_merchant:
+  username: cats_yes
+  email: cat@cat.com
+  password_digest: <%= BCrypt::Password.create('other_password', cost: 1) %>
+  full_name: Cat Merchant
+  cc_number: 6666
+  exp_date: 2017-05-02
+  cvv: 444
+  zip: 22222

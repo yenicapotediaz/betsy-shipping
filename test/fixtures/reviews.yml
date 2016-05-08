@@ -9,3 +9,13 @@ one: {}
 #
 two: {}
 #  column: value
+
+dog_pirate_review1:
+  description: Dog Pirate is the best.
+  rating: 3
+  product_id: 1
+
+dog_pirate_review2:
+  description: I love my dog pirate.
+  rating: 5
+  product_id: 1
