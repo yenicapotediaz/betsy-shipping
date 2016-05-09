@@ -17,12 +17,19 @@ class OrdersController < ApplicationController
 
   def update
     @order = current_order
+    @orderitems = @order.orderitems
+    remove_items_from_stock(@orderitems)
     @order.update(order_update_params[:order])
     if @order.status == "Completed"
       redirect_to order_confirmation_path(@order.id)
     else
       render :checkout
     end
+  end
+
+  def remove_items_from_stock(items)
+
+
   end
 
   def seller_items
