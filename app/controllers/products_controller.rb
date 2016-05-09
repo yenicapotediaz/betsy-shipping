@@ -8,7 +8,8 @@ class ProductsController < ApplicationController
 
 	def show
 		@product = Product.find(params[:id])
-		@quantity_numbers = [1,2,3,4,5,6,7,8,9,10]
+		@quantity = @product.quantity
+		@quantity_numbers = (1..@quantity).to_a
 		@rating = overall_rating(@product)
 	end
 

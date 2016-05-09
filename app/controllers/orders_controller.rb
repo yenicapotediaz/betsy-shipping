@@ -11,7 +11,7 @@ class OrdersController < ApplicationController
 
   def edit
     @order  = Order.find(params[:id])
-    @quantity_numbers = [1,2,3,4,5,6,7,8,9,10]
+    # @quantity_numbers = [1,2,3,4,5,6,7,8,9,10]
     @orderitems = Order.find(current_order.id).orderitems
   end
 

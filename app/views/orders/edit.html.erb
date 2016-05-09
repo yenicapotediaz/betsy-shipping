@@ -11,6 +11,7 @@
       <br>Total Price $<%=number_with_precision orderitem.total_price, precision: 2 %>
       <% @cart_price += orderitem.total_price %>
       <%= form_for orderitem do |f| %>
+      <% @quantity_numbers = (1..orderitem.product.quantity).to_a %>
         <%= f.label "Quantity" %>
         <%= f.select 'quantity', options_for_select(@quantity_numbers, orderitem.quantity) %><br>
         <%= f.submit "Update Quantity", class: "btn btn-info" %>
