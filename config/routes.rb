@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   resources :sessions, :only => [:new, :create]
   get "/logout" => "sessions#destroy"
   get "/orders/:id/checkout" => 'orders#checkout', as: 'order_checkout'
-  patch "/orders/:id/checkout" => "orders#confirmation"
+  patch "/orders/:id/checkout" => "orders#checkout"
   get '/orders/:id/confirmation' => 'orders#confirmation', as: "order_confirmation"
 
 end
