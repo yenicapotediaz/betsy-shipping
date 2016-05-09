@@ -1,11 +1,12 @@
+
 * {
 	font-family: 'Lora', serif;
 	letter-spacing: 1px;
 	font-size: 20px;
 }
 
-h1 {
-	padding-left: 3%;
+h1{
+	text-align: center;
 }
 
 .view-link {
@@ -29,6 +30,9 @@ li.logged-in {
 	padding-top: 10px;
 }
 
+.btn-success {
+	margin-left: 34%;
+}
 .sidebar {
 	border-right: solid 1px;
 	margin: 2% 5% 2% 2%;
