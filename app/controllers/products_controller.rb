@@ -44,7 +44,6 @@ class ProductsController < ApplicationController
 
 	def create
 		@product = Product.new(product_create_params[:product])
-		@product.category = params[:new_category] unless params[:new_category].nil?
 		if @product.save
     	redirect_to user_product_path(current_user.id)
   	else
@@ -73,5 +72,9 @@ class ProductsController < ApplicationController
 	def product_update_params
 		params.permit(product: [:name, :description, :price, :quantity, :animal, :category, :photo_url, :user_id])
 	end
+
+	 # def category_params
+  #   params.permit(:new_category).merge(category: :new_category)
+  # end
 
 end

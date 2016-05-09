@@ -19,12 +19,11 @@
   <br>
   <%= f.label :category %>
   <%= f.select(:category, options_for_select(["Food", "Create a Category"]), :include_blank => true) %>
-  <%= f.label :new_category, "OR Create your own category:" %>
-  <%= f.text_field :new_category %>
+  <%= f.label :category, "OR Create your own category:" %>
+  <%= f.text_field :category %>
   <br>
   <%= f.label :'Photo URL' %>
   <%= f.url_field(:photo_url) %>
-
   <%= f.hidden_field :user_id, value: @user.id %>
 ​	<br>
   <%= f.submit class: 'btn btn-success'  %>
