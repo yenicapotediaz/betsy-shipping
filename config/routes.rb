@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   post '/users/:id/products' => 'products#create'
   get '/users/:id/products/:id/edit' => 'products#edit', as: 'edit_product'
   patch '/users/:user_id/products' => 'products#update', as: 'update_product'
+  get '/users/:id/products' => 'products#show_seller_products', as: 'user_product'
   resources :orders
 
   get '/users/:id/orders' => 'orders#show_seller_orders', as: 'show_seller_orders'
