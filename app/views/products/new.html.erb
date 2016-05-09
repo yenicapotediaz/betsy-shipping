@@ -18,7 +18,7 @@
   <%= f.label(:animal, "Cat", :value => 'Cat') %>
   <br>
   <%= f.label :category %>
-  <%= f.select(:category, options_for_select(["Food"])) %>
+  <%= f.select(:category, options_for_select(["Food", "Create a Category"])) %>
   <br>
   <%= f.label :'Photo URL' %>
   <%= f.url_field(:photo_url) %>
