@@ -18,7 +18,7 @@ class OrdersController < ApplicationController
     @order = current_order
     @orderitems = @order.orderitems
     continue = remove_items_from_stock(@orderitems)
-    unless continue
+    unless continue == false
       @order.update(order_update_params[:order])
     end
     if @order.status == "Completed"
