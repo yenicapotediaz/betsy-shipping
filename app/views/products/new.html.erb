@@ -14,10 +14,11 @@
   <%= f.label :quantity %>
   <%= f.select(:quantity, options_for_select(1..10)) %>
   <br>
-  <%= f.label :animal %>
-  <%= f.radio_button_tag(:animal, "Dog")
+  <%= f.radio_button(:animal, "Cat") %>
+  <%= f.label(:animal, "Cat", :value => 'Cat') %>
+  <br>
   <%= f.label :category %>
-  <%= f.select(:category, options_for_select(["Cat", "Dog", "Guinea Pig", "Goat"])) %>
+  <%= f.select(:category, options_for_select(["Food"])) %>
   <br>
   <%= f.label :'Photo URL' %>
   <%= f.url_field(:photo_url) %>
