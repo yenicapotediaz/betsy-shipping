@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160509184941) do
+ActiveRecord::Schema.define(version: 20160509225218) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,9 +43,9 @@ ActiveRecord::Schema.define(version: 20160509184941) do
     t.string   "state"
     t.string   "name_on_credit_card"
     t.integer  "credit_card_number"
-    t.string   "credit_card_exp_date"
     t.integer  "credit_card_cvv"
     t.string   "billing_zip"
+    t.date     "credit_card_exp_date"
   end
 
   create_table "products", force: :cascade do |t|
