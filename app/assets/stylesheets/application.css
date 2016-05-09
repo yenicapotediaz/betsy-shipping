@@ -48,6 +48,10 @@ h2.cart {
 	color: #003399;
 }
 
+h4 {
+	text-align: center;
+}
+
 .view-link {
 	text-decoration: none;
 	float: right;
