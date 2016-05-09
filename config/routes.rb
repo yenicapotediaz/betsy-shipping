@@ -6,14 +6,18 @@ Rails.application.routes.draw do
 
   resources :products, :only => [:index, :show, :create]
 
+<<<<<<< HEAD
   get '/products/animal/:animal' => 'products#show_animal', as: 'product_animal'
   get '/products/category/:category' => 'products#show_category', as: 'product_category'
+=======
+  get '/products/category/:animal' => 'products#show_animal', as: 'product_animal'
+  get '/products/animal/:category' => 'products#show_category', as: 'product_category'
+>>>>>>> ef13ba31fcedc135e2dbba1304a54bd0e27dd396
   get '/products/:full_name/:id' => 'products#show_merchant', as: 'product_merchant'
   get '/users/:id/products/new' => 'products#new', as: 'new_product'
   post '/users/:id/products' => 'products#create'
   get '/users/:id/products/:id/edit' => 'products#edit', as: 'edit_product'
   patch '/users/:user_id/products' => 'products#update', as: 'update_product'
-  get '/users/:id/products' => 'products#show_seller_products', as: 'user_product'
   resources :orders
 
   get '/users/:id/orders' => 'orders#show_seller_orders', as: 'show_seller_orders'
@@ -29,5 +33,9 @@ Rails.application.routes.draw do
   get "/orders/:id/checkout" => 'orders#checkout', as: 'order_checkout'
   patch "/orders/:id/checkout" => "orders#confirmation"
   get '/orders/:id/confirmation' => 'orders#confirmation', as: "order_confirmation"
+<<<<<<< HEAD
 
 end
+=======
+end
+>>>>>>> ef13ba31fcedc135e2dbba1304a54bd0e27dd396

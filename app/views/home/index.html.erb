@@ -3,7 +3,7 @@
 
 <nav>
 <ul class="nav nav-sidebar", class="nav-side">
-<h4>Browse Products by...</h4>
+<h4>Browse Products...</h4>
 
 <h2>Pet</h2>
 <% @animals.each do |animal| %>
@@ -12,7 +12,7 @@
 <br>
 <h2>Category</h2>
 <% @categories.each do |category| %>
-    <li><%= link_to category, product_category_path(category) %></li>
+    <li><%= link_to category, product_category_path(category) %> </li>
 <% end %>
 <br>
 <h2>Merchant</h2>
