@@ -7,7 +7,6 @@
 		<% end %><br>
 	</div>
 	<%= link_to product.name, product_path(product.id) %><br>
-	<%= product.description %><br>
 	$<%= number_with_precision product.price, precision: 2 %><br>
 
 		<%= form_tag '/orderitems' do  %>

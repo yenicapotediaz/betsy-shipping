@@ -1,4 +1,3 @@
-<%= link_to "View all costumes", products_path, class: "view-link" %>
 
 <div class="col-sm-3 col-md-2 sidebar">
 
@@ -25,6 +24,7 @@
 </nav>
   </div>
 
+<%= link_to "View all costumes", products_path, class: "view-link" %>
 <h1 class="home-header">Featured Costumes</h1>
 <br>
 <% @product_picker.each do |product| %>
@@ -34,12 +34,14 @@
 			<img src="<%= product.photo_url %>">
 		<% end %><br>
 	</div>
-<%= link_to product.name, product_path(product.id) %>
-$<%= number_with_precision product.price, precision: 2 %>
-	<%= form_tag '/orderitems' do  %>
-		<%= hidden_field_tag :product_id, product.id %> <br>
-		<%= hidden_field_tag :quantity, 1 %>
-		<%= submit_tag "Add to Cart", class: 'btn btn-primary' %><br>
-	<% end %>
+	<div class="front-description">
+	<%= link_to product.name, product_path(product.id) %><br>
+	$<%= number_with_precision product.price, precision: 2 %>
+		<%= form_tag '/orderitems' do  %>
+			<%= hidden_field_tag :product_id, product.id %> <br>
+			<%= hidden_field_tag :quantity, 1 %>
+			<%= submit_tag "Add to Cart", class: 'btn btn-primary' %><br>
+		<% end %>
+		</div>
 </div>
 <% end %>

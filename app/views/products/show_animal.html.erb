@@ -7,11 +7,10 @@
 			<img src="<%= product.photo_url %>">
 		<% end %><br>
 </div>
-	  <h3 class="description"><%= product.description %></h3>
-	$<%= number_with_precision product.price, precision: 2 %>
 
 	<%= form_tag '/orderitems' do  %>
-		<%= link_to product.name, product_path(product.id) %>
+		<%= link_to product.name, product_path(product.id) %><br>
+		$<%= number_with_precision product.price, precision: 2 %>
 		<%= hidden_field_tag :product_id, product.id %> <br>
 		<%= hidden_field_tag :quantity, 1 %>
 		<%= submit_tag "Add to Cart", class: 'btn btn-primary' %><br>

@@ -12,7 +12,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<div class="wrapper">
   <header>
   <nav class="top-header">
     <%= image_tag "cat logo.png", alt: "sophisticated cat", class: "logo" %>
@@ -36,6 +36,16 @@
   </header>
 
 <%= yield %>
+
+<div class="push"></div>
+</div>
+
+<hr>
+<footer class="footer">
+<%= image_tag("goat_paw.jpg", class: "footer-paws") %> Alysia
+<%= image_tag("dog_print.jpg", class: "footer-paws") %> Deirdre
+<%= image_tag("guinea_paw.jpg", class: "footer-paws") %> Jess
+</footer>
 
 </body>
 </html>
