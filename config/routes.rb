@@ -28,9 +28,4 @@ Rails.application.routes.draw do
   get "/orders/:id/checkout" => 'orders#checkout', as: 'order_checkout'
   patch "/orders/:id/checkout" => "orders#confirmation"
   get '/orders/:id/confirmation' => 'orders#confirmation', as: "order_confirmation"
-
-  get '/products/category/:animal' => 'products#show_animal', as: 'product_animal'
-  get '/users/:id/products' => 'products#show_seller_products', as: 'user_product'
-  get '/products/animal/:category' => 'products#show_category', as: 'product_category'
-  get '/products/:full_name/:id' => 'products#show_merchant', as: 'product_merchant'
 end
