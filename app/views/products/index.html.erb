@@ -10,6 +10,7 @@
 	$<%= number_with_precision product.price, precision: 2 %><br>
 
 		<%= form_tag '/orderitems' do  %>
+		<% @quantity_numbers = (1..product.quantity).to_a %>
 			<%= hidden_field_tag :product_id, product.id %> <br>
 			<%= select_tag :quantity, options_for_select(@quantity_numbers) %><br>
 		<%= submit_tag "Add to Cart", class: 'btn btn-primary' %><br>
