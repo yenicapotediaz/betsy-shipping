@@ -6,8 +6,10 @@ Rails.application.routes.draw do
 
   resources :products, :only => [:index, :show, :create]
 
-  get '/products/category/:animal' => 'products#show_animal', as: 'product_animal'
-  get '/products/animal/:category' => 'products#show_category', as: 'product_category'
+
+  get '/products/animal/:animal' => 'products#show_animal', as: 'product_animal'
+  get '/products/category/:category' => 'products#show_category', as: 'product_category'
+
   get '/products/:full_name/:id' => 'products#show_merchant', as: 'product_merchant'
   get '/users/:id/products/new' => 'products#new', as: 'new_product'
   post '/users/:id/products' => 'products#create'
@@ -29,4 +31,5 @@ Rails.application.routes.draw do
   get "/orders/:id/checkout" => 'orders#checkout', as: 'order_checkout'
   patch "/orders/:id/checkout" => "orders#confirmation"
   get '/orders/:id/confirmation' => 'orders#confirmation', as: "order_confirmation"
+
 end
