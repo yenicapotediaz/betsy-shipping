@@ -208,3 +208,14 @@ label.required:after {
     content: " *";
     color: red;
 }
+
+div.flash {
+	background-color: rgba(159, 47, 247, .7);
+	color: white;
+	text-align: center;
+	width: 80%;
+	border-radius: 20px;
+	margin-left: 10%;
+
+
+}

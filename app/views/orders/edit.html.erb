@@ -5,9 +5,9 @@
   <div class="cart">
     <% @order.orderitems.each do |orderitem| %>
       <div class="orderitem">
-      <img src="<%= Product.find(orderitem.product_id).photo_url %>">
+      <%= link_to (image_tag Product.find(orderitem.product_id).photo_url), product_path(orderitem.product_id) %>
       <div class="order-info">
-      <strong><%= Product.find(orderitem.product_id).name %></strong>
+      <strong><%= link_to Product.find(orderitem.product_id).name, product_path(orderitem.product_id) %></strong>
       <br>Total Price $<%=number_with_precision orderitem.total_price, precision: 2 %>
       <% @cart_price += orderitem.total_price %>
       <%= form_for orderitem do |f| %>

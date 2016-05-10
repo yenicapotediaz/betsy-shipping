@@ -1,6 +1,6 @@
 
 first_order:
-  status: "pending"
+  status: pending
   price: 5
   user: dog_merchant
   email: user@user.com
@@ -14,7 +14,7 @@ first_order:
   billing_zip: 12345
 
 second_order:
-  status: "complete"
+  status: Completed
   price: 90
   user: cat_merchant
   email: other_user@user.com
