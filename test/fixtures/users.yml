@@ -1,6 +1,6 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 dog_merchant:
+  id: 3
   username: dogs_yes
   email: dog@dog.com
   password_digest: <%= BCrypt::Password.create('password', cost: 1) %>
@@ -11,6 +11,7 @@ dog_merchant:
   zip: 11111
 
 cat_merchant:
+  id: 4
   username: cats_yes
   email: cat@cat.com
   password_digest: <%= BCrypt::Password.create('other_password', cost: 1) %>
