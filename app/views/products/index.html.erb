@@ -12,8 +12,13 @@
 		<%= form_tag '/orderitems' do  %>
 			<%= hidden_field_tag :product_id, product.id %> <br>
 			<%= select_tag :quantity, options_for_select(1..product.quantity) %><br>
-    	<p class="order-quantity"><%= product.quantity %> Available!</p>
+  <% if product.quantity == 0 %>
+  	<p class=retired-empty>OUT OF STOCK!</p>
+  <% else %>
+    <p class="order-quantity"><%= product.quantity %> Available!</p>
+
 	<%= submit_tag "Add to Cart", class: 'btn btn-primary' %><br>
+	<% end %>
 <hr>
 		<% end %>
 </div>

@@ -1,5 +1,3 @@
-
-<pre><%= params %></pre>
 <h2>Current Products</h2>
 <% @products.each do |product| %>
   <div class="all-products">
@@ -7,13 +5,13 @@
 		<% unless product.photo_url.nil? %>
 			<img src="<%= product.photo_url %>">
 	<% if product.retired == true %>
-		<p class="retired">PRODUCT RETIRED</p>
+		<p class="retired-empty">PRODUCT RETIRED</p>
 	<% end %>
 		<% end %><br>
 	</div>
 	<% if product.retired == false %>
 	<% if product.quantity == 0 %>
-		<h3>You have no products!</h3>
+		<h3>You have no stock left!</h3>
   <% else %>
 	<br>
 	<%= product.name %>

@@ -13,8 +13,13 @@
 		$<%= number_with_precision product.price, precision: 2 %><br>
 		<%= hidden_field_tag :product_id, product.id %> 
 		<%= select_tag :quantity, options_for_select(1..product.quantity) %><br>
+    <% if product.quantity == 0 %>
+  	<p class=retired-empty>OUT OF STOCK!</p>
+  <% else %>
     <p class="order-quantity"><%= product.quantity %> Available!</p>
+
 		<%= submit_tag "Add to Cart", class: 'btn btn-primary' %><br>
+	<% end %>
 	<% end %>
 	<hr>
 </div>

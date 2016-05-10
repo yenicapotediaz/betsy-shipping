@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class ProductTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "user can have many products" do
+    assert_includes users(:dog_merchant).products, products(:sushi_cat)
+  end
 end
