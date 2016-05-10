@@ -9,13 +9,14 @@
     <div class="col-xs-6">
       <%= f.select :rating, options_for_select((1..5).to_a) %><br>
     </div>
-    
+
     <div class="form-group">
       <%= f.label :description, class: "col-xs-4 control-label" %>
       <div class="col-xs-6">
         <%= f.text_field :description, class: "form-control" %>
       </div>
       <%= f.hidden_field :product_id, value: @product.id %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
       <br>
 <%= f.submit "Publish Review", class:"btn btn-success btn-lg" %>
   </div>

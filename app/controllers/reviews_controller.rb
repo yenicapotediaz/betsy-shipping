@@ -25,15 +25,7 @@ class ReviewsController < ApplicationController
   end
 
   def review_create_params
-		params.permit(review: [:rating, :description, :product_id])
+		params.permit(review: [:rating, :description, :product_id, :user_id])
 	end
 
 end
-
-
-	# def show
-	# 	@product = Product.find(params[:id])
-	# 	@quantity = @product.quantity
-	# 	@quantity_numbers = (1..@quantity).to_a
-	# 	@rating = overall_rating(@product)
-	# end

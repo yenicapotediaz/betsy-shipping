@@ -193,4 +193,6 @@ div.orderitem {
 	margin-right: 10%;
 }
 
-
+span.review-description {
+	color: blue;
+}
