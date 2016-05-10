@@ -39,12 +39,6 @@
   <%= f.select(:category, options_for_select(["Food", "Create a Category"]), :include_blank => true, class: "form-control") %>
   </div>
   </div>
-   <div class="form-group">
-  <%= f.label :category, "OR Create your own category:", class: "col-xs-4 control-label" %>
-   <div class="col-xs-4">
-  <%= f.text_field :category, class: "form-control" %>
-  </div>
-  </div>
   <div class="form-group">
   <%= f.label :'Photo URL', class: "col-xs-4 control-label"%>
   <div class="col-xs-4">
