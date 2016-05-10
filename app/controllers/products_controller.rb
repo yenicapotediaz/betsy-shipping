@@ -41,6 +41,7 @@ class ProductsController < ApplicationController
 		@product = @user.products.new
 		@category = Product.uniq.pluck(:category)
 		@animal = Product.uniq.pluck(:animal)
+		@category << "Create a Category"
 	end
 
 	def create
@@ -59,6 +60,8 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @user = User.find(current_user.id)
     @quantity = @product.quantity
+    @animal = Product.uniq.pluck(:animal)
+    @category = Product.uniq.pluck(:category)
   end
 
   def update
