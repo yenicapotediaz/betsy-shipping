@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
 	before_action :require_login, only: [:new, :create]
 
 	def index
-		@products = Product.all
+		@products = Product.where(retired: false)
 	end
 
 	def show
@@ -25,15 +25,15 @@ class ProductsController < ApplicationController
 
 	def show_merchant
 		@user = User.find(params[:id])
-		@products = @user.products
+		@products = @user.products.where(retired: false)
 	end
 
 	def show_animal
-		@products = Product.where(animal: params[:animal])
+		@products = Product.where(animal: params[:animal]).where(retired: false)
 	end
 
 	def show_category
-		@products = Product.where(category: params[:category])
+		@products = Product.where(category: params[:category]).where(retired: false)
 	end
 
 	def new
@@ -94,9 +94,5 @@ class ProductsController < ApplicationController
 	def product_update_params
 		params.permit(product: [:name, :description, :price, :quantity, :animal, :category, :photo_url, :user_id])
 	end
-
-	 # def category_params
-  #   params.permit(:new_category).merge(category: :new_category)
-  # end
 
 end
