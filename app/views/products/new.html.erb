@@ -1,5 +1,3 @@
-<pre><%= params %></pre>
-
 <h1>Add a Costume to Your Store!</h1>
 
 <%= form_for @product, :html => { :class => "form-horizontal center" }  do |f| %>
@@ -30,13 +28,19 @@
   <div class="form-group">
   <%= f.label :animal, class: "col-xs-4 control-label" %>
   <div class="col-xs-4">
-  <%= f.select(:animal, options_for_select(["Cat", "Dog", "Guinea Pig", "Goat"]), class: "form-control") %>
+  <%= f.select(:animal, options_for_select(@animal), class: "form-control") %>
   </div>
   </div>
   <div class="form-group">
   <%= f.label :category, class: "col-xs-4 control-label" %>
   <div class="col-xs-4">
-  <%= f.select(:category, options_for_select(["Food", "Create a Category"]), :include_blank => true, class: "form-control") %>
+  <%= f.select(:category, options_for_select(@category), :include_blank => true, class: "form-control") %>
+  </div>
+  </div>
+  <div class="form-group">
+  <%= f.label :new_category, class: "col-xs-4 control-label" %>
+  <div class="col-xs-4">
+  <%= f.text_field :new_category, class: "form-control" %>
   </div>
   </div>
   <div class="form-group">

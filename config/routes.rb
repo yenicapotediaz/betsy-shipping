@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   get '/products/animal/:animal' => 'products#show_animal', as: 'product_animal'
   get '/products/category/:category' => 'products#show_category', as: 'product_category'
-
+  # get '/products/category/new' => 'products#new_category', as: 'new_category'
   get '/products/:full_name/:id' => 'products#show_merchant', as: 'product_merchant'
   get '/users/:id/products/new' => 'products#new', as: 'new_product'
   post '/users/:id/products' => 'products#create'
