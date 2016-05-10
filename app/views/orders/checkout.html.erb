@@ -1,5 +1,16 @@
 <h1>Complete your purchase:</h1>
 
+<% if @order.errors.any? %>
+  <ul>
+    <% @order.errors.each do |column, message| %>
+      <li>
+        <%= column.capitalize %> <%= message %>
+      </li>
+    </ul>
+    <% end %>
+<% end %>
+
+
 <h4>To finish up, please provide all of the following information:</h4><br>
 <%= form_for @order, html: { :class => "form-horizontal center" } do |f| %>
 
