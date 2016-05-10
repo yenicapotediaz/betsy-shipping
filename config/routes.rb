@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :products, :only => [:index, :show, :create]
 
   get '/products/:id/reviews/new' => 'reviews#new' , as: "new_review"
-  post '/products/:id/reviews' => 'reviews#create'
+  post '/products/:id/reviews' => 'reviews#create', as: "product_review"
 
   get '/products/animal/:animal' => 'products#show_animal', as: 'product_animal'
   get '/products/category/:category' => 'products#show_category', as: 'product_category'

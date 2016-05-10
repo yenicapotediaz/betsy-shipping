@@ -8,7 +8,7 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_create_params[:review])
 		if @review.save
-    	redirect_to root_path
+    	redirect_to product_path(@review.product_id)
   	else
   		render :new
   	end
@@ -17,7 +17,7 @@ class ReviewsController < ApplicationController
   private
 
   def review_create_params
-		params.permit(review: [:rating, :description])
+		params.permit(review: [:rating, :description, :product_id])
 	end
 
 end
