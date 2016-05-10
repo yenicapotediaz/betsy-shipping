@@ -40,10 +40,14 @@ class ProductsController < ApplicationController
 		@user = User.find(params[:id])
 		@product = @user.products.new
 		@category = Product.uniq.pluck(:category)
+		@animal = Product.uniq.pluck(:animal)
 	end
 
 	def create
 		@product = Product.new(product_create_params[:product])
+		if @product.category == "Create a Category"
+			@product.category = params[:product][:new_category]
+		end
 		if @product.save
     	redirect_to user_product_path(current_user.id)
   	else
@@ -74,7 +78,7 @@ class ProductsController < ApplicationController
 
 	def product_create_params
 
-		params.permit(product: [:name, :description, :price, :quantity, :category, :photo_url, :user_id, :animal])
+		params.permit(product: [:name, :description, :price, :quantity, :category, :new_category, :photo_url, :user_id, :animal])
 	end
 
 	def product_update_params
