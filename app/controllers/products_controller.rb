@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-	before_action :require_login, only: [:new, :create]
+	before_action :require_login, only: [:new, :create, :show_seller_products, :edit, :update, :retire, :destroy]
 
 	def index
 		@products = Product.where(retired: false)
