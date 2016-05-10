@@ -6,8 +6,12 @@
 	<div class="favoritepic">
 		<% unless product.photo_url.nil? %>
 			<img src="<%= product.photo_url %>">
+	<% if product.retired == true %>
+		<p class="retired">PRODUCT RETIRED</p>
+	<% end %>
 		<% end %><br>
 	</div>
+	<% if product.retired == false %>
 	<% if product.quantity == 0 %>
 		<h3>You have no products!</h3>
   <% else %>
@@ -21,11 +25,15 @@
 	<% end %>
 	<p class="order-quantity">Number in Stock: <%= product.quantity %></p>
 	<% end %>
+	<% end %>
 	<br>
+	<% if product.retired == false %>
 	<p><%= link_to "Edit Product", edit_product_path(product), class: 'btn btn-primary' %></p>
-	<p><%= link_to "Retire Costume", class: "btn btn-warning" %></p>
+	<p><%= link_to "Retire Costume", retire_product_path(product.id), method: :patch, class: "btn btn-warning" %></p>
+	<% end %>
 	<p><%= link_to "Delete Product", product_path(product.id), method: :delete, class: "btn btn-danger" %></p>
 	<hr>
 	</div>
+	
 	<% end %>
 

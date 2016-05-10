@@ -193,6 +193,13 @@ div.orderitem {
 	margin-right: 10%;
 }
 
+
+.retired {
+	text-align: center;
+	color: #b30000;
+	font-weight: bold;
+}
+
 span.review-description {
 	color: blue;
 }

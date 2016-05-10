@@ -58,10 +58,11 @@ ActiveRecord::Schema.define(version: 20160510181025) do
     t.string   "photo_url"
     t.string   "status"
     t.integer  "user_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.string   "animal"
     t.string   "new_category"
+    t.boolean  "retired",      default: false
   end
 
   create_table "reviews", force: :cascade do |t|
