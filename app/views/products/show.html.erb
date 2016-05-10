@@ -6,8 +6,12 @@
   <%= form_tag '/orderitems' do  %>
     <%= hidden_field_tag :product_id, @product.id %> <br>
     <%= select_tag :quantity, options_for_select(@quantity_numbers) %><br>
+    <% if @product.quantity == 0 %>
+    <p class=retired-empty>OUT OF STOCK!</p>
+  <% else %>
     <p class="order-quantity"><%= @product.quantity %> Available!</p>
-    <%= submit_tag "Add to Cart", class: 'btn btn-primary' %>
+  <%= submit_tag "Add to Cart", class: 'btn btn-primary' %><br>
+  <% end %>
   <% end %>
   <br>
   <p><%= link_to "Write a Review", new_review_path, class: "btn btn-primary" %></p></h2>
