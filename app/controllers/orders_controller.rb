@@ -67,6 +67,7 @@ class OrdersController < ApplicationController
   end
 
   def order_update_params
+    params[:order][:credit_card_number] = params[:order][:credit_card_number][-4..-1]
     params.permit(order: [:name_on_credit_card, :city, :state, :billing_zip,
       :email, :status, :stree_address, :credit_card_cvv, :credit_card_number, :credit_card_exp_date])
   end

@@ -1,4 +1,4 @@
-  <div class="rating-description">
+<div class="rating-description">
   <h3 class="description"><%= @product.description %></h3>
     <hr>
   $<%= number_with_precision @product.price, precision: 2 %>
@@ -13,11 +13,23 @@
   <p><%= link_to "Write a Review", new_review_path, class: "btn btn-primary" %></p></h2>
 
 
-    <p><strong>Overall Rating: </strong> <%= @rating %> / 5 </p>
-    <p><strong>Reviews:</strong><br></p> <% @product.reviews.each do |review| %>
-        <p><%= review.description %></p>
+    <p><strong>Overall Rating: </strong> <%= number_with_precision @rating , precision: 1 %> / 5 </p>
+
+    <div class="review">
+    <p><strong>Reviews:</strong><br></p>
+    <% @product.reviews.each do |review| %>
+    <% unless review.user_id.nil? %>
+        <p>Reviewed By: <%= User.find(review.user_id).full_name %></p>
+        <% end %>
+        <p>Review Date: <%= review.created_at.strftime("%m/%d/%Y at %I:%M%p") %>
+        <p>Rating: <%= review.rating %>/5</p>
+        <span class="review-description"><p><%= review.description %></p></span>
+        <br>
     <% end %>
-  </div>
+   </div>
+
+
+</div>
 
 <div class="product">
   <h2><%= @product.name %></h2>

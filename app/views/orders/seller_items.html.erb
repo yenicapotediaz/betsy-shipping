@@ -1,1 +1,25 @@
-<p>Hello, World!</p>
+<h1>Order Number <%= order_id %></h1>
+<table class="table table-striped" class="table table-hover">
+  <thead>
+    <tr>
+      <th>Item</th>
+      <th>Quantity</th>
+      <th>Item Price</th>
+      <th>Item Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% order_items = Orderitem.where(order_id: @order.id) && Orderitem.where(seller_id: user_id) %>
+    <% orders = order_items.collect(&:order_id).uniq %>
+    <% orders.each do |order| %>
+      <% orders = Orderitem.where(order_id: order.id) %>
+      <tr>
+      <% orders.each do |order| %>
+        <td><%= order.product.name %></td>
+        <td><%= order.quantity %></td>
+        <td>$<%= order.price %>0</td>
+        <td>$<%= order.price * order.quantity %>0</td>
+      </tr>
+      <% end %>
+    <% end %>
+</table>
