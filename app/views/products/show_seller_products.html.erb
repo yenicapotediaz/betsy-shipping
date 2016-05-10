@@ -3,7 +3,7 @@
   <div class="all-products">
 	<div class="favoritepic">
 		<% unless product.photo_url.nil? %>
-			<img src="<%= product.photo_url %>">
+    <%= link_to (image_tag product.photo_url), product_path(product.id) %>
 	<% if product.retired == true %>
 		<p class="retired-empty">PRODUCT RETIRED</p>
 	<% end %>
@@ -14,7 +14,7 @@
 		<h3>You have no stock left!</h3>
   <% else %>
 	<br>
-	<%= product.name %>
+	<%= link_to product.name, product_path(product.id) %>
   <br>
 	$<%= number_with_precision product.price, precision: 2 %>
 
@@ -32,6 +32,5 @@
 	<p><%= link_to "Delete Product", product_path(product.id), method: :delete, class: "btn btn-danger" %></p>
 	<hr>
 	</div>
-	
-	<% end %>
 
+	<% end %>
