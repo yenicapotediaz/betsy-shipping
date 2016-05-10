@@ -7,7 +7,7 @@ dog_pirate:
   category: pirate
   photo_url: http://www.dog-pirate.com
   status: Pending
-  user_id: 2
+  user: dog_merchant
   animal: Dog
 
 sushi_cat:
@@ -18,5 +18,5 @@ sushi_cat:
   category: Food
   photo_url: http://www.sushi-cat.com
   status: Pending
-  user_id: 3
+  user: cat_merchant
   animal: Cat

@@ -2,7 +2,7 @@
 first_order:
   status: "pending"
   price: 5
-  user_id:
+  user: dog_merchant
   email: user@user.com
   street_address: 128 Petsy Blvd
   city: Petville
@@ -16,7 +16,7 @@ first_order:
 second_order:
   status: "complete"
   price: 90
-  user_id: 2
+  user: cat_merchant
   email: other_user@user.com
   street_address: 4 Dog Road
   city: Dogville
