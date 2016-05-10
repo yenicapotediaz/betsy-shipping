@@ -1,71 +1,60 @@
 <h1>Complete your purchase:</h1>
 
-<% if @order.errors.any? %>
-  <ul>
-    <% @order.errors.each do |column, message| %>
-      <li>
-        <%= column.capitalize %> <%= message %>
-      </li>
-    </ul>
-    <% end %>
-<% end %>
-
-
 <h4>To finish up, please provide all of the following information:</h4><br>
 <%= form_for @order, html: { :class => "form-horizontal center" } do |f| %>
 
   <div class="form-group">
   <%= f.label :email, class: "col-xs-4 control-label" %>
   <div class="col-xs-4">
-  <%= f.email_field :email, class: "form-control" %>
+  <%= f.email_field :email, class: "form-control", required: true %>
   </div>
 ​  </div>
   <div class="form-group">
   <%= f.label :street_address, class: "col-xs-4 control-label" %>
   <div class="col-xs-4">
-  <%= f.text_field :street_address, class: "form-control" %>
+  <%= f.text_field :street_address, class: "form-control", required: true  %>
   </div>
 ​  </div>
   <div class="form-group">
   <%= f.label :city, class: "col-xs-4 control-label" %>
   <div class="col-xs-4">
-  <%= f.text_field :city, class: "form-control" %>
+  <%= f.text_field :city, class: "form-control", required: true  %>
   </div>
 ​  </div>
   <div class="form-group">
   <%= f.label :state, class: "col-xs-4 control-label" %>
   <div class="col-xs-4">
-  <%= f.select :state, options_for_select(us_states),{}, class: "form-control" %>
+  <%= f.select :state, options_for_select(us_states),{}, class: "form-control", required: true  %>
   </div>
 ​  </div>
   <div class="form-group">
   <%= f.label :name_on_credit_card, class: "col-xs-4 control-label" %>
   <div class="col-xs-4">
-  <%= f.text_field :name_on_credit_card, class: "form-control" %>
+  <%= f.text_field :name_on_credit_card, class: "form-control", required: true  %>
   </div>
 ​  </div>
   <div class="form-group">
   <%= f.label :credit_card_number, class: "col-xs-4 control-label" %>
   <div class="col-xs-4">
-  <%= f.text_field :credit_card_number, class: "form-control" %>
+  <%= f.text_field :credit_card_number, class: "form-control", maxlength: 16, required: true  %>
   </div>
 ​  </div>
   <div class="form-group">
   <%= f.label :credit_card_exp_date, "Credit Card Exp Date", class: "col-xs-4 control-label" %>
   <div class="col-xs-4">
-  <%= f.date_select :credit_card_exp_date, discard_day: true, start_year: Date.today.year, end_year: (Date.today.year + 10), order: [:month, :year], class: "form-control" %>
+  <%= f.date_select :credit_card_exp_date, discard_day: true, start_year: Date.today.year, end_year: (Date.today.year + 10), order: [:month, :year], class: "form-control" , required: true %>
   </div>
 ​  </div>
   <div class="form-group">
   <%= f.label :"credit_card_cvv", "Credit Card CVV", class: "col-xs-4 control-label" %>
   <div class="col-xs-4">
-  <%= f.text_field :credit_card_cvv, class: "form-control" %>
+  <%= f.text_field :credit_card_cvv, class: "form-control", maxlength: 3, required: true  %>
   </div>
 ​  </div>
   <div class="form-group">
   <%= f.label :billing_zip, class: "col-xs-4 control-label" %>
   <div class="col-xs-4">
-  <%= f.text_field :billing_zip, class: "form-control" %>
+  <%= f.text_field :billing_zip, class: "form-control" , maxlength: 5, required: true %>
 
   <%= f.hidden_field :status, value: "Completed" %>
   <br>

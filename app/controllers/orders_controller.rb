@@ -34,7 +34,7 @@ class OrdersController < ApplicationController
       quantity_being_bought = item.quantity
       available_quantity = product.quantity
       new_quantity = available_quantity - quantity_being_bought
-      if new_quantity > 0
+      if new_quantity >= 0
         product.update(quantity: new_quantity)
       else
         return false
