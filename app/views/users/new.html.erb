@@ -12,31 +12,31 @@
 ​
 <%= form_for @user, :html => { :class => "form-horizontal center" } do |f| %>
   <div class="form-group">
-  <%= f.label :username, class: "col-xs-4 control-label" %>
+  <%= f.label :username, class: "col-xs-4 control-label required" %>
   <div class="col-xs-4">
   <%= f.text_field :username, class: "form-control" %>
   </div>
 ​  </div>
   <div class="form-group">
-  <%= f.label :full_name, class: "col-xs-4 control-label" %>
+  <%= f.label :full_name, class: "col-xs-4 control-label required" %>
   <div class="col-xs-4">
   <%= f.text_field :full_name, class: "form-control" %>
 ​  </div>
 ​  </div>
   <div class="form-group">
-  <%= f.label :email, class: "col-xs-4 control-label" %>
+  <%= f.label :email, class: "col-xs-4 control-label required" %>
   <div class="col-xs-4">
   <%= f.email_field :email, class: "form-control" %>
 ​  </div>
 ​  </div>
   <div class="form-group">
-  <%= f.label :password, class: "col-xs-4 control-label" %>
+  <%= f.label :password, class: "col-xs-4 control-label required" %>
   <div class="col-xs-4">
   <%= f.password_field :password, class: "form-control" %>
 ​  </div>
   </div>
   <div class="form-group">
-  <%= f.label :password_confirmation, class: "col-xs-4 control-label" %>
+  <%= f.label :password_confirmation, class: "col-xs-4 control-label required" %>
   <div class="col-xs-4">
   <%= f.password_field :password_confirmation, class: "form-control" %>
   </div>
