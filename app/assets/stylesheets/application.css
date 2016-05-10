@@ -59,6 +59,13 @@ h4 {
 	font-size: 25px;
 }
 
+.store-links {
+	text-decoration: none;
+	float: right;
+	padding-right: 20%;
+	font-size: 25px;
+}
+
 .front-description {
 	text-align: center;
 }

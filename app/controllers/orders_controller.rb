@@ -11,17 +11,34 @@ class OrdersController < ApplicationController
 
   def edit
     @order  = Order.find(params[:id])
-    # @quantity_numbers = [1,2,3,4,5,6,7,8,9,10]
     @orderitems = Order.find(current_order.id).orderitems
   end
 
   def update
     @order = current_order
-    @order.update(order_update_params[:order])
+    @orderitems = @order.orderitems
+    continue = remove_items_from_stock(@orderitems)
+    unless continue == false
+      @order.update(order_update_params[:order])
+    end
     if @order.status == "Completed"
       redirect_to order_confirmation_path(@order.id)
     else
       render :checkout
+    end
+  end
+
+  def remove_items_from_stock(items)
+    items.each do |item|
+      product = item.product
+      quantity_being_bought = item.quantity
+      available_quantity = product.quantity
+      new_quantity = available_quantity - quantity_being_bought
+      if new_quantity > 0
+        product.update(quantity: new_quantity)
+      else
+        return false
+      end
     end
   end
 
@@ -38,6 +55,7 @@ class OrdersController < ApplicationController
     @orderitems = @order.orderitems
     session.delete :order_id
     order = Order.create
+    order.update(status: "Pending")
     session[:order_id] = order.id
   end
 

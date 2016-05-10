@@ -3,7 +3,6 @@ class ProductsController < ApplicationController
 
 	def index
 		@products = Product.all
-		@quantity_numbers = [1,2,3,4,5,6,7,8,9,10]
 	end
 
 	def show
@@ -20,7 +19,7 @@ class ProductsController < ApplicationController
 	end
 
 	def show_seller_products
-		@user = User.find(params[:id])
+		@user = User.find(current_user)
 		@products = @user.products
 	end
 
@@ -41,10 +40,15 @@ class ProductsController < ApplicationController
 		@user = User.find(params[:id])
 		@product = @user.products.new
 		@category = Product.uniq.pluck(:category)
+		@animal = Product.uniq.pluck(:animal)
+		@category << "Create a Category"
 	end
 
 	def create
 		@product = Product.new(product_create_params[:product])
+		if @product.category == "Create a Category"
+			@product.category = params[:product][:new_category]
+		end
 		if @product.save
     	redirect_to user_product_path(current_user.id)
   	else
@@ -55,6 +59,9 @@ class ProductsController < ApplicationController
 	def edit
     @product = Product.find(params[:id])
     @user = User.find(current_user.id)
+    @quantity = @product.quantity
+    @animal = Product.uniq.pluck(:animal)
+    @category = Product.uniq.pluck(:category)
   end
 
   def update
@@ -63,13 +70,26 @@ class ProductsController < ApplicationController
     redirect_to user_product_path(current_user.id)
   end
 
+  def destroy
+  	@product = Product.find(params[:id])
+  	@product.destroy
+  	redirect_to user_product_path
+  	
+  end
+
 	private
 
 	def product_create_params
-		params.permit(product: [:name, :description, :price, :quantity, :animal, :category, :photo_url, :user_id])
+
+		params.permit(product: [:name, :description, :price, :quantity, :category, :new_category, :photo_url, :user_id, :animal])
 	end
 
 	def product_update_params
-		params.permit(product: [:name, :description, :price, :quantity, :animal, :category, :photo_url])
+		params.permit(product: [:name, :description, :price, :quantity, :animal, :category, :photo_url, :user_id])
 	end
+
+	 # def category_params
+  #   params.permit(:new_category).merge(category: :new_category)
+  # end
+
 end

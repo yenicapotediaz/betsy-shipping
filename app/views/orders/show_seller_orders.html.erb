@@ -1,14 +1,16 @@
 
-  <h1>Your Store</h1>
-
-<%= link_to 'Current Products', user_product_path %>
-<%= link_to 'Add a New Product', new_product_path %>
-
+<h1>Welcome to your store, <%= @user.full_name %>!</h1>
+<br>
+<%= link_to 'Add a New Product', new_product_path,  class: "store-links" %>
+<%= link_to 'Your Current Products', user_product_path, class: "store-links" %>
+<br>
 <body>
 
   <h3>Orders</h3>
   	<% @orders.each do |order| %>
-  		<%= order %>
+      <%= order.id %>
+  		<%= order.status %>
+      <%= order.price %><br>
   	<% end %>
   <h3>Revenue</h3>
   <p>$<%= Orderitem.revenue(@user.id) %>0</p>

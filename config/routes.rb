@@ -4,14 +4,18 @@ Rails.application.routes.draw do
 
   resources :users, :only => [:index, :new, :create]
 
-  resources :products, :only => [:index, :show, :create]
+  resources :products, :except => [:new]
 
-  get '/products/category/:animal' => 'products#show_animal', as: 'product_animal'
-  get '/products/animal/:category' => 'products#show_category', as: 'product_category'
+  get '/products/:id/reviews/new' => 'reviews#new' , as: "new_review"
+  post '/products/:id/reviews' => 'reviews#create', as: "product_review"
+
+  get '/products/animal/:animal' => 'products#show_animal', as: 'product_animal'
+  get '/products/category/:category' => 'products#show_category', as: 'product_category'
+  # get '/products/category/new' => 'products#new_category', as: 'new_category'
   get '/products/:full_name/:id' => 'products#show_merchant', as: 'product_merchant'
   get '/users/:id/products/new' => 'products#new', as: 'new_product'
   post '/users/:id/products' => 'products#create'
-  get '/users/:id/products/:id/edit' => 'products#edit', as: 'edit_product'
+  # get '/users/:id/products/:id/edit' => 'products#edit', as: 'edit_product'
   patch '/users/:user_id/products' => 'products#update', as: 'update_product'
   get '/users/:id/products' => 'products#show_seller_products', as: 'user_product'
   resources :orders
@@ -27,6 +31,7 @@ Rails.application.routes.draw do
   resources :sessions, :only => [:new, :create]
   get "/logout" => "sessions#destroy"
   get "/orders/:id/checkout" => 'orders#checkout', as: 'order_checkout'
-  patch "/orders/:id/checkout" => "orders#confirmation"
+  patch "/orders/:id/checkout" => "orders#checkout"
   get '/orders/:id/confirmation' => 'orders#confirmation', as: "order_confirmation"
+
 end

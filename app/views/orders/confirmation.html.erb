@@ -5,7 +5,7 @@
 <% @order.orderitems.each do |item| %>
 Item: <%= link_to Product.find(item.product_id).name , product_path(Product.find(item.product_id).id) %><br>
 Quantity: <%= item.quantity %><br>
-Subtotal: <%= item.total_price %><br><br>
+Subtotal: $<%= number_with_precision item.total_price , precision: 2%><br><br>
 <% @cart_price += item.total_price %>
 <% end %>
 

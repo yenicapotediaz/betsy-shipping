@@ -6,14 +6,17 @@
   <%= form_tag '/orderitems' do  %>
     <%= hidden_field_tag :product_id, @product.id %> <br>
     <%= select_tag :quantity, options_for_select(@quantity_numbers) %><br>
+    <p class="order-quantity"><%= @product.quantity %> Available!</p>
     <%= submit_tag "Add to Cart", class: 'btn btn-primary' %>
   <% end %>
-  <p><%= @product.quantity %> Available</p>
   <br>
+  <p><%= link_to "Write a Review", new_review_path, class: "btn btn-primary" %></p></h2>
+
+
     <p><strong>Overall Rating: </strong> <%= @rating %> / 5 </p>
-    <p><strong>Reviews:</strong><br> <% @product.reviews.each do |review|%>
-          <%= review.description %><br>
-    <% end %></p>
+    <p><strong>Reviews:</strong><br></p> <% @product.reviews.each do |review| %>
+        <p><%= review.description %></p>
+    <% end %>
   </div>
 
 <div class="product">
