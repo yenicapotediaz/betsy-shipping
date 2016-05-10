@@ -8,7 +8,7 @@
 		<% end %><br>
 </div>
 	<br>
-	<%= product.description %>
+	<%= product.description %><br>
 	$<%= number_with_precision product.price, precision: 2 %>
 
 	<%= form_tag '/orderitems' do  %>
