@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :users, :only => [:index, :new, :create]
 
-  resources :products, :only => [:index, :show, :create]
+  resources :products, :except => [:new]
 
   get '/products/:id/reviews/new' => 'reviews#new' , as: "new_review"
   post '/products/:id/reviews' => 'reviews#create', as: "product_review"
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   get '/products/:full_name/:id' => 'products#show_merchant', as: 'product_merchant'
   get '/users/:id/products/new' => 'products#new', as: 'new_product'
   post '/users/:id/products' => 'products#create'
-  get '/users/:id/products/:id/edit' => 'products#edit', as: 'edit_product'
+  # get '/users/:id/products/:id/edit' => 'products#edit', as: 'edit_product'
   patch '/users/:user_id/products' => 'products#update', as: 'update_product'
   get '/users/:id/products' => 'products#show_seller_products', as: 'user_product'
   resources :orders

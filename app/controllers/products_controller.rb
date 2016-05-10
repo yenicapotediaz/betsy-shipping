@@ -19,7 +19,7 @@ class ProductsController < ApplicationController
 	end
 
 	def show_seller_products
-		@user = User.find(params[:id])
+		@user = User.find(current_user)
 		@products = @user.products
 	end
 
@@ -54,12 +54,20 @@ class ProductsController < ApplicationController
 	def edit
     @product = Product.find(params[:id])
     @user = User.find(current_user.id)
+    @quantity = @product.quantity
   end
 
   def update
     @product = Product.find(params[:user_id])
     @product.update_attributes(product_update_params[:product])
     redirect_to user_product_path(current_user.id)
+  end
+
+  def destroy
+  	@product = Product.find(params[:id])
+  	@product.destroy
+  	redirect_to user_product_path
+  	
   end
 
 	private
