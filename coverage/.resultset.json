@@ -13,7 +13,7 @@
         1,
         null,
         1,
-        0,
+        1,
         null,
         null,
         1,
@@ -33,12 +33,6 @@
         1,
         1,
         1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
         null
       ],
       "/Users/Jessica/C5/projects/betsy/app/models/product.rb": [
@@ -508,6 +502,6 @@
         0
       ]
     },
-    "timestamp": 1462983678
+    "timestamp": 1463004043
   }
 }

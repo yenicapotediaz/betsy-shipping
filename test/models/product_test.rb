@@ -18,7 +18,7 @@ class ProductTest < ActiveSupport::TestCase
   	product1 = Product.new(name: "Sheep Guinea", price: 5)
     product1.save
   	product2 = Product.new(name: "Sheep Guinea", price: 5)
-  	assert !product2.save, "Not unique"
+  	assert !product2.save, "Name not unique"
   	product1.destroy
   	product2.destroy
   end
