@@ -6,5 +6,4 @@ class HomeController < ApplicationController
 		@categories = Product.uniq.pluck(:category)
 		@users = User.all		
 	end
-
 end
