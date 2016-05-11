@@ -16,7 +16,7 @@ class ProductTest < ActiveSupport::TestCase
 
   test "product name must be unique" do
   	product1 = Product.new(name: "Sheep Guinea", price: 5)
-  	product1.save
+    product1.save
   	product2 = Product.new(name: "Sheep Guinea", price: 5)
   	assert !product2.save, "Not unique"
   	product1.destroy
@@ -24,8 +24,12 @@ class ProductTest < ActiveSupport::TestCase
   end
 
   test "product must be instantiated with a price" do
-    assert
-
+    product1 = Product.new(name: "Kitty Cat")
+    assert !product1.save, "No price given"
   end
 
+  test "product must be instantiated with a name" do
+    product1 = Product.new(price: 8)
+    assert !product1.save, "No name given"
+  end
 end
