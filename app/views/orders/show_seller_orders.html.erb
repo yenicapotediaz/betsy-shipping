@@ -26,20 +26,20 @@
       </tr>
     </thead>
     <tbody>
-        <% order_items = Orderitem.where(seller_id: @user.id) %>
+        <!-- <% order_items = Orderitem.where(seller_id: @user.id) %>
         <% orders = order_items.collect(&:order).uniq %>
         <% orders.each do |order| %>
           <% orders = Orderitem.where(order_id: order.id) %>
-          <tr>
-          <% orders.each do |order| %>
+          <tr> -->
+          <!-- <% orders.each do |order| %>
             <td><%= link_to (order.order_id), seller_items_path %></td>
             <td><%= order.product.name %></td>
             <td><%= order.quantity %></td>
             <td>$<%= order.price %>0</td>
             <td>$<%= order.price * order.quantity %>0</td>
-          </tr>
-          <% end %>
-        <% end %>
+          </tr> -->
+          <!-- <% end %>
+        <% end %> -->
     </table>
 
 </body>
