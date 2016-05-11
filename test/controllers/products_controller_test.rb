@@ -1,7 +1,13 @@
 require 'test_helper'
 
 class ProductsControllerTest < ActionController::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  def setup
+    @product = products(:dog_pirate)
+  end
+
+  test "product should have a name" do
+    get :index, animal = @product.name
+  assert_response :success
+  end
+
 end
