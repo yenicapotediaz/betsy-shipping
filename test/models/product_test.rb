@@ -1,20 +1,31 @@
 require 'test_helper'
 
 class ProductTest < ActiveSupport::TestCase
-  test "user can have many products" do
-    assert_includes users(:dog_merchant).products, products(:dog_pirate)
+  test "product belongs to a user" do
+    assert_equal products(:dog_pirate).user, users(:dog_merchant)
   end
 
-  test "display name for Dog Pirate should be Dog Pirate" do
-  	assert_equal "Dog Pirate", products(:dog_pirate).name
+  test "product can have a review" do
+  	assert_includes products(:dog_pirate).reviews, reviews(:dog_pirate_review1)  
   end
 
-  test "display name for Sushi Cat must be unique" do
-  	assert_equal "Sushi Cat", products(:sushi_cat).name
+  test "product can have many reviews" do
+  	assert_includes products(:dog_pirate).reviews, reviews(:dog_pirate_review1)
+  	assert_includes products(:dog_pirate).reviews, reviews(:dog_pirate_review2)  
   end
 
-  test "Price for Sushi Cat should be 200" do
-  	assert_equal 200, products(:sushi_cat).price
+  test "product name must be unique" do
+  	product1 = Product.new(name: "Sheep Guinea", price: 5)
+  	product1.save
+  	product2 = Product.new(name: "Sheep Guinea", price: 5)
+  	assert !product2.save, "Not unique"
+  	product1.destroy
+  	product2.destroy
+  end
+
+  test "product must be instantiated with a price" do
+    assert
+
   end
 
 end
