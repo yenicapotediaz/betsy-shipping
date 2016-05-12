@@ -1,0 +1,29 @@
+<h3>Order # <%= params[:order_id] %></h3>
+
+
+
+<table class="table table-striped" class="table table-hover">
+  <thead>
+    <tr>
+      <th>Item Name</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Total Price</th>
+      <th>Shipped?</th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <% orderitems = @user_orders_hash[(params[:order_id].to_i)] %>
+      <% orderitems.each do |orderitem| %>
+      <% product = Product.find(orderitem.product_id) %>
+      <tr>
+        <td><%= product.name %></td>
+        <td><%= product.price %></td>
+        <td><%= orderitem.quantity %></td>
+        <td><%= orderitem.price %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</body>

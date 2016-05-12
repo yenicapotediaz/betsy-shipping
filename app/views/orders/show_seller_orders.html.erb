@@ -16,6 +16,7 @@
       <tr>
         <th>Order #</th>
         <th>Status</th>
+        <th>View Items</th>
 
       </tr>
     </thead>
@@ -25,9 +26,9 @@
         <tr>
           <td><%= order.id %></td>
           <td><%= order.status %></td>
+          <td><%= link_to "View Order Details", order_deets_path(id: current_user.id, order_id: order.id), class: "btn btn-primary"%></td>
         </tr>
         <% end %>
       </tbody>
     </table>
-<% end %>
 </body>
