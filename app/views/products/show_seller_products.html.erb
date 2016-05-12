@@ -1,4 +1,7 @@
-<h2>Current Products</h2>
+<h1>Current Products</h1>
+<% if @products.empty? %>
+	<h2>You have no products! Add a product to get your store started.</h2>
+<% else %>
 <% @products.each do |product| %>
   <div class="all-products">
 	<div class="favoritepic">
@@ -34,3 +37,4 @@
 	</div>
 
 	<% end %>
+<% end %>
