@@ -31,7 +31,7 @@
 <div class="all-pages">
 	<div class="favoritepic">
 		<% unless product.photo_url.nil? %>
-			<img src="<%= product.photo_url %>">
+    <%= link_to (image_tag product.photo_url), product_path(product.id) %>
 		<% end %><br>
 	</div>
 	<div class="front-description">
