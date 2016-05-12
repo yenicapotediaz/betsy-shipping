@@ -9,13 +9,6 @@ class ProductsController < ApplicationController
 		@product = Product.find(params[:id])
 		@quantity = @product.quantity
 		@quantity_numbers = (1..@quantity).to_a
-		@rating = overall_rating(@product)
-	end
-
-	def overall_rating(product)
-		ratings = product.reviews.collect { |a| a.rating.to_f }
-		overall = ratings.reduce(:+)/ratings.length
-		overall
 	end
 
 	def show_seller_products
@@ -81,7 +74,7 @@ class ProductsController < ApplicationController
   	@product = Product.find(params[:id])
   	@product.destroy
   	redirect_to user_product_path
-  	
+
   end
 
 	private

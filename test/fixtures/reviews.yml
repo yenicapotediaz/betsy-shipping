@@ -9,3 +9,15 @@ dog_pirate_review2:
   rating: 5
   product: dog_pirate
   user_id: 2
+
+item_review3:
+  description: This is definitely an item.
+  rating: 8
+  product: yoda
+  user_id: 7
+
+item_review4:
+  description: another review
+  rating: 4.3
+  product: jockey
+  user_id: 4

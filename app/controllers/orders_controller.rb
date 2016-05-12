@@ -6,9 +6,10 @@ class OrdersController < ApplicationController
   end
 
   def show_seller_orders
-  	@user = User.find(params[:id])
-  	@orders = @user.orders
+  	@user = User.find(current_user.id)
+    @orders = @user.orders
   end
+
 
   def edit
     @order  = Order.find(params[:id])
@@ -25,9 +26,30 @@ class OrdersController < ApplicationController
     if @order.status == "Completed"
       redirect_to order_confirmation_path(@order.id)
     else
-      render :checkout
+      flash[:notice] = "Sorry! An item you wanted is out of stock. Check to see if you have duplicate items in your cart."
+      redirect_to edit_order_path(current_order.id)
     end
   end
+
+
+  def seller_items
+  end
+
+  def checkout
+    @order = current_order
+  end
+
+  def confirmation
+    @order = current_order
+    @orderitems = @order.orderitems
+    session.delete :order_id
+    order = Order.create
+    order.update(status: "Pending")
+    session[:order_id] = order.id
+  end
+
+
+  private
 
   def remove_items_from_stock(items)
     items.each do |item|
@@ -43,33 +65,13 @@ class OrdersController < ApplicationController
     end
   end
 
-  def seller_items
-  end
-
-  def checkout
-    @order = current_order
-  end
-
-  def confirmation
-    # binding.pry
-    @order = current_order
-    @orderitems = @order.orderitems
-    session.delete :order_id
-    order = Order.create
-    order.update(status: "Pending")
-    session[:order_id] = order.id
-  end
-
-
-  private
-
   def orderitem_edit_params
     params.permit(orderitem: [:quantity])
   end
 
   def order_update_params
     params[:order][:credit_card_number] = params[:order][:credit_card_number][-4..-1]
-    params.permit(order: [:name_on_credit_card, :city, :state, :billing_zip,
+    params.permit(order: [:name_on_credit_card, :user_id, :city, :state, :billing_zip,
       :email, :status, :street_address, :credit_card_cvv, :credit_card_number, :credit_card_exp_date])
   end
 

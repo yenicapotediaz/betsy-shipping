@@ -6,13 +6,15 @@ class OrderitemsController < ApplicationController
 
   def create
     @product = Product.find(params[:product_id])
-    @orderitem = current_order.orderitems.create(product: @product, quantity: params[:quantity])
+    @orderitem = current_order.orderitems.create(product: @product, quantity: params[:quantity], seller_id: @product.user_id)
+    @orderitem.update(price: @orderitem.total_price)
     redirect_to edit_order_path(current_order.id)
   end
 
   def update
     @orderitem = Orderitem.find(params[:id])
     if @orderitem.update(orderitem_edit_params[:orderitem])
+      @orderitem.update(price: @orderitem.total_price)
       redirect_to edit_order_path(current_order.id)
     else
       redirect_to root_path
