@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  before_action :require_login, only: [:show_seller_orders]
 
   def show
     @orders = Order.find(current_order.id).orderitems

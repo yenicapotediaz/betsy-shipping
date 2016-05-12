@@ -1,6 +1,6 @@
 <h1> Congratulations! You bought some stuff!</h1>
-
-<h2>Details of Order # <%= @order.id %><br><br>
+<div class="checkout">
+<h2>Details of Order # <%= @order.id %><br></h2>
 Sold To: <%= @order.name_on_credit_card %><br>
 Shipping To:
 <%= @order.street_address %><br>
@@ -15,8 +15,9 @@ Subtotal: $<%= number_with_precision item.total_price , precision: 2%><br><br>
 <% @cart_price += item.total_price %>
 <% end %>
 
-<h2> Total Price of Order: $<%= number_with_precision @cart_price , precision: 2   %></h2>
-<h2> Order Status: <%= @order.status %></h2>
-<h2> Time Order was placed: <%= @order.updated_at %></h2>
+<h3> Total Price of Order: $<%= number_with_precision @cart_price , precision: 2   %></h3>
+<h3> Order Status: <%= @order.status %></h3>
+<h3> Time Order was placed: <%= @order.updated_at %></h3>
 
 <%= link_to "Thanks for Shopping at Petsy!", root_path %>
+</div>

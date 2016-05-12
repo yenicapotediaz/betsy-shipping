@@ -48,6 +48,10 @@ h2.cart {
 	color: #003399;
 }
 
+h2.product-name {
+	margin-left: 5%;
+}
+
 h4 {
 	text-align: center;
 }
@@ -216,6 +220,14 @@ div.flash {
 	width: 80%;
 	border-radius: 20px;
 	margin-left: 10%;
+}
 
+div.review {
+	margin-top: 10%;
+	margin-left: 10%;
+}
 
+.checkout {
+	text-align: center;
+	color: #003399;
 }
