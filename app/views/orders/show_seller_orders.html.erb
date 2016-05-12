@@ -6,7 +6,10 @@
 <br>
 <body>
 
-  <h3>Orders</h3>
+<h2>Orders</h2>
+<% if @orders.empty? %>
+  <h2>You have no orders yet!</h2>
+<% else %>
   	<% @orders.each do |order| %>
       <%= order.id %>
   		<%= order.status %>
@@ -41,5 +44,5 @@
           <!-- <% end %>
         <% end %> -->
     </table>
-
+<% end %>
 </body>
