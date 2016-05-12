@@ -7,39 +7,27 @@
 <body>
 
   <h3>Orders</h3>
-  	<% @orders.each do |order| %>
-      <%= order.id %>
-  		<%= order.status %>
-      <%= order.price %><br>
-  	<% end %>
-  <h3>Revenue</h3>
-  <p>$<%= Orderitem.revenue(@user.id) %>0</p>
+  	<%= @user_orders_hash %>
+
 
   <h3>Orders Containing Your Products</h3>
   <table class="table table-striped" class="table table-hover">
     <thead>
       <tr>
         <th>Order #</th>
-        <th>Item</th>
-        <th>Quantity</th>
-        <th>Item Total</th>
+        <th>Status</th>
+
       </tr>
     </thead>
     <tbody>
-        <!-- <% order_items = Orderitem.where(seller_id: @user.id) %>
-        <% orders = order_items.collect(&:order).uniq %>
-        <% orders.each do |order| %>
-          <% orders = Orderitem.where(order_id: order.id) %>
-          <tr> -->
-          <!-- <% orders.each do |order| %>
-            <td><%= link_to (order.order_id), seller_items_path %></td>
-            <td><%= order.product.name %></td>
-            <td><%= order.quantity %></td>
-            <td>$<%= order.price %>0</td>
-            <td>$<%= order.price * order.quantity %>0</td>
-          </tr> -->
-          <!-- <% end %>
-        <% end %> -->
+        <% @user_orders_hash.each do |key, value| %>
+        <% order = Order.find(key) %>
+        <tr>
+          <td><%= order.id %></td>
+          <td><%= order.status %></td>
+        </tr>
+        <% end %>
+      </tbody>
     </table>
 
 </body>

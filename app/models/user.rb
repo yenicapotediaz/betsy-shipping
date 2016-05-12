@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   has_many :orders
   has_many :products
   has_many :reviews
-
+  has_many :orderitems
 
   validates :username, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true, format: {with: /@/}

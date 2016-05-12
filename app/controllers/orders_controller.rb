@@ -7,8 +7,17 @@ class OrdersController < ApplicationController
 
   def show_seller_orders
   	@user = User.find(current_user.id)
-    @orders = @user.orders
+    @user_items = Orderitem.where(user_id: @user.id)
+    @sorted_orders = Order.all.group_by { |order| order.status }
+    @completed_orders = @sorted_orders["Completed"]
+    @pending_orders = @sorted_orders["Pending"]
+    @user_orders_hash = Orderitem.where(user: current_user).group_by(&:order_id)
+    @sorted_completed_orders = @completed_orders.group_by { |order| order.id }
+
+
   end
+
+
 
 
   def edit
