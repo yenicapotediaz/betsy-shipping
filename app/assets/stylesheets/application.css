@@ -232,3 +232,15 @@ div.review {
 	color: #003399;
 }
 
+div.deets {
+	text-align: center;
+	background-color: rgba(93, 130, 201, .3);
+	border-radius: 10px;
+	display: block;
+	margin: auto;
+	width: 50%;
+}
+
+.purple {
+	color: purple;
+}
