@@ -21,6 +21,14 @@ class OrderitemsController < ApplicationController
     end
   end
 
+  def shipped
+    @orderitem = Orderitem.find(params[:id])
+    @orderitem.shipped = true
+    @orderitem.save
+    redirect_to order_deets_path(id: current_user.id, order_id: @orderitem.order_id)
+    
+  end
+
   def destroy
     @orderitem = Orderitem.find(params[:id])
     @orderitem.destroy

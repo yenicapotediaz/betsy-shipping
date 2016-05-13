@@ -4,17 +4,19 @@
 <%= link_to 'Add a New Product', new_product_path,  class: "store-links" %>
 <%= link_to 'Your Current Products', user_product_path, class: "store-links" %>
 <br>
-<body>
-Total Revenue: $<%= number_with_precision @revenue, precision: 2 %>
+<p>Total Revenue: <%= number_to_currency @revenue %></p>
+<p> Completed Orders Revenue: <%= number_to_currency @completed_revenue %>
+<p>Pending Orders Revenue: <%= number_to_currency @pending_revenue %></p>
+<p>Number of Completed Orders: <%= @completed_count %></p>
+<p>Number of Pending Orders: <%= @pending_count %></p>
+
   <h3>Orders Containing Your Products</h3>
-  <table class="table table-striped" class="table table-hover">
-    <thead>
-      <tr>
+
+  <table class="table table-striped">
+    <thead class="text-center">
         <th>Order #</th>
         <th>Status</th>
         <th>View Items</th>
-
-      </tr>
     </thead>
     <tbody>
         <% @user_orders_hash.each do |key, value| %>
@@ -22,9 +24,13 @@ Total Revenue: $<%= number_with_precision @revenue, precision: 2 %>
         <tr>
           <td><%= order.id %></td>
           <td><%= order.status %></td>
+          <% if order.status == "Completed" %>
+          
           <td><%= link_to "View Order Details", order_deets_path(id: current_user.id, order_id: order.id), class: "btn btn-primary"%></td>
+          <% else %>
+          <td>Not Completed Yet</td>
+          <% end %>
         </tr>
         <% end %>
       </tbody>
-    </table>
-</body>
+  </table>

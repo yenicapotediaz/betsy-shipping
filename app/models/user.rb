@@ -8,7 +8,6 @@ class User < ActiveRecord::Base
 
   validates :username, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true, format: {with: /@/}
-
   def self.log_in(username, password)
     somebody = self.find_by(username: username)
     somebody && somebody.authenticate(password)
@@ -19,7 +18,12 @@ class User < ActiveRecord::Base
   end
 
   def revenue_by_status(status)
-    Orderitem.joins(:order).where("orderitems.user_id = ? and orders.status = ?", u.id, status).sum(:price)
+    Orderitem.joins(:order).where("orderitems.user_id = ? and orders.status = ?", self.id, status).sum(:price)
+  end
+
+  def order_by_status(status)
+    Orderitem.joins(:order).where("orderitems.user_id = ? and orders.status = ?", self.id, status).uniq.pluck(:order_id).count
+
   end
 
 end

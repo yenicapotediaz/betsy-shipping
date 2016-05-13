@@ -1,4 +1,7 @@
 <h1>Current Products</h1>
+<%= link_to 'Add a New Product', new_product_path,  class: "store-links" %>
+<%= link_to 'Your Current Products', user_product_path, class: "store-links" %>
+<br>
 <% if @products.empty? %>
 	<h2>You have no products! Add a product to get your store started.</h2>
 <% else %>
