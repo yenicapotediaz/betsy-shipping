@@ -3,7 +3,7 @@ dog_pirate:
   name: Dog Pirate
   price: 12
   quantity: 9
-  rating: 4
+  rating: 0
   category: pirate
   photo_url: http://www.dog-pirate.com
   status: Pending
