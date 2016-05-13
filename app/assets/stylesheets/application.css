@@ -244,3 +244,8 @@ div.deets {
 .purple {
 	color: purple;
 }
+
+div.order {
+	margin-left: 5%;
+	margin-right: 5%;
+}
