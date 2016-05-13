@@ -24,7 +24,12 @@
         <tr>
           <td><%= order.id %></td>
           <td><%= order.status %></td>
+          <% if order.status == "Completed" %>
+          
           <td><%= link_to "View Order Details", order_deets_path(id: current_user.id, order_id: order.id), class: "btn btn-primary"%></td>
+          <% else %>
+          <td>Not Completed Yet</td>
+          <% end %>
         </tr>
         <% end %>
       </tbody>

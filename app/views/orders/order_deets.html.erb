@@ -20,6 +20,11 @@
         <td><%= product.price %></td>
         <td><%= orderitem.quantity %></td>
         <td><%= orderitem.price %></td>
+        <% if orderitem.shipped == true %>
+           <td>ITEM SHIPPED</td>
+          <% else %>
+        <td><%= link_to "Ship it!", shipped_path(orderitem.id), method: :patch, class: "btn btn-warning" %></td>
+        <% end %>
       </tr>
       <% end %>
     </tbody>

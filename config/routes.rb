@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   resources :orderitems
 
   get 'orders/order_fulfillment' => 'orders#index', as: 'order_fulfillment'
-
+  patch '/orderitems/:id/shipped' => 'orderitems#shipped', as: 'shipped'
 
   resources :sessions, :only => [:new, :create]
   get "/logout" => "sessions#destroy"
