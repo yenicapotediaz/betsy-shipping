@@ -6,12 +6,12 @@ class ProductTest < ActiveSupport::TestCase
   end
 
   test "product can have a review" do
-  	assert_includes products(:dog_pirate).reviews, reviews(:dog_pirate_review1)  
+  	assert_includes products(:dog_pirate).reviews, reviews(:dog_pirate_review1)
   end
 
   test "product can have many reviews" do
   	assert_includes products(:dog_pirate).reviews, reviews(:dog_pirate_review1)
-  	assert_includes products(:dog_pirate).reviews, reviews(:dog_pirate_review2)  
+  	assert_includes products(:dog_pirate).reviews, reviews(:dog_pirate_review2)
   end
 
   test "product name must be unique" do
@@ -21,6 +21,12 @@ class ProductTest < ActiveSupport::TestCase
   	assert !product2.save, "Name not unique"
   	product1.destroy
   	product2.destroy
+  end
+
+  test 'product rating will update as new ratingss are made with reviews' do
+    dog = products(:dog_pirate)
+    dog.update_rating
+    assert_equal 4, dog.rating
   end
 
   test "product must be instantiated with a price" do
