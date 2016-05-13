@@ -1,45 +1,46 @@
 <h2 class="product-name"><%= @product.name %></h2>
 <div class="row">
-<div class="col-md-6 col-xs-12">
-<div class="product">
-  <%= link_to (image_tag @product.photo_url), product_path(@product.id) %>
-</div>
-<div class="review">
-    <p><strong>Reviews:</strong><br></p>
-    <% @product.reviews.each do |review| %>
+  <div class="col-md-6 col-xs-12">
+    <div class="product">
+      <%= link_to (image_tag @product.photo_url), product_path(@product.id) %>
+    </div>
+    <div class="review">
+      <p><strong>Reviews:</strong><br></p>
+      <% @product.reviews.each do |review| %>
       <% unless review.user_id.nil? %>
-        <p>Reviewed By: <%= User.find(review.user_id).full_name %></p>
-        <% end %>
-        <p>Review Date: <%= review.created_at.strftime("%m/%d/%Y at %I:%M%p") %></p>
-        <p>Rating: <%= review.rating %>/5</p>
-        <span class="review-description"><p><%= review.description %></p></span>
-        <br>
-    <% end %>
-   </div>
-</div>
-<div class="col-md-6 col-xs-12">
-<div class="rating-description">
-  <h3 class="description"><%= @product.description %></h3>
-    <hr>
-  $<%= number_with_precision @product.price, precision: 2 %>
+      <p>Reviewed By: <%= User.find(review.user_id).full_name %></p>
+      <% end %>
+      <p>Review Date: <%= review.created_at.strftime("%m/%d/%Y at %I:%M%p") %></p>
+      <p>Rating: <%= review.rating %>/5</p>
+      <span class="review-description"><p><%= review.description %></p></span>
+      <br>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-md-6 col-xs-12">
+    <div class="rating-description">
+      <h3 class="description"><%= @product.description %></h3>
+      <hr>
+      $<%= number_with_precision @product.price, precision: 2 %>
 
-  <%= form_tag '/orderitems' do  %>
-    <%= hidden_field_tag :product_id, @product.id %> <br>
-    <%= select_tag :quantity, options_for_select(@quantity_numbers) %><br>
-    <% if @product.quantity == 0 %>
-    <p class=retired-empty>OUT OF STOCK!</p>
-  <% else %>
-    <p class="order-quantity"><%= @product.quantity %> Available!</p>
-  <%= submit_tag "Add to Cart", class: 'btn btn-primary' %><br>
-  <% end %>
-  <% end %>
-  <br>
-  <p><%= link_to "Write a Review", new_review_path, class: "btn btn-primary" %></p></h2>
+      <%= form_tag '/orderitems' do  %>
+      <%= hidden_field_tag :product_id, @product.id %> <br>
+      <%= select_tag :quantity, options_for_select(@quantity_numbers) %><br>
+      <% if @product.quantity == 0 %>
+      <p class=retired-empty>OUT OF STOCK!</p>
+      <% else %>
+      <p class="order-quantity"><%= @product.quantity %> Available!</p>
+      <%= submit_tag "Add to Cart", class: 'btn btn-primary' %><br>
+      <% end %>
+      <% end %>
+      <br>
+      <p><%= link_to "Write a Review", new_review_path, class: "btn btn-primary" %></p></h2>
 
 
-    <p><strong>Overall Rating: </strong> <%= number_with_precision @product.rating , precision: 1 %> / 5 </p>
+      <p><strong>Overall Rating: </strong> <%= number_with_precision @product.rating , precision: 1 %> / 5 </p>
 
-</div>
+    </div>
+  </div>
 </div>
 
 
