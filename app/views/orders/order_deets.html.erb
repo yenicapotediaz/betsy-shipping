@@ -29,14 +29,16 @@
       <% end %>
     </tbody>
   </table>
-  <h2>Details of Order # <%= @order.id %><br></h2>
-Sold To: <%= @order.name_on_credit_card %><br>
-Email Address: <%= @order.email %><br>
-Shipping To:<br>
-<%= @order.street_address %><br>
-<%= @order.city %><br>
-<%= @order.state %>, <%= @order.billing_zip %><br>
-Credit Card : **** **** **** **** <%= @order.credit_card_number %><br>
-Credit Card Exp. Date: <%= @order.credit_card_exp_date.strftime("%m/%Y") %><br>
- Time Order was placed: <%= @order.updated_at %>
-</body>
+  <div class="deets">
+    <h2 class="purple">Order Details<br></h2>
+    <p class="purple">Sold To: <%= @order.name_on_credit_card %><br></p>
+    <p class="purple">Email Address: <%= @order.email %><br></p>
+    <p class="purple">Shipping To:<br></p>
+    <%= @order.street_address %><br>
+    <%= @order.city %><br>
+    <%= @order.state %>, <%= @order.billing_zip %><br>
+    <p class="purple">Credit Card : **** **** **** **** <%= @order.credit_card_number %><br></p>
+    <p class="purple">Credit Card Exp. Date: <%= @order.credit_card_exp_date.strftime("%m/%Y") %><br></p>
+     Time Order was placed: <%= @order.updated_at.strftime("%b %e, %Y at %l:%M %P") %>
+   </div>
+    </body>
