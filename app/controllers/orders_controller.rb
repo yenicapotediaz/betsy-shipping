@@ -12,7 +12,8 @@ class OrdersController < ApplicationController
     @completed_orders = @sorted_orders["Completed"]
     @pending_orders = @sorted_orders["Pending"]
     @user_orders_hash = Orderitem.where(user: current_user).group_by(&:order_id)
-    @sorted_completed_orders = @completed_orders.group_by { |order| order.id }
+    @sorted_orders_hash = Order.where(user: current_user).order(:status)
+    @revenue = @user.revenue
   end
 
   def order_deets

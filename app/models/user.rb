@@ -14,4 +14,12 @@ class User < ActiveRecord::Base
     somebody && somebody.authenticate(password)
   end
 
+  def revenue
+    Orderitem.where(user: self.id).sum(:price)
+  end
+
+  def revenue_by_status(status)
+    Orderitem.joins(:order).where("orderitems.user_id = ? and orders.status = ?", u.id, status).sum(:price)
+  end
+
 end

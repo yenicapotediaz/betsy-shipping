@@ -4,11 +4,11 @@ first_orderitem:
   price: 24
   order: first_order
   product: dog_pirate
-  seller_id: 1
+  user_id: 1
 
 second_orderitem:
   quantity: 4
   price: 800
   order: first_order
   product: sushi_cat
-  seller_id: 1
+  user_id: 1

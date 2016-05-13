@@ -5,11 +5,7 @@
 <%= link_to 'Your Current Products', user_product_path, class: "store-links" %>
 <br>
 <body>
-
-
-  <h3>Orders</h3>
-  	<%= @user_orders_hash %>
-
+Total Revenue: $<%= number_with_precision @revenue, precision: 2 %>
   <h3>Orders Containing Your Products</h3>
   <table class="table table-striped" class="table table-hover">
     <thead>
