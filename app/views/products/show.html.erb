@@ -5,16 +5,18 @@
       <%= link_to (image_tag @product.photo_url), product_path(@product.id) %>
     </div>
     <div class="review">
-      <p><strong>Reviews:</strong><br></p>
-      <% @product.reviews.each do |review| %>
-      <% unless review.user_id.nil? %>
-      <p>Reviewed By: <%= User.find(review.user_id).full_name %></p>
-      <% end %>
-      <p>Review Date: <%= review.created_at.strftime("%m/%d/%Y at %I:%M%p") %></p>
-      <p>Rating: <%= review.rating %>/5</p>
-      <span class="review-description"><p><%= review.description %></p></span>
-      <br>
-      <% end %>
+      <% if @product.rating %>
+        <p><strong>Reviews:</strong><br></p>
+        <% @product.reviews.each do |review| %>
+        <% unless review.user_id.nil? %>
+        <p>Reviewed By: <%= User.find(review.user_id).full_name %></p>
+        <% end %>
+        <p>Review Date: <%= review.created_at.strftime("%m/%d/%Y at %I:%M%p") %></p>
+        <p>Rating: <%= review.rating %>/5</p>
+        <span class="review-description"><p><%= review.description %></p></span>
+        <br>
+        <% end %>
+        <% end %>
     </div>
   </div>
   <div class="col-md-6 col-xs-12">
@@ -36,11 +38,9 @@
       <br>
       <p><%= link_to "Write a Review", new_review_path, class: "btn btn-primary" %></p></h2>
 
-
+      <% if @product.rating %>
       <p><strong>Overall Rating: </strong> <%= number_with_precision @product.rating , precision: 1 %> / 5 </p>
-
+      <% end %>
     </div>
   </div>
 </div>
-
-
