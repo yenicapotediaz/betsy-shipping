@@ -23,7 +23,6 @@ class User < ActiveRecord::Base
 
   def order_by_status(status)
     Orderitem.joins(:order).where("orderitems.user_id = ? and orders.status = ?", self.id, status).uniq.pluck(:order_id).count
-
   end
 
 end

@@ -1,7 +1,7 @@
 
 first_order:
-  status: pending
-  price: 5
+  status: Completed
+  price: 824
   user: dog_merchant
   email: user@user.com
   street_address: 128 Petsy Blvd

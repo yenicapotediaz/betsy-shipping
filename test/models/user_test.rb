@@ -42,4 +42,18 @@ class UserTest < ActiveSupport::TestCase
     assert_includes users(:cat_merchant).orders, orders(:second_order)
   end
 
+  test "total revenue for an order should calculate" do 
+    user = users(:dog_merchant)
+    assert_equal 824, user.revenue
+  end
+
+  test "total revenue for completed orders should caluclate" do 
+    user = users(:dog_merchant)
+    assert_equal 824, user.revenue_by_status("Completed")
+  end
+
+  test "total revenue for pending orders should caluclate" do 
+    user = users(:dog_merchant)
+    assert_equal 0, user.revenue_by_status("Pending")
+  end
 end
