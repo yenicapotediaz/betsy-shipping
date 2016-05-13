@@ -35,7 +35,18 @@ Product.create(name: "Sheepy", quantity: 20, description: "Baaaahhh. Tiny sheep.
 photo_url: "http://www.fuzzytoday.com/wp-content/uploads/2014/04/10173656_706647296068039_5966309383389001510_n.jpg")
 Product.create(name: "Dewback", quantity: 6, description: "Straight from Tatooine.", price: 52, user_id: 4, animal: "Dog", category: "Star Wars",
 photo_url: "http://www.officialstarwarscostumes.com/~/media/products/oc/star-wars-costumes/kids-star-wars-costumes/99886582-dewback-pet-costume-pet-star-wars-costumes-000.ashx?&w=600&h=600&bc=FFFFFF")
-
+Product.create(name: "Octopus Cat", description: "Purple Catapus", quantity: 8, price: 6, user_id: 2, animal: "Cat", category: "Animal", photo_url: "https://s-media-cache-ak0.pinimg.com/236x/26/8b/5f/268b5f4ec59098edbb5233f7aceec4c1.jpg")
+Product.create(name: "Ballerina Guinea", description: "Do a twirl!", quantity: 4, price: 3, user_id: 4, animal: "Guinea Pig", category: "Misc", photo_url: "http://petus.imageg.net/PETNA_36/pimg/pPETNA-5237935_main_t300x300.jpg")
+Product.create(name: "Bantha Pup", description: "Carrying the sand people", quantity: 5, price: 80, user_id: 5, animal: "Dog", category: "Star Wars", photo_url: "http://images.halloweencostumes.com/products/14360/1-1/bantha-pet-costume.jpg")
+Product.create(name: "Mermaid Kitty Cat", description: "Like the fishies in the sea", quantity: 3, price: 15, user_id: 4, animal: "Cat", category: "Misc", photo_url: "https://allergicpet.files.wordpress.com/2013/10/800443182352cs1.jpg")
+Product.create(name: "T-Rex Doggy", description: "RAAWWWR TINY ARMS", quantity: 9, price: 18, user_id: 5, animal: "Dog", category: "Animal", photo_url: "http://ecx.images-amazon.com/images/I/91gA22a8aVL._SX522_.jpg")
+Product.create(name: "Arf-2 D-2", description: "Beep beeeep beep", quantity: 6, price: 50, animal: "Dog", category: "Star Wars", photo_url: "http://ecx.images-amazon.com/images/I/41yXoIPBXPL._AC_UL320_SR232,320_.jpg")
+Product.create(name: "Imperial Walker", description: "Armored and ready", quantity: 10, price: 32, animal: "Dog", category: "Star Wars", photo_url: "http://cdn.earthporm.com/wp-content/uploads/2014/10/pet-halloween-costume-361__605.jpg")
+Product.create(name: "Minion", description: "Butt", quantity: 5, price: 11, animal: "Dog", category: "Misc", photo_url: "http://media2.s-nbcnews.com/j/newscms/2015_38/785541/party_city_minion_756c437715c409cfdf0dbf4149c9449d.today-inline-large.jpeg")
+Product.create(name: "Rodeo Dog", description: "Yeehaw!", quantity: 7, price: 33, animal: "Dog", category: "Misc", photo_url: "http://shutupandtakemymoney.com/wp-content/uploads/2012/08/dog-rodeo-costume.jpg")
+Product.create(name: "Freddy Krueger Guinea", description: "Nightmare on Piggy Street", quantity: 8, price: 33, animal: "Guinea Pig", category: "Holiday", photo_url: "https://wagsandwhiskershouston.files.wordpress.com/2014/10/freddy-guinea.png?w=300&h=223")
+Product.create(name: "Baked Potato", description: "Butter pat included", animal: "Guinea Pig", category: "Food", quantity: 22, price: 400, photo_url: "http://mydisguises.com/wp-content/uploads/2012/06/VSiOB.jpg")
+Product.create(name: "Bunny Guinea", description: "Will hop into your ❤️", animal: "Guinea Pig", category: "Animal", quantity: 12, price: 42, photo_url: "http://petus.imageg.net/PETNA_36/pimg/pPETNA-5246083_main_r200.jpg")
 
 Review.create(rating: 1, description: 'Amazing!', product_id: 1)
 Review.create(rating: 2, description: 'Wonderful', product_id: 1)
@@ -56,6 +67,18 @@ Review.create(rating: 4, description: 'Nope.', product_id: 11)
 Review.create(rating: 4, description: 'Cute.', product_id: 11)
 Review.create(rating: 4, description: 'I LOVE IT.', product_id: 12)
 Review.create(rating: 4, description: 'Fit perfectly.', product_id: 13)
+Review.create(rating: 3, description: "Funky cool", product_id: 14)
+Review.create(rating: 5, description: "My guinea pig is so cute running around squeaking in this", product_id: 15)
+Review.create(rating: 5, description: "Epic", product_id: 16)
+Review.create(rating: 3, description: "So sparkly", product_id: 17)
+Review.create(rating: 3, description: "The arms are so funny!", product_id: 18)
+Review.create(rating: 5, description: "Needs C3PO!", product_id: 19)
+Review.create(rating: 4, description: "So large!", product_id: 20)
+Review.create(rating: 4, description: "HAHAHA BUTT", product_id: 21)
+Review.create(rating: 3, description: "This is weird.", product_id: 22)
+Review.create(rating: 2, description: "This scares my kids.", product_id: 23)
+Review.create(rating: 1, description: "WTF ARE YOU SELLING?", product_id: 24)
+Review.create(rating: 5, description: "So cute and fluffy!", product_id: 25)
 
 @products = Product.all
 @products.each do |product|
