@@ -1,7 +1,5 @@
 <h3>Order # <%= params[:order_id] %></h3>
 
-
-
 <table class="table table-striped" class="table table-hover">
   <thead>
     <tr>
@@ -18,7 +16,7 @@
       <% orderitems.each do |orderitem| %>
       <% product = Product.find(orderitem.product_id) %>
       <tr>
-        <td><%= product.name %></td>
+        <td><%= link_to product.name, product_path(product.id) %></td>
         <td><%= product.price %></td>
         <td><%= orderitem.quantity %></td>
         <td><%= orderitem.price %></td>
@@ -26,4 +24,14 @@
       <% end %>
     </tbody>
   </table>
+  <h2>Details of Order # <%= @order.id %><br></h2>
+Sold To: <%= @order.name_on_credit_card %><br>
+Email Address: <%= @order.email %><br>
+Shipping To:<br>
+<%= @order.street_address %><br>
+<%= @order.city %><br>
+<%= @order.state %>, <%= @order.billing_zip %><br>
+Credit Card : **** **** **** **** <%= @order.credit_card_number %><br>
+Credit Card Exp. Date: <%= @order.credit_card_exp_date.strftime("%m/%Y") %><br>
+ Time Order was placed: <%= @order.updated_at %>
 </body>

@@ -4,7 +4,12 @@
 <%= link_to 'Add a New Product', new_product_path,  class: "store-links" %>
 <%= link_to 'Your Current Products', user_product_path, class: "store-links" %>
 <br>
-<p>Total Revenue: $<%= number_with_precision @revenue, precision: 2 %></p>
+<p>Total Revenue: <%= number_to_currency @revenue %></p>
+<p> Completed Orders Revenue: <%= number_to_currency @completed_revenue %>
+<p>Pending Orders Revenue: <%= number_to_currency @pending_revenue %></p>
+<p>Number of Completed Orders: <%= @completed_count %></p>
+<p>Number of Pending Orders: <%= @pending_count %></p>
+
   <h3>Orders Containing Your Products</h3>
 
   <table class="table table-striped">

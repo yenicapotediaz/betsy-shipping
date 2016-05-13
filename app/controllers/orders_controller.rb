@@ -7,17 +7,22 @@ class OrdersController < ApplicationController
 
   def show_seller_orders
   	@user = User.find(current_user.id)
-    @user_items = Orderitem.where(user_id: @user.id)
-    @sorted_orders = Order.all.group_by { |order| order.status }
-    @completed_orders = @sorted_orders["Completed"]
-    @pending_orders = @sorted_orders["Pending"]
+    # @user_items = Orderitem.where(user_id: @user.id)
+    # @sorted_orders = Order.all.group_by { |order| order.status }
+    # @completed_orders = @sorted_orders["Completed"]
+    # @pending_orders = @sorted_orders["Pending"]
     @user_orders_hash = Orderitem.where(user: current_user).group_by(&:order_id)
-    @sorted_orders_hash = Order.where(user: current_user).order(:status)
     @revenue = @user.revenue
+    @completed_revenue = @user.revenue_by_status("Completed")
+    @pending_revenue = @user.revenue_by_status("Pending")
+    @completed_count = @user.order_by_status("Completed")
+    @pending_count = @user.order_by_status("Pending")
+
   end
 
   def order_deets
     @user_orders_hash = Orderitem.where(user: current_user).group_by(&:order_id)
+    @order = Order.find(params[:order_id])
   end
 
 
