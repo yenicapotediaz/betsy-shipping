@@ -56,4 +56,9 @@ class UserTest < ActiveSupport::TestCase
     user = users(:dog_merchant)
     assert_equal 0, user.revenue_by_status("Pending")
   end
+
+  test "order by user should return one completed order" do 
+    user = users(:dog_merchant)
+    assert_equal 1, user.order_by_status("Completed")
+  end
 end
