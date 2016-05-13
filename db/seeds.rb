@@ -1,6 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-
 User.create(full_name: "Jess")
 User.create(full_name: "Alysia")
 User.create(full_name: "Deirdre")
@@ -11,16 +8,12 @@ Product.create(name: 'Hot Dog', quantity: 5, description: "Hot diggity dog. Must
 photo_url: "http://ecx.images-amazon.com/images/I/41qN0y-0FFL._SY300_.jpg", user_id: 2, animal: 'Dog', category: "Food")
 Product.create(name: "Arrr Matey", quantity: 4, description: "Whar be me treasure buried?", price: 20, user_id: 5, animal: 'Dog', category: "Misc",
 photo_url: "http://s2.thisnext.com/media/largest_dimension/A1684071.jpg")
-# Product.create(name: "Alligator", price: 1, user_id: 1, animal: 'Dog', category: "Animal",
-# photo_url: "http://cdn1-www.dogtime.com/assets/uploads/gallery/cool-halloween-costumes/dog-halloween-costume-eaten_by_alligator.jpg")
 Product.create(name: "Alligator", quantity: 8, description: "Too cute to take a bite outta anyone!", price: 1, user_id: 1, animal: 'Dog', category: "Animal",
 photo_url: "http://pixel.brit.co/wp-content/uploads/2014/10/72-Gator-RADLAB.jpg")
 Product.create(name: "Knight Guinea Pig", quantity: 13, description: "Standing guard!", price: 56, user_id: 3, animal: "Guinea Pig", category: "Misc",
 photo_url: "http://www.thesundaytimes.co.uk/sto/multimedia/dynamic/00358/stg28minmagcheatshe_358537k.jpg")
 Product.create(name: "St Patricks Dog", quantity: 9, description: "Lucky 🍀 Dog.", price: 94, user_id: 4, animal: "Dog", category: "Holiday",
 photo_url: "https://s-media-cache-ak0.pinimg.com/736x/65/82/48/65824840727b14eb271524e4db3a69b0.jpg")
-# Product.create(name: "Ewok dog", price: 6, user_id: 2, animal: "Dog", category: "Star Wars",
-# photo_url: "https://s-media-cache-ak0.pinimg.com/736x/86/bb/c0/86bbc0780b0d655924868ed0b858d7d6.jpg")
 Product.create(name: "Yoda Pup", quantity: 3, description: "Use the force, you will.", price: 10, user_id: 1, animal: "Dog", category: "Star Wars", photo_url: "http://thissortofthing.com/storage/yoda_dog_costume.jpg?__SQUARESPACE_CACHEVERSION=1377883510952")
 Product.create(name: "Sushi Roll Cat", quantity: 7, description: "Wrapped up in cute. ", price: 14, user_id: 4, animal: "Cat", category: "Food", photo_url: "https://s-media-cache-ak0.pinimg.com/736x/10/a8/69/10a869497c6bc793ecfcbf3e0b842886.jpg")
 Product.create(name: "RAWR", quantity: 8, description: "Big roar, much cute.", price: 30, user_id: 3, animal: "Dog", category: "Animal",
@@ -40,13 +33,13 @@ Product.create(name: "Ballerina Guinea", description: "Do a twirl!", quantity: 4
 Product.create(name: "Bantha Pup", description: "Carrying the sand people", quantity: 5, price: 80, user_id: 5, animal: "Dog", category: "Star Wars", photo_url: "http://images.halloweencostumes.com/products/14360/1-1/bantha-pet-costume.jpg")
 Product.create(name: "Mermaid Kitty Cat", description: "Like the fishies in the sea", quantity: 3, price: 15, user_id: 4, animal: "Cat", category: "Misc", photo_url: "https://allergicpet.files.wordpress.com/2013/10/800443182352cs1.jpg")
 Product.create(name: "T-Rex Doggy", description: "RAAWWWR TINY ARMS", quantity: 9, price: 18, user_id: 5, animal: "Dog", category: "Animal", photo_url: "http://ecx.images-amazon.com/images/I/91gA22a8aVL._SX522_.jpg")
-Product.create(name: "Arf-2 D-2", description: "Beep beeeep beep", quantity: 6, price: 50, animal: "Dog", category: "Star Wars", photo_url: "http://ecx.images-amazon.com/images/I/41yXoIPBXPL._AC_UL320_SR232,320_.jpg")
-Product.create(name: "Imperial Walker", description: "Armored and ready", quantity: 10, price: 32, animal: "Dog", category: "Star Wars", photo_url: "http://cdn.earthporm.com/wp-content/uploads/2014/10/pet-halloween-costume-361__605.jpg")
-Product.create(name: "Minion", description: "Butt", quantity: 5, price: 11, animal: "Dog", category: "Misc", photo_url: "http://media2.s-nbcnews.com/j/newscms/2015_38/785541/party_city_minion_756c437715c409cfdf0dbf4149c9449d.today-inline-large.jpeg")
-Product.create(name: "Rodeo Dog", description: "Yeehaw!", quantity: 7, price: 33, animal: "Dog", category: "Misc", photo_url: "http://shutupandtakemymoney.com/wp-content/uploads/2012/08/dog-rodeo-costume.jpg")
-Product.create(name: "Freddy Krueger Guinea", description: "Nightmare on Piggy Street", quantity: 8, price: 33, animal: "Guinea Pig", category: "Holiday", photo_url: "https://wagsandwhiskershouston.files.wordpress.com/2014/10/freddy-guinea.png?w=300&h=223")
-Product.create(name: "Baked Potato", description: "Butter pat included", animal: "Guinea Pig", category: "Food", quantity: 22, price: 400, photo_url: "http://mydisguises.com/wp-content/uploads/2012/06/VSiOB.jpg")
-Product.create(name: "Bunny Guinea", description: "Will hop into your ❤️", animal: "Guinea Pig", category: "Animal", quantity: 12, price: 42, photo_url: "http://petus.imageg.net/PETNA_36/pimg/pPETNA-5246083_main_r200.jpg")
+Product.create(name: "Arf-2 D-2", description: "Beep beeeep beep", quantity: 6, price: 50, user_id: 3, animal: "Dog", category: "Star Wars", photo_url: "http://ecx.images-amazon.com/images/I/41yXoIPBXPL._AC_UL320_SR232,320_.jpg")
+Product.create(name: "Imperial Walker", description: "Armored and ready", quantity: 10, user_id: 1, price: 32, animal: "Dog", category: "Star Wars", photo_url: "http://cdn.earthporm.com/wp-content/uploads/2014/10/pet-halloween-costume-361__605.jpg")
+Product.create(name: "Minion", description: "Butt", quantity: 5, price: 11, animal: "Dog", user_id: 5, category: "Misc", photo_url: "http://media2.s-nbcnews.com/j/newscms/2015_38/785541/party_city_minion_756c437715c409cfdf0dbf4149c9449d.today-inline-large.jpeg")
+Product.create(name: "Rodeo Dog", description: "Yeehaw!", quantity: 7, price: 33, animal: "Dog", user_id: 2, category: "Misc", photo_url: "http://shutupandtakemymoney.com/wp-content/uploads/2012/08/dog-rodeo-costume.jpg")
+Product.create(name: "Freddy Krueger Guinea", description: "Nightmare on Piggy Street", quantity: 8, user_id: 4, price: 33, animal: "Guinea Pig", category: "Holiday", photo_url: "https://wagsandwhiskershouston.files.wordpress.com/2014/10/freddy-guinea.png?w=300&h=223")
+Product.create(name: "Baked Potato", description: "Butter pat included", animal: "Guinea Pig", user_id: 3, category: "Food", quantity: 22, price: 400, photo_url: "http://mydisguises.com/wp-content/uploads/2012/06/VSiOB.jpg")
+Product.create(name: "Bunny Guinea", description: "Will hop into your ❤️", animal: "Guinea Pig", user_id: 4, category: "Animal", quantity: 12, price: 42, photo_url: "http://petus.imageg.net/PETNA_36/pimg/pPETNA-5246083_main_r200.jpg")
 
 Review.create(rating: 1, description: 'Amazing!', product_id: 1)
 Review.create(rating: 2, description: 'Wonderful', product_id: 1)
