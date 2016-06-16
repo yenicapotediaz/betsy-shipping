@@ -8,11 +8,10 @@
 		<% end %><br>
 </div>
 	<br>
-	<%= product.description %><br>
-	$<%= number_with_precision product.price, precision: 2 %>
 
 	<%= form_tag '/orderitems' do  %>
-		<%= link_to product.name, product_path(product.id) %>
+		<%= link_to product.name, product_path(product.id) %><br>
+		$<%= number_with_precision product.price, precision: 2 %>
 		<%= hidden_field_tag :product_id, product.id %> <br>
 		<%= select_tag :quantity, options_for_select(1..product.quantity) %><br>
     <% if product.quantity == 0 %>

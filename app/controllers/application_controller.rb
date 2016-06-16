@@ -20,8 +20,6 @@ class ApplicationController < ActionController::Base
     order
   end
 
-
-
   def require_login
     if current_user.nil?
       flash[:error] = "You must be logged in to view this section"

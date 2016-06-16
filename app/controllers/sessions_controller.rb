@@ -4,9 +4,9 @@ class SessionsController < ApplicationController
 
   def create
     user = User.log_in(params[:username], params[:password])
-    order = Order.create
-    order.update(status: "Pending")
-    session[:order_id] = order.id
+    # order = Order.create
+    # order.update(status: "Pending")
+    # session[:order_id] = order.id
     if user
       session[:user_id] = user.id
       redirect_to root_path

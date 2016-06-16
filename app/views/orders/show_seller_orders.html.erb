@@ -1,14 +1,15 @@
-
-<h1>Welcome to your store, <%= @user.full_name %>!</h1>
-<br>
-<%= link_to 'Add a New Product', new_product_path,  class: "store-links" %>
-<%= link_to 'Your Current Products', user_product_path, class: "store-links" %>
-<br>
-<p>Total Revenue: <%= number_to_currency @revenue %></p>
-<p> Completed Orders Revenue: <%= number_to_currency @completed_revenue %>
-<p>Pending Orders Revenue: <%= number_to_currency @pending_revenue %></p>
-<p>Number of Completed Orders: <%= @completed_count %></p>
-<p>Number of Pending Orders: <%= @pending_count %></p>
+<div class="order">
+  <h1>Welcome to your store, <%= @user.full_name %>!</h1>
+  <br>
+  <%= link_to 'Add a New Product', new_product_path,  class: "store-links" %>
+  <%= link_to 'Your Current Products', user_product_path, class: "store-links" %>
+  <br>
+  <br>
+  <p>Total Revenue: <%= number_to_currency @revenue %></p>
+  <p>Completed Orders Revenue: <%= number_to_currency @completed_revenue %>
+  <p>Pending Orders Revenue: <%= number_to_currency @pending_revenue %></p>
+  <p>Number of Completed Orders: <%= @completed_count %></p>
+  <p>Number of Pending Orders: <%= @pending_count %></p>
 
   <h3>Orders Containing Your Products</h3>
 
@@ -25,7 +26,7 @@
           <td><%= order.id %></td>
           <td><%= order.status %></td>
           <% if order.status == "Completed" %>
-          
+
           <td><%= link_to "View Order Details", order_deets_path(id: current_user.id, order_id: order.id), class: "btn btn-primary"%></td>
           <% else %>
           <td>Not Completed Yet</td>
@@ -34,3 +35,4 @@
         <% end %>
       </tbody>
   </table>
+</div>

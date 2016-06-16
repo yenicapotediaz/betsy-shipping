@@ -2,7 +2,7 @@ class ReviewsController < ApplicationController
 
   def new
     @product = Product.find(params[:id])
-    if @product.user_id == current_user.id
+    if current_user && @product.user_id == current_user.id
       redirect_to product_path(@product.id), alert: "You can't review your own product."
     end
 
