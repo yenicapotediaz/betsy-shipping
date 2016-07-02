@@ -1,1 +1,2 @@
-
+module OrdersHelper
+end
