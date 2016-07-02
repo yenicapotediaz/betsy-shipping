@@ -1,5 +1,5 @@
 module OrderHelper
- df us_states
+ def us_states
  [  ['AK', 'AK'],
   ['AL', 'AL'],
   ['AR', 'AR'],
@@ -52,3 +52,5 @@ module OrderHelper
   ['WV', 'WV'],
   ['WY', 'WY']
  ]
+end
+end
