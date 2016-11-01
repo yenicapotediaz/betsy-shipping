@@ -16,6 +16,8 @@
 !/log/.keep
 /tmp
 
+# Ignore simplecov files
+/coverage
 
 # From https://github.com/github/gitignore/blob/master/Global/macOS.gitignore
 *.DS_Store
