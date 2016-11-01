@@ -1,8 +1,8 @@
-User.create(full_name: "Jess")
-User.create(full_name: "Alysia")
-User.create(full_name: "Deirdre")
-User.create(full_name: "Llama")
-User.create(full_name: "Puppy Party")
+User.create(provider: "developer", uid: "jess@example.com", email: "jess@example.com", username: "Jess", full_name: "Jess")
+User.create(provider: "developer", uid: "alysia@example.com", email: "alysia@example.com", username: "Alysia", full_name: "Alysia")
+User.create(provider: "developer", uid: "deirdre@example.com", email: "deirdre@example.com", username: "Deirdre", full_name: "Deirdre")
+User.create(provider: "developer", uid: "llama@example.com", email: "llama@example.com", username: "Llama", full_name: "Llama")
+User.create(provider: "developer", uid: "puppy.party@example.com", email: "puppy.party@example.com", username: "Puppy Party", full_name: "Puppy Party")
 
 Product.create(name: 'Hot Dog', quantity: 5, description: "Hot diggity dog. Mustard too!", price: 15,
 photo_url: "http://ecx.images-amazon.com/images/I/41qN0y-0FFL._SY300_.jpg", user_id: 2, animal: 'Dog', category: "Food")
