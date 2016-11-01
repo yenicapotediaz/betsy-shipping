@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
     Orderitem.joins(:order).where("orderitems.user_id = ? and orders.status = ?", self.id, status).uniq.pluck(:order_id).count
   end
 
-  OAUTH_PROVIDERS = [:developer]
+  OAUTH_PROVIDERS = [:developer, :github]
 
   def self.find_or_create_by_auth_hash(provider, auth_hash)
     return nil unless OAUTH_PROVIDERS.include? provider
@@ -46,6 +46,12 @@ class User < ActiveRecord::Base
 
   def self.create_by_developer(user, auth_hash)
     user.username = auth_hash['info']['name']
+    user.full_name = auth_hash['info']['name']
+    user.email = auth_hash['info']['email']
+  end
+
+  def self.create_by_github(user, auth_hash)
+    user.username = auth_hash['info']['nickname']
     user.full_name = auth_hash['info']['name']
     user.email = auth_hash['info']['email']
   end

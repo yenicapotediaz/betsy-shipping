@@ -34,6 +34,6 @@ Rails.application.routes.draw do
   get '/orders/:id/confirmation' => 'orders#confirmation', as: "order_confirmation"
 
   get "/login" => "sessions#new", as: 'new_session'
-  post "/auth/:provider/callback" => "sessions#create"
+  match "/auth/:provider/callback" => "sessions#create", via: [:get, :post]
   get "/logout" => "sessions#destroy"
 end
