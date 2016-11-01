@@ -16,20 +16,6 @@ class UserTest < ActiveSupport::TestCase
     assert user.errors.keys.include?(:email), "email is not in the errors hash"
   end
 
-  test "can authenticate known users" do
-    doggy = users(:dog_merchant)
-    assert_equal doggy, User.log_in(doggy.username, "password")
-  end
-
-  test "won't authenticate mismatched data" do
-    assert_not User.log_in("my_username", "notpassword")
-  end
-
-  test "won't authenticate a known user with a bad password" do
-    kitty = users(:cat_merchant)
-    assert_not User.log_in(kitty.username, "guineapig")
- end
-
   test "Username for dog merchant should be dogs_yes" do
     assert_equal "dogs_yes", users(:dog_merchant).username
   end
