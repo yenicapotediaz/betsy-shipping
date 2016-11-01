@@ -11,10 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160513170853) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+ActiveRecord::Schema.define(version: 20161101161041) do
 
   create_table "homes", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -84,9 +81,13 @@ ActiveRecord::Schema.define(version: 20160513170853) do
     t.string   "exp_date"
     t.integer  "cvv"
     t.string   "zip"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
     t.string   "password_digest"
+    t.string   "provider",        default: "developer",           null: false
+    t.string   "uid",             default: "unknown@example.com", null: false
   end
+
+  add_index "users", ["provider", "uid"], name: "index_users_on_provider_and_uid", unique: true
 
 end
