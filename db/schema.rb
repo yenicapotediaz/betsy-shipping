@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161101161041) do
+ActiveRecord::Schema.define(version: 20161101172815) do
 
   create_table "homes", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -75,17 +75,15 @@ ActiveRecord::Schema.define(version: 20161101161041) do
   create_table "users", force: :cascade do |t|
     t.string   "username"
     t.string   "email"
-    t.string   "password"
     t.string   "full_name"
     t.string   "cc_number"
     t.string   "exp_date"
     t.integer  "cvv"
     t.string   "zip"
-    t.datetime "created_at",                                      null: false
-    t.datetime "updated_at",                                      null: false
-    t.string   "password_digest"
-    t.string   "provider",        default: "developer",           null: false
-    t.string   "uid",             default: "unknown@example.com", null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+    t.string   "provider",   default: "developer",           null: false
+    t.string   "uid",        default: "unknown@example.com", null: false
   end
 
   add_index "users", ["provider", "uid"], name: "index_users_on_provider_and_uid", unique: true

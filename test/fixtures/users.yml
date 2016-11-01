@@ -4,7 +4,6 @@ dog_merchant:
   uid: dog@example.com
   username: dogs_yes
   email: dog@example.com
-  password_digest: <%= BCrypt::Password.create('password', cost: 1) %>
   full_name: Dog Merchant
   cc_number: 5555
   exp_date: 2016-05-02
@@ -16,7 +15,6 @@ cat_merchant:
   uid: cat@example.com
   username: cats_yes
   email: cat@example.com
-  password_digest: <%= BCrypt::Password.create('other password', cost: 1) %>
   full_name: Cat Merchant
   cc_number: 6666
   exp_date: 2017-05-02
