@@ -27,6 +27,9 @@ gem 'pg', '~> 0.15', group: :production
 # Otherwise, use sqlite
 gem 'sqlite3', group: [:development, :test]
 
+### OAUTH ###
+gem 'omniauth-github'
+
 
 group :development, :test do
   gem 'dotenv-rails'
