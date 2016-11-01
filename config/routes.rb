@@ -29,10 +29,11 @@ Rails.application.routes.draw do
   get 'orders/order_fulfillment' => 'orders#index', as: 'order_fulfillment'
   patch '/orderitems/:id/shipped' => 'orderitems#shipped', as: 'shipped'
 
-  resources :sessions, :only => [:new, :create]
-  get "/logout" => "sessions#destroy"
   get "/orders/:id/checkout" => 'orders#checkout', as: 'order_checkout'
   patch "/orders/:id/checkout" => "orders#checkout"
   get '/orders/:id/confirmation' => 'orders#confirmation', as: "order_confirmation"
 
+  get "/login" => "sessions#new", as: 'new_session'
+  post "/auth/:provider/callback" => "sessions#create"
+  get "/logout" => "sessions#destroy"
 end
