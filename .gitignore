@@ -19,6 +19,10 @@
 # Ignore simplecov files
 /coverage
 
+# Ignore dotenv environment file
+/.env.local
+
+
 # From https://github.com/github/gitignore/blob/master/Global/macOS.gitignore
 *.DS_Store
 .AppleDouble
