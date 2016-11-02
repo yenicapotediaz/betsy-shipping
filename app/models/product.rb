@@ -3,6 +3,7 @@ class Product < ActiveRecord::Base
 	has_many :reviews
 	validates :name, presence: true, uniqueness: true
 	validates	:price, presence: true, numericality: {greater_than: 0}
+	validates :weight, presence: true, numericality: {greater_than: 0}
 
 	def update_rating
 		ratings = self.reviews.collect { |a| a.rating.to_f }

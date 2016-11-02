@@ -81,11 +81,11 @@ class ProductsController < ApplicationController
 
 	def product_create_params
 
-		params.permit(product: [:name, :description, :price, :quantity, :category, :new_category, :photo_url, :user_id, :animal])
+		params.permit(product: [:name, :description, :price, :weight, :quantity, :category, :new_category, :photo_url, :user_id, :animal])
 	end
 
 	def product_update_params
-		params.permit(product: [:name, :description, :price, :quantity, :animal, :category, :photo_url, :user_id])
+		params.permit(product: [:name, :description, :price, :weight, :quantity, :animal, :category, :photo_url, :user_id])
 	end
 
 end
