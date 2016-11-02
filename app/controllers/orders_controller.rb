@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   before_action :require_login, only: [:show_seller_orders]
+  before_action :truncate_cc_number, only: [:update]
 
   def show
     @orders = Order.find(current_order.id).orderitems
@@ -79,9 +80,18 @@ class OrdersController < ApplicationController
   end
 
   def order_update_params
-    params[:order][:credit_card_number] = params[:order][:credit_card_number][-4..-1]
-    params.permit(order: [:name_on_credit_card, :user_id, :city, :state, :billing_zip,
-      :email, :status, :street_address, :credit_card_cvv, :credit_card_number, :credit_card_exp_date])
+    params.require(:order).permit([
+      :name_on_credit_card, :credit_card_number,
+      :credit_card_exp_date, :credit_card_cvv,
+      :billing_zip, :street_address, :city, :state,
+      :email, :status])
+  end
+
+  def truncate_cc_number
+    if params[:order] && params[:order][:credit_card_number]
+      card_num = params[:order][:credit_card_number]
+      card_num.slice!(0..12) || (card_num = "")
+    end
   end
 
 end
