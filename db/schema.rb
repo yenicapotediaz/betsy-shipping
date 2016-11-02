@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161101172815) do
+ActiveRecord::Schema.define(version: 20161102152756) do
 
   create_table "homes", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(version: 20161101172815) do
     t.integer  "credit_card_cvv"
     t.string   "billing_zip"
     t.date     "credit_card_exp_date"
+    t.string   "shipping_name"
+    t.float    "shipping_cost"
   end
 
   create_table "products", force: :cascade do |t|
