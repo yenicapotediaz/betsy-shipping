@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161102152756) do
+ActiveRecord::Schema.define(version: 20161102191824) do
 
   create_table "homes", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 20161102152756) do
     t.string   "animal"
     t.string   "new_category"
     t.boolean  "retired",      default: false
+    t.float    "weight",       default: 0.0,   null: false
   end
 
   create_table "reviews", force: :cascade do |t|
