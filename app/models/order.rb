@@ -6,6 +6,11 @@ class Order < ActiveRecord::Base
   validates :shipping_name, presence: true, if: -> (order) { order.shipping_cost.present? }
   validates :shipping_cost, presence: true, if: -> (order) { order.shipping_name.present? }
 
+  def total_price
+    subtotal = orderitems.map { |item| item.total_price }.sum
+    subtotal + (shipping_cost || 0)
+  end
+
   # Update the order details with the provided attributes
   # then reduce the stock of any products in the order.
   #
