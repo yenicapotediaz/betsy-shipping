@@ -11,6 +11,10 @@ class Order < ActiveRecord::Base
     subtotal + (shipping_cost || 0)
   end
 
+  def total_weight
+    orderitems.map { |item| item.total_weight }.sum
+  end
+
   # Update the order details with the provided attributes
   # then reduce the stock of any products in the order.
   #

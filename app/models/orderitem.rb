@@ -8,6 +8,10 @@ class Orderitem < ActiveRecord::Base
     self.product.price * self.quantity
   end
 
+  def total_weight
+    self.product.weight * self.quantity
+  end
+
   # Reduce the stock of this product by the quantity.
   # Returns true if there was sufficient stock, false otherwise.
   def reduce_stock

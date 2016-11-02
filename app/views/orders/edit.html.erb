@@ -8,6 +8,7 @@
       <div class="order-info">
       <strong><%= link_to Product.find(orderitem.product_id).name, product_path(orderitem.product_id) %></strong>
       <br>Total Price $<%=number_with_precision orderitem.total_price, precision: 2 %>
+      <br>Total Weight <%= weight_display(orderitem.total_weight) %>
       <%= form_for orderitem do |f| %>
       <% @quantity_numbers = (1..orderitem.product.quantity).to_a %>
         <%= f.label "Quantity" %>
@@ -23,6 +24,7 @@
 
 
   <h2 class="cart">Total Price of Order: <%= number_to_currency(@order.total_price) %><br>
+  Total Weight of Order: <%= weight_display(@order.total_weight) %>
   <p><%= button_to "Proceed to Checkout", order_checkout_path(current_order.id), method: :get, class: "btn btn-primary btn-lg" %></p></h2>
   </div>
 
