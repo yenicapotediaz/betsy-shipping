@@ -6,12 +6,14 @@ Shipping To:
 <%= @order.street_address %><br>
 <%= @order.city %><br>
 <%= @order.state %>, <%= @order.billing_zip %><br>
+Shipping Via: <%= @order.shipping_name %><br>
 Credit Card : **** **** **** **** <%= @order.credit_card_number %><br><br>
 <% @order.orderitems.each do |item| %>
 Item: <%= link_to Product.find(item.product_id).name , product_path(Product.find(item.product_id).id) %><br>
 Quantity: <%= item.quantity %><br>
 Subtotal: $<%= number_with_precision item.total_price , precision: 2%><br><br>
 <% end %>
+Shipping &amp; Handling: <%= number_to_currency(@order.shipping_cost) %>
 
 <h3> Total Price of Order: <%= number_to_currency(@order.total_price) %></h3>
 <h3> Order Status: <%= @order.status %></h3>

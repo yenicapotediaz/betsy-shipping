@@ -37,6 +37,7 @@
     <%= @order.street_address %><br>
     <%= @order.city %><br>
     <%= @order.state %>, <%= @order.billing_zip %><br>
+    <p class="purple">Shipping Via: <%= @order.shipping_name %><br></p>
     <p class="purple">Credit Card : **** **** **** **** <%= @order.credit_card_number %><br></p>
     <p class="purple">Credit Card Exp. Date: <%= @order.credit_card_exp_date.strftime("%m/%Y") %><br></p>
      Time Order was placed: <%= @order.updated_at.strftime("%b %e, %Y at %l:%M %P") %>
