@@ -32,7 +32,7 @@ class OrdersController < ApplicationController
       redirect_to edit_order_path(current_order), notice:
         "Sorry, we could not complete your order."
     else
-      redirect_to order_confirmation_path(current_order)
+      redirect_to shipping_order_path
     end
   end
 
@@ -41,6 +41,11 @@ class OrdersController < ApplicationController
     if @order.orderitems.count == 0
       redirect_to edit_order_path(current_order.id), alert: "Please add items to your cart!"
     end
+  end
+
+  def shipping_select
+    @order = current_order
+    @shipping_methods = ShippingService.methods_for_order(current_order)
   end
 
   def confirmation

@@ -18,7 +18,11 @@ Rails.application.routes.draw do
   post '/users/:id/products' => 'products#create'
   patch '/users/:user_id/products' => 'products#update', as: 'update_product'
 
-  resources :orders
+  resources :orders do
+    member do
+      get 'shipping' => 'orders#shipping_select'
+    end
+  end
 
   get '/users/:id/orders' => 'orders#show_seller_orders', as: 'show_seller_orders'
   get '/users/:id/orders/seller_items' => 'orders#seller_items', as: 'seller_items'
