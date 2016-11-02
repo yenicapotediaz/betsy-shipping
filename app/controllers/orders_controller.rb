@@ -48,6 +48,17 @@ class OrdersController < ApplicationController
     @shipping_methods = ShippingService.methods_for_order(current_order)
   end
 
+  def shipping_set
+    selected_method = ShippingService.get_method(order_shipping_params[:shipping_method_id])
+
+    if !current_order.update(shipping_method: selected_method)
+      redirect_to shipping_order_path, notice:
+        "Sorry something went wrong, please try again in a few moments."
+    else
+      redirect_to order_confirmation_path(current_order)
+    end
+  end
+
   def confirmation
     @order = current_order
     @orderitems = @order.orderitems
@@ -70,6 +81,10 @@ class OrdersController < ApplicationController
       :credit_card_exp_date, :credit_card_cvv,
       :billing_zip, :street_address, :city, :state,
       :email])
+  end
+
+  def order_shipping_params
+    params.permit(:shipping_method_id)
   end
 
   def truncate_cc_number

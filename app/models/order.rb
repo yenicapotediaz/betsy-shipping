@@ -29,4 +29,12 @@ class Order < ActiveRecord::Base
 
     completed
   end
+
+  # When we set the shipping method, we actually store
+  # the name of the service and the cost
+  def shipping_method=(method)
+    raise new ActiveRecord::AttributeAssignmentError unless method.present?
+    self.shipping_name = method.name
+    self.shipping_cost = method.cost
+  end
 end
