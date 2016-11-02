@@ -18,16 +18,12 @@ Product.create(name: "Yoda Pup", quantity: 3, description: "Use the force, you w
 Product.create(name: "Sushi Roll Cat", quantity: 7, description: "Wrapped up in cute. ", price: 14, user_id: 4, animal: "Cat", category: "Food", photo_url: "https://s-media-cache-ak0.pinimg.com/736x/10/a8/69/10a869497c6bc793ecfcbf3e0b842886.jpg", weight: 1.4)
 Product.create(name: "RAWR", quantity: 8, description: "Big roar, much cute.", price: 30, user_id: 3, animal: "Dog", category: "Animal",
 photo_url: "http://ecx.images-amazon.com/images/I/51ELTYHPEBL._AC_UL320_SR228,320_.jpg", weight: 3.0)
-Product.create(name: 'Martini Kitty', quantity: 4, description: "Turn that cone into something fun!", price: 400, user_id: 1, animal: "Cat", category: "Food",
-photo_url: "http://pets.petsmart.com/content/assets/_images/expo/CONTENTTHUMB-EXPO-martini-Glass.jpg", weight: 40.0)
 Product.create(name: 'Jockey', quantity: 8, description: "Your dog is kind of like a horse, right?", price: 22, user_id: 1, animal: "Dog", category: "Misc",
 photo_url: "http://a.dilcdn.com/bl/wp-content/uploads/sites/13/2012/10/dog2.jpg", weight: 2.2)
 Product.create(name: "Witch", quantity: 6, description: "Your guinea pig should have fun too!", price: 16, user_id: 3, animal: "Guinea Pig", category: "Holiday",
 photo_url: "http://mms.businesswire.com/media/20130905005372/en/381196/5/Guinea_Pig_Witch_Costume.jpg", weight: 1.6)
 Product.create(name: "Sheepy", quantity: 20, description: "Baaaahhh. Tiny sheep. Tiny cute.", price: 2, user_id: 1, animal: "Guinea Pig", category: "Animal",
 photo_url: "http://www.fuzzytoday.com/wp-content/uploads/2014/04/10173656_706647296068039_5966309383389001510_n.jpg", weight: 0.2)
-Product.create(name: "Dewback", quantity: 6, description: "Straight from Tatooine.", price: 52, user_id: 4, animal: "Dog", category: "Star Wars",
-photo_url: "http://www.officialstarwarscostumes.com/~/media/products/oc/star-wars-costumes/kids-star-wars-costumes/99886582-dewback-pet-costume-pet-star-wars-costumes-000.ashx?&w=600&h=600&bc=FFFFFF", weight: 5.2)
 Product.create(name: "Octopus Cat", description: "Purple Catapus", quantity: 8, price: 6, user_id: 2, animal: "Cat", category: "Animal", photo_url: "https://s-media-cache-ak0.pinimg.com/236x/26/8b/5f/268b5f4ec59098edbb5233f7aceec4c1.jpg", weight: 0.6)
 Product.create(name: "Ballerina Guinea", description: "Do a twirl!", quantity: 4, price: 3, user_id: 4, animal: "Guinea Pig", category: "Misc", photo_url: "http://petus.imageg.net/PETNA_36/pimg/pPETNA-5237935_main_t300x300.jpg", weight: 0.3)
 Product.create(name: "Bantha Pup", description: "Carrying the sand people", quantity: 5, price: 80, user_id: 5, animal: "Dog", category: "Star Wars", photo_url: "http://images.halloweencostumes.com/products/14360/1-1/bantha-pet-costume.jpg", weight: 8.0)
