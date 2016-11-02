@@ -23,6 +23,8 @@
 	<%= link_to product.name, product_path(product.id) %>
   <br>
 	$<%= number_with_precision product.price, precision: 2 %>
+	<br>
+	<%= weight_display(product.weight) %>
 
 	<%= form_tag '/orderitems' do  %>
 		<%= hidden_field_tag :product_id, product.id %>

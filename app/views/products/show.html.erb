@@ -25,6 +25,8 @@
       <h3 class="description"><%= @product.description %></h3>
       <hr>
       $<%= number_with_precision @product.price, precision: 2 %>
+      <br>
+      <%= weight_display(@product.weight) %>
 
       <%= form_tag '/orderitems' do  %>
       <%= hidden_field_tag :product_id, @product.id %> <br>
