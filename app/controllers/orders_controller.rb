@@ -28,17 +28,11 @@ class OrdersController < ApplicationController
   end
 
   def update
-    @order = current_order
-    @orderitems = @order.orderitems
-    continue = remove_items_from_stock(@orderitems)
-    unless continue == false
-      @order.update(order_update_params[:order])
-    end
-    if @order.status == "Completed"
-      redirect_to order_confirmation_path(@order.id)
+    if !current_order.checkout(order_update_params)
+      redirect_to edit_order_path(current_order), notice:
+        "Sorry, we could not complete your order."
     else
-      flash[:notice] = "Sorry! An item you wanted is out of stock. Check to see if you have duplicate items in your cart."
-      redirect_to edit_order_path(current_order.id)
+      redirect_to order_confirmation_path(current_order)
     end
   end
 
@@ -60,20 +54,6 @@ class OrdersController < ApplicationController
 
 
   private
-
-  def remove_items_from_stock(items)
-    items.each do |item|
-      product = item.product
-      quantity_being_bought = item.quantity
-      available_quantity = product.quantity
-      new_quantity = available_quantity - quantity_being_bought
-      if new_quantity >= 0
-        product.update(quantity: new_quantity)
-      else
-        return false
-      end
-    end
-  end
 
   def orderitem_edit_params
     params.permit(orderitem: [:quantity])
