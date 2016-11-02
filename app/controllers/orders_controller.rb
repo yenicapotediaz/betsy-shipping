@@ -64,7 +64,7 @@ class OrdersController < ApplicationController
       :name_on_credit_card, :credit_card_number,
       :credit_card_exp_date, :credit_card_cvv,
       :billing_zip, :street_address, :city, :state,
-      :email, :status])
+      :email])
   end
 
   def truncate_cc_number
