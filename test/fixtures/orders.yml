@@ -26,3 +26,15 @@ second_order:
   credit_card_exp_date: 2019-05-02
   credit_card_cvv: 798
   billing_zip: 54321
+
+completed:
+  status: Completed
+  email: unregistered@example.com
+  street_address: 123 Fake St
+  city: Springfield
+  state: OH
+  billing_zip: 45502
+  name_on_credit_card: Fake Person
+  credit_card_number: 3456
+  credit_card_exp_date: 2020-11-01
+  credit_card_cvv: 123

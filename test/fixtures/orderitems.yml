@@ -12,3 +12,13 @@ second_orderitem:
   order: first_order
   product: sushi_cat
   user: dog_merchant
+
+dog_pirate_completed:
+  order: completed
+  quantity: 1
+  product: dog_pirate
+
+sushi_cat_completed:
+  order: completed
+  quantity: 1
+  product: sushi_cat
