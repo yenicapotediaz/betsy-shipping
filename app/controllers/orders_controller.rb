@@ -57,6 +57,9 @@ class OrdersController < ApplicationController
     else
       redirect_to order_confirmation_path(current_order)
     end
+  rescue ShippingService::ShippingMethodNotFound
+    redirect_to shipping_order_path, notice:
+      "Sorry something went wrong, please try again in a few moments."
   end
 
   def confirmation

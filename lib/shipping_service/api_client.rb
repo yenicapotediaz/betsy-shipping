@@ -25,12 +25,23 @@ module ShippingService::APIClient
     # shipping method.
     #
     # Instead we'll just return the fake data from above
-    FAKE_METHOD_DATA.select { |data| data[:id] == id.to_i }.map do |data|
-      method_from_data(data)
-    end.first
+    data = data_for_id(id)
+    if data.nil?
+      raise ShippingService::ShippingMethodNotFound.new
+    end
+
+    method_from_data(data)
   end
 
   private
+
+  def data_for_id(id)
+    if id.nil?
+      raise ShippingService::ShippingMethodNotFound.new
+    end
+
+    FAKE_METHOD_DATA.select { |data| data[:id] == id.to_i }.first
+  end
 
   def method_from_data(data)
     ShippingService::ShippingMethod.new(data[:id], data[:name], data[:cost])
