@@ -43,4 +43,49 @@ class OrdersControllerTest < ActionController::TestCase
       end
     end
   end
+
+  class ShippingSetTest < OrdersControllerTest
+    setup do
+      def send_base_request(params={})
+        patch :shipping_set, {
+          id: @order.id
+        }.merge(params)
+      end
+    end
+
+    setup do
+      get :shipping_select, id: @order.id
+      @shipping_methods = assigns(:shipping_methods)
+      assert_not @shipping_methods.empty?
+    end
+
+    class Success < ShippingSetTest
+      setup do
+        @selected_method = @shipping_methods.sample
+        def send_request(params={})
+          send_base_request({
+            shipping_method_id: @selected_method.id
+          }.merge(params))
+        end
+      end
+
+      test "should redirect to confirmation page" do
+        send_request
+
+        assert_response :redirect
+        assert_redirected_to order_confirmation_path(@order)
+      end
+
+      test "should set shipping options on order" do
+        assert_not_equal @selected_method.name, @order.shipping_name
+        assert_not_equal @selected_method.cost, @order.shipping_cost
+
+        send_request
+
+        @order.reload
+        assert_equal @selected_method.name, @order.shipping_name
+        assert_equal @selected_method.cost, @order.shipping_cost
+      end
+    end
+  end
 end
