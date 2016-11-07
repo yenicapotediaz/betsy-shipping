@@ -38,6 +38,30 @@ You can check the results of the code coverage tool by running (on MacOS):
 open coverage/index.html
 ```
 
+### Deployment
+These are the instructions for deploying this project to Heroku. Alternative deployment platforms will likely require different instructions.
+
+1. Create a new Heroku project
+  ```bash
+  heroku create <app name>
+  ```
+
+1. Push latest committed code to Heroku
+  ```bash
+  git push heroku
+  ```
+
+1. Migrate and seed the database
+  ```bash
+  heroku run bundle exec rake db:schema:load
+  heroku run bundle exec rake db:seed
+  ```
+
+1. Setup necessary environment variables
+  ```bash
+  heroku config:set <VAR_NAME>=<value> <VAR2_NAME>=<value2> ...
+  ```
+
 ## Contributing
 If you would like to contribute to the development of Petsy, first of all thank you! It's surprisingly hard to build, maintain, and operate your own e-commerce platform these days, and we rely heavily on volunteers for our core software infrastructure.
 
